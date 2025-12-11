@@ -1,0 +1,2938 @@
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 3269
+"GET /static/css/base.css HTTP/1.1" 200 8634
+"GET /static/js/main.js HTTP/1.1" 200 1735
+"GET /users/signup/ HTTP/1.1" 200 3782
+"POST /users/signup/ HTTP/1.1" 200 4002
+"POST /users/signup/ HTTP/1.1" 200 4012
+"POST /users/signup/ HTTP/1.1" 302 0
+"GET /users/verify-otp/ HTTP/1.1" 200 5153
+"POST /users/verify-otp/ HTTP/1.1" 302 0
+"GET /users/login/ HTTP/1.1" 200 3618
+"POST /users/login/ HTTP/1.1" 302 0
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\urls\base.py", line 71, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^
+KeyError: 'posts'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\users\views.py", line 299, in home_view
+    return redirect('posts:feed')  # Will be created in Phase 2
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 48, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 179, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\urls\base.py", line 82, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'posts' is not a registered namespace
+"GET / HTTP/1.1" 500 104054
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\users\views.py changed, reloading.
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\users\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\users\views.py changed, reloading.
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\users\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 3555
+"GET /users/logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 3483
+"GET /users/login/ HTTP/1.1" 200 3412
+"GET /static/js/main.js HTTP/1.1" 304 0
+"POST /users/login/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 3555
+"GET / HTTP/1.1" 200 3376
+"GET / HTTP/1.1" 200 3376
+"GET / HTTP/1.1" 200 3376
+"GET /users/profile/ HTTP/1.1" 200 6091
+"GET /static/css/base.css HTTP/1.1" 304 0
+"GET / HTTP/1.1" 200 3376
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2693
+"GET /users/profile/ HTTP/1.1" 200 6091
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2693
+"GET / HTTP/1.1" 200 3376
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\config\settings.py changed, reloading.
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\config\settings.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\config\urls.py changed, reloading.
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\config\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\posts\admin.py changed, reloading.
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\posts\admin.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET /users/profile/ HTTP/1.1" 200 6097
+"GET /static/css/base.css HTTP/1.1" 304 0
+"GET /static/js/main.js HTTP/1.1" 304 0
+"GET /posts/ HTTP/1.1" 200 4699
+"GET /posts/create/? HTTP/1.1" 200 11718
+"GET /posts/ HTTP/1.1" 200 4699
+"GET /posts/create/? HTTP/1.1" 200 11718
+"GET /posts/ HTTP/1.1" 200 4699
+"GET /posts/ HTTP/1.1" 200 4699
+"GET /users/profile/ HTTP/1.1" 200 6097
+"GET /posts/ HTTP/1.1" 200 4699
+"GET /posts/ HTTP/1.1" 200 4699
+"GET /users/profile/ HTTP/1.1" 200 6097
+"GET /posts/ HTTP/1.1" 200 4699
+"GET /posts/create/? HTTP/1.1" 200 11718
+"POST /posts/create/? HTTP/1.1" 302 0
+"GET /posts/ HTTP/1.1" 200 7084
+"POST /posts/1/like/ HTTP/1.1" 200 33
+"POST /posts/1/like/ HTTP/1.1" 200 34
+"GET /posts/1/ HTTP/1.1" 200 7508
+"POST /posts/1/ HTTP/1.1" 302 0
+"GET /posts/1/ HTTP/1.1" 200 8633
+"GET /posts/1/ HTTP/1.1" 200 8461
+"GET /posts/ HTTP/1.1" 200 7089
+"GET /posts/ HTTP/1.1" 200 7089
+"GET /posts/create/?type=image HTTP/1.1" 200 11718
+"POST /posts/create/?type=image HTTP/1.1" 302 0
+"GET /posts/ HTTP/1.1" 200 9890
+"GET /media/posts/images/Screenshot_2023-08-28_203246.png HTTP/1.1" 200 935622
+"POST /posts/2/like/ HTTP/1.1" 200 33
+"POST /posts/2/like/ HTTP/1.1" 200 34
+"GET /posts/ HTTP/1.1" 200 9700
+"GET /media/posts/images/Screenshot_2023-08-28_203246.png HTTP/1.1" 304 0
+"GET /posts/ HTTP/1.1" 200 9700
+"GET /media/posts/images/Screenshot_2023-08-28_203246.png HTTP/1.1" 304 0
+"GET /posts/create/?type=video HTTP/1.1" 200 11718
+"GET / HTTP/1.1" 200 3382
+"GET /posts/ HTTP/1.1" 200 9700
+"GET /media/posts/images/Screenshot_2023-08-28_203246.png HTTP/1.1" 304 0
+"GET /users/profile/ HTTP/1.1" 200 6097
+"GET /posts/ HTTP/1.1" 200 9700
+"GET /media/posts/images/Screenshot_2023-08-28_203246.png HTTP/1.1" 304 0
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\config\settings.py changed, reloading.
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\config\settings.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\config\urls.py changed, reloading.
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\config\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\core\exceptions.py changed, reloading.
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\core\exceptions.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET /posts/2/ HTTP/1.1" 200 7694
+"GET /static/css/base.css HTTP/1.1" 304 0
+"GET /media/posts/images/Screenshot_2023-08-28_203246.png HTTP/1.1" 304 0
+"GET /static/js/main.js HTTP/1.1" 304 0
+"GET /posts/2/ HTTP/1.1" 200 8917
+"GET /static/css/mobile.css HTTP/1.1" 200 4998
+"GET /posts/ HTTP/1.1" 200 11123
+"POST /posts/1/like/ HTTP/1.1" 200 33
+"POST /posts/2/like/ HTTP/1.1" 200 33
+"GET /posts/2/ HTTP/1.1" 200 8946
+"GET /posts/ HTTP/1.1" 200 11123
+"GET /dating/discover/ HTTP/1.1" 200 3572
+"GET /dating/preferences/ HTTP/1.1" 200 7059
+"POST /dating/preferences/ HTTP/1.1" 302 0
+"GET /dating/preferences/ HTTP/1.1" 200 7266
+"GET /static/css/mobile.css HTTP/1.1" 304 0
+"GET /dating/discover/ HTTP/1.1" 200 3572
+"GET /dating/discover/ HTTP/1.1" 200 3572
+"GET /users/profile/ HTTP/1.1" 200 7342
+"GET /posts/ HTTP/1.1" 200 11123
+"GET /media/posts/images/Screenshot_2023-08-28_203246.png HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2906
+"POST /posts/2/like/ HTTP/1.1" 200 34
+"POST /posts/2/like/ HTTP/1.1" 200 33
+"GET /dating/discover/ HTTP/1.1" 200 3572
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2906
+"GET /dating/preferences/ HTTP/1.1" 200 7066
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2906
+"POST /dating/preferences/ HTTP/1.1" 302 0
+"GET /dating/preferences/ HTTP/1.1" 200 7266
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2906
+"POST /dating/preferences/ HTTP/1.1" 302 0
+"GET /dating/preferences/ HTTP/1.1" 200 7266
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2906
+"GET /dating/discover/ HTTP/1.1" 200 3572
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2906
+"GET /posts/create/ HTTP/1.1" 200 12957
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2906
+"GET /posts/create/ HTTP/1.1" 200 12957
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2906
+"GET /users/profile/ HTTP/1.1" 200 7342
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2906
+"GET /posts/ HTTP/1.1" 200 11123
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2906
+"GET /users/profile/ HTTP/1.1" 200 7342
+"GET /static/css/mobile.css HTTP/1.1" 304 0
+"POST /users/profile/ HTTP/1.1" 302 0
+"GET /users/profile/ HTTP/1.1" 200 8076
+"GET /media/profile_pictures/stuffion_icon_0.png HTTP/1.1" 200 5926
+"GET /dating/discover/ HTTP/1.1" 200 3572
+"GET /posts/ HTTP/1.1" 200 11123
+"GET /dating/discover/ HTTP/1.1" 200 3572
+"GET /posts/ HTTP/1.1" 200 11123
+"GET /posts/create/? HTTP/1.1" 200 12957
+"GET /posts/ HTTP/1.1" 200 11123
+"GET /static/css/mobile.css HTTP/1.1" 304 0
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\config\settings.py changed, reloading.
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\config\settings.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\config\urls.py changed, reloading.
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\config\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\posts\views.py changed, reloading.
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\posts\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\posts\urls.py changed, reloading.
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\posts\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET /posts/ HTTP/1.1" 200 11141
+"GET /static/css/mobile.css HTTP/1.1" 304 0
+"GET /media/posts/images/Screenshot_2023-08-28_203246.png HTTP/1.1" 304 0
+"GET /static/js/main.js HTTP/1.1" 304 0
+"GET /static/css/base.css HTTP/1.1" 200 8768
+"GET /dating/discover/ HTTP/1.1" 200 3584
+"GET /calls/start/ HTTP/1.1" 302 0
+"GET /calls/room/29362fb9-d295-4fb5-92d7-5b4f46a57eed/ HTTP/1.1" 200 8375
+"GET /calls/api/status/29362fb9-d295-4fb5-92d7-5b4f46a57eed/ HTTP/1.1" 200 69
+"GET /calls/api/status/29362fb9-d295-4fb5-92d7-5b4f46a57eed/ HTTP/1.1" 200 69
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2901
+"GET /calls/api/status/29362fb9-d295-4fb5-92d7-5b4f46a57eed/ HTTP/1.1" 200 69
+"POST /calls/room/29362fb9-d295-4fb5-92d7-5b4f46a57eed/skip/ HTTP/1.1" 302 0
+"GET /calls/api/status/29362fb9-d295-4fb5-92d7-5b4f46a57eed/ HTTP/1.1" 200 67
+"GET /calls/start/ HTTP/1.1" 302 0
+"GET /calls/room/fd305314-0ed7-4a2d-bca0-e5ebb70d678a/ HTTP/1.1" 200 8375
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2901
+"GET /calls/api/status/fd305314-0ed7-4a2d-bca0-e5ebb70d678a/ HTTP/1.1" 200 69
+"GET /calls/api/status/fd305314-0ed7-4a2d-bca0-e5ebb70d678a/ HTTP/1.1" 200 69
+"GET /calls/api/status/fd305314-0ed7-4a2d-bca0-e5ebb70d678a/ HTTP/1.1" 200 69
+"GET /calls/api/status/fd305314-0ed7-4a2d-bca0-e5ebb70d678a/ HTTP/1.1" 200 69
+"GET /users/profile/ HTTP/1.1" 200 7907
+"GET /media/profile_pictures/stuffion_icon_0.png HTTP/1.1" 304 0
+"GET /posts/ HTTP/1.1" 200 11141
+"GET /posts/1/ HTTP/1.1" 200 9758
+"POST /posts/1/like/ HTTP/1.1" 200 34
+"POST /posts/1/like/ HTTP/1.1" 200 33
+"POST /posts/1/like/ HTTP/1.1" 200 34
+"POST /posts/1/like/ HTTP/1.1" 200 33
+"GET /posts/ HTTP/1.1" 200 11141
+"GET /posts/1/ HTTP/1.1" 200 9758
+"POST /posts/1/like/ HTTP/1.1" 200 34
+"POST /posts/1/like/ HTTP/1.1" 200 33
+"GET /posts/ HTTP/1.1" 200 11141
+"POST /posts/2/like/ HTTP/1.1" 200 34
+"POST /posts/2/like/ HTTP/1.1" 200 33
+"GET /posts/2/ HTTP/1.1" 200 8964
+"GET /posts/ HTTP/1.1" 200 11141
+"GET /users/logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 4066
+"GET /users/signup/ HTTP/1.1" 200 4365
+"POST /users/signup/ HTTP/1.1" 302 0
+"GET /users/verify-otp/ HTTP/1.1" 200 5745
+"POST /users/verify-otp/ HTTP/1.1" 302 0
+"GET /users/login/ HTTP/1.1" 200 4201
+"POST /users/login/ HTTP/1.1" 200 4195
+"POST /users/login/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 4822
+Internal Server Error: /dating/discover/
+Traceback (most recent call last):
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\dating\views.py", line 32, in discover_matches_view
+    matches = dating_service.discover_matches(request.user, limit=20)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\dating\services.py", line 152, in discover_matches
+    return self.matching_service.find_matches(user, limit)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\dating\services.py", line 52, in find_matches
+    matches = self.strategy.execute(user, users_queryset)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\dating\strategies\matching.py", line 297, in execute
+    matches = strategy.execute(user, users_queryset)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\dating\strategies\matching.py", line 213, in execute
+    score = self._calculate_behavioral_score(user, candidate)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\dating\strategies\matching.py", line 229, in _calculate_behavioral_score
+    user_posts_count = user.post_set.count()
+                       ^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\utils\functional.py", line 253, in inner
+    return func(_wrapped, *args)
+           ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'User' object has no attribute 'post_set'
+"GET /dating/discover/ HTTP/1.1" 500 107717
+"GET / HTTP/1.1" 200 4641
+"GET /posts/ HTTP/1.1" 200 10089
+"GET /calls/start/ HTTP/1.1" 302 0
+"GET /calls/room/fd305314-0ed7-4a2d-bca0-e5ebb70d678a/ HTTP/1.1" 200 8915
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2901
+Internal Server Error: /dating/discover/
+Traceback (most recent call last):
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\dating\views.py", line 32, in discover_matches_view
+    matches = dating_service.discover_matches(request.user, limit=20)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\dating\services.py", line 152, in discover_matches
+    return self.matching_service.find_matches(user, limit)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\dating\services.py", line 52, in find_matches
+    matches = self.strategy.execute(user, users_queryset)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\dating\strategies\matching.py", line 297, in execute
+    matches = strategy.execute(user, users_queryset)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\dating\strategies\matching.py", line 213, in execute
+    score = self._calculate_behavioral_score(user, candidate)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\dating\strategies\matching.py", line 229, in _calculate_behavioral_score
+    user_posts_count = user.post_set.count()
+                       ^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\utils\functional.py", line 253, in inner
+    return func(_wrapped, *args)
+           ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'User' object has no attribute 'post_set'
+"GET /dating/discover/ HTTP/1.1" 500 107765
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2901
+Internal Server Error: /dating/discover/
+Traceback (most recent call last):
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\dating\views.py", line 32, in discover_matches_view
+    matches = dating_service.discover_matches(request.user, limit=20)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\dating\services.py", line 152, in discover_matches
+    return self.matching_service.find_matches(user, limit)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\dating\services.py", line 52, in find_matches
+    matches = self.strategy.execute(user, users_queryset)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\dating\strategies\matching.py", line 297, in execute
+    matches = strategy.execute(user, users_queryset)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\dating\strategies\matching.py", line 213, in execute
+    score = self._calculate_behavioral_score(user, candidate)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\dating\strategies\matching.py", line 229, in _calculate_behavioral_score
+    user_posts_count = user.post_set.count()
+                       ^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\utils\functional.py", line 253, in inner
+    return func(_wrapped, *args)
+           ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'User' object has no attribute 'post_set'
+"GET /dating/discover/ HTTP/1.1" 500 107765
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2901
+"GET /posts/ HTTP/1.1" 200 10089
+"GET /static/css/base.css HTTP/1.1" 304 0
+"POST /posts/2/like/ HTTP/1.1" 200 33
+"POST /posts/1/like/ HTTP/1.1" 200 33
+"GET /posts/1/ HTTP/1.1" 200 9260
+"GET /posts/ HTTP/1.1" 200 10089
+"GET /users/profile/ HTTP/1.1" 200 7371
+"GET /calls/start/ HTTP/1.1" 302 0
+"GET /calls/room/fd305314-0ed7-4a2d-bca0-e5ebb70d678a/ HTTP/1.1" 200 8915
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2901
+Internal Server Error: /dating/discover/
+Traceback (most recent call last):
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\dating\views.py", line 32, in discover_matches_view
+    matches = dating_service.discover_matches(request.user, limit=20)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\dating\services.py", line 152, in discover_matches
+    return self.matching_service.find_matches(user, limit)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\dating\services.py", line 52, in find_matches
+    matches = self.strategy.execute(user, users_queryset)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\dating\strategies\matching.py", line 297, in execute
+    matches = strategy.execute(user, users_queryset)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\dating\strategies\matching.py", line 213, in execute
+    score = self._calculate_behavioral_score(user, candidate)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\dating\strategies\matching.py", line 229, in _calculate_behavioral_score
+    user_posts_count = user.post_set.count()
+                       ^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\utils\functional.py", line 253, in inner
+    return func(_wrapped, *args)
+           ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'User' object has no attribute 'post_set'
+"GET /dating/discover/ HTTP/1.1" 500 107765
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2901
+"GET /users/profile/ HTTP/1.1" 200 7371
+"POST /users/profile/ HTTP/1.1" 302 0
+"GET /users/profile/ HTTP/1.1" 200 8049
+"GET /media/profile_pictures/_icon.png HTTP/1.1" 200 16266
+"GET /calls/start/ HTTP/1.1" 302 0
+"GET /calls/room/fd305314-0ed7-4a2d-bca0-e5ebb70d678a/ HTTP/1.1" 200 8915
+"GET /media/profile_pictures/stuffion_icon_0.png HTTP/1.1" 304 0
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2901
+Internal Server Error: /dating/discover/
+Traceback (most recent call last):
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\dating\views.py", line 32, in discover_matches_view
+    matches = dating_service.discover_matches(request.user, limit=20)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\dating\services.py", line 152, in discover_matches
+    return self.matching_service.find_matches(user, limit)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\dating\services.py", line 52, in find_matches
+    matches = self.strategy.execute(user, users_queryset)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\dating\strategies\matching.py", line 297, in execute
+    matches = strategy.execute(user, users_queryset)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\dating\strategies\matching.py", line 213, in execute
+    score = self._calculate_behavioral_score(user, candidate)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\dating\strategies\matching.py", line 229, in _calculate_behavioral_score
+    user_posts_count = user.post_set.count()
+                       ^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\utils\functional.py", line 253, in inner
+    return func(_wrapped, *args)
+           ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'User' object has no attribute 'post_set'
+"GET /dating/discover/ HTTP/1.1" 500 107769
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2901
+"GET /users/profile/ HTTP/1.1" 200 7862
+"GET /media/profile_pictures/_icon.png HTTP/1.1" 304 0
+"GET /posts/ HTTP/1.1" 200 10089
+"GET /posts/create/?type=text HTTP/1.1" 200 12975
+"GET /posts/ HTTP/1.1" 200 10089
+"GET /posts/create/?type=video HTTP/1.1" 200 12975
+"GET /posts/ HTTP/1.1" 200 10089
+"GET /posts/create/? HTTP/1.1" 200 12975
+"GET /static/css/mobile.css HTTP/1.1" 304 0
+"GET /posts/ HTTP/1.1" 200 10089
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\dating\strategies\matching.py changed, reloading.
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\dating\strategies\matching.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\users\views.py changed, reloading.
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\users\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\users\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\users\urls.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /dating/discover/ HTTP/1.1" 200 4761
+"GET /static/css/base.css HTTP/1.1" 304 0
+"GET /media/profile_pictures/stuffion_icon_0.png HTTP/1.1" 304 0
+"GET /users/profile/ HTTP/1.1" 200 7862
+"GET /media/profile_pictures/_icon.png HTTP/1.1" 304 0
+"GET /dating/discover/ HTTP/1.1" 200 4761
+"GET /calls/start/ HTTP/1.1" 302 0
+"GET /calls/room/fd305314-0ed7-4a2d-bca0-e5ebb70d678a/ HTTP/1.1" 200 8915
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2901
+"GET /dating/discover/ HTTP/1.1" 200 4761
+"GET /posts/ HTTP/1.1" 200 10089
+"GET /users/profile/ HTTP/1.1" 200 7862
+"GET /calls/start/ HTTP/1.1" 302 0
+"GET /calls/room/fd305314-0ed7-4a2d-bca0-e5ebb70d678a/ HTTP/1.1" 200 8915
+"GET /dating/discover/ HTTP/1.1" 200 4761
+"GET /posts/ HTTP/1.1" 200 10089
+"GET /posts/create/? HTTP/1.1" 200 12975
+"GET /posts/ HTTP/1.1" 200 10089
+"GET /static/css/mobile.css HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3012
+Internal Server Error: /posts/create/
+Traceback (most recent call last):
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\urls\base.py", line 71, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^
+KeyError: 'notifications'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\decorators\http.py", line 63, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\posts\views.py", line 97, in create_post_view
+    return render(request, 'posts/create_post.html', {
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 325, in render
+    return nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 478, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\urls\base.py", line 82, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'notifications' is not a registered namespace
+"GET /posts/create/? HTTP/1.1" 500 193758
+Internal Server Error: /posts/create/
+Traceback (most recent call last):
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\urls\base.py", line 71, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^
+KeyError: 'notifications'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\decorators\http.py", line 63, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\posts\views.py", line 97, in create_post_view
+    return render(request, 'posts/create_post.html', {
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 325, in render
+    return nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 478, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\urls\base.py", line 82, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'notifications' is not a registered namespace
+"GET /posts/create/? HTTP/1.1" 500 193758
+Internal Server Error: /dating/discover/
+Traceback (most recent call last):
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\urls\base.py", line 71, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^
+KeyError: 'notifications'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\dating\views.py", line 38, in discover_matches_view
+    return render(request, 'dating/discover.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 325, in render
+    return nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 478, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\urls\base.py", line 82, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'notifications' is not a registered namespace
+"GET /dating/discover/ HTTP/1.1" 500 192659
+"GET /posts/ HTTP/1.1" 200 11333
+"GET /dating/discover/ HTTP/1.1" 200 4911
+"GET /calls/start/ HTTP/1.1" 302 0
+"GET /calls/room/fd305314-0ed7-4a2d-bca0-e5ebb70d678a/ HTTP/1.1" 200 9065
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2901
+"GET /users/profile/ HTTP/1.1" 200 8012
+"GET /media/profile_pictures/_icon.png HTTP/1.1" 304 0
+"GET /dating/discover/ HTTP/1.1" 200 4911
+"GET /posts/ HTTP/1.1" 200 11333
+"POST /posts/2/like/ HTTP/1.1" 200 34
+"POST /posts/2/like/ HTTP/1.1" 200 33
+"POST /posts/2/like/ HTTP/1.1" 200 34
+"POST /posts/2/like/ HTTP/1.1" 200 33
+"GET /posts/ HTTP/1.1" 200 11333
+"GET /dating/discover/ HTTP/1.1" 200 4911
+"GET /posts/ HTTP/1.1" 200 11333
+"GET /calls/start/ HTTP/1.1" 302 0
+"GET /calls/room/fd305314-0ed7-4a2d-bca0-e5ebb70d678a/ HTTP/1.1" 200 9065
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2901
+"POST /calls/room/fd305314-0ed7-4a2d-bca0-e5ebb70d678a/end/ HTTP/1.1" 200 21
+"GET /posts/ HTTP/1.1" 200 11502
+"GET /static/css/base.css HTTP/1.1" 304 0
+"GET /media/posts/images/Screenshot_2023-08-28_203246.png HTTP/1.1" 304 0
+"GET /dating/discover/ HTTP/1.1" 200 4911
+"GET /media/profile_pictures/stuffion_icon_0.png HTTP/1.1" 304 0
+"POST /dating/request/send/2/ HTTP/1.1" 302 0
+"GET /dating/discover/ HTTP/1.1" 200 3921
+"GET /dating/discover/ HTTP/1.1" 200 3734
+"GET /posts/ HTTP/1.1" 200 11333
+"GET /dating/discover/ HTTP/1.1" 200 3734
+"GET /dating/preferences/ HTTP/1.1" 200 7221
+"GET /dating/discover/ HTTP/1.1" 200 3734
+"GET /dating/discover/ HTTP/1.1" 200 3734
+"GET /dating/discover/ HTTP/1.1" 200 3734
+"GET /dating/preferences/ HTTP/1.1" 200 7221
+"GET /users/logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 3860
+"GET /users/login/ HTTP/1.1" 200 3789
+"POST /users/login/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 4968
+"GET /dating/discover/ HTTP/1.1" 200 3734
+"GET /posts/ HTTP/1.1" 200 12385
+"GET /users/profile/ HTTP/1.1" 200 8057
+"GET /posts/ HTTP/1.1" 200 12385
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\posts\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\posts\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\posts\views.py changed, reloading.
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\posts\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET /posts/ HTTP/1.1" 200 13185
+"GET /static/css/base.css HTTP/1.1" 304 0
+"GET /static/css/mobile.css HTTP/1.1" 304 0
+"GET /static/js/main.js HTTP/1.1" 304 0
+"GET /users/search/?q=venkat HTTP/1.1" 200 5955
+"GET /media/profile_pictures/_icon.png HTTP/1.1" 304 0
+Internal Server Error: /users/iloveyou/
+Traceback (most recent call last):
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\decorators\http.py", line 63, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\users\views.py", line 349, in user_profile_view
+    Q(sender=request.user, receiver=profile_user) |
+    ^
+NameError: name 'Q' is not defined
+"GET /users/iloveyou/ HTTP/1.1" 500 85580
+"GET /users/profile/ HTTP/1.1" 200 8062
+"GET /media/profile_pictures/stuffion_icon_0.png HTTP/1.1" 304 0
+"GET /dating/discover/ HTTP/1.1" 200 3739
+"GET /posts/ HTTP/1.1" 200 13185
+"GET /dating/discover/ HTTP/1.1" 200 3739
+"GET /dating/preferences/ HTTP/1.1" 200 7233
+"GET /posts/ HTTP/1.1" 200 13185
+"GET /users/logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 3860
+"GET /users/login/ HTTP/1.1" 200 3789
+"GET /static/css/base.css HTTP/1.1" 304 0
+"GET /static/css/mobile.css HTTP/1.1" 304 0
+"POST /users/login/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 4979
+"GET /posts/ HTTP/1.1" 200 13188
+"GET /media/posts/images/Screenshot_2023-08-28_203246.png HTTP/1.1" 304 0
+Internal Server Error: /posts/create/
+Traceback (most recent call last):
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\decorators\http.py", line 63, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\posts\views.py", line 100, in create_post_view
+    return render(request, 'posts/create_post.html', {
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 478, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\urls\resolvers.py", line 848, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'feed' not found. 'feed' is not a valid view function or pattern name.
+"GET /posts/create/? HTTP/1.1" 500 184737
+Internal Server Error: /posts/create/
+Traceback (most recent call last):
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\decorators\http.py", line 63, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\posts\views.py", line 100, in create_post_view
+    return render(request, 'posts/create_post.html', {
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 478, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\urls\resolvers.py", line 848, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'feed' not found. 'feed' is not a valid view function or pattern name.
+"GET /posts/create/?type=image HTTP/1.1" 500 185356
+"GET /calls/start/ HTTP/1.1" 302 0
+"GET /calls/room/bfb8fb0d-5e85-43ce-bdc8-129fcadc44f0/ HTTP/1.1" 200 8530
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2901
+"GET /calls/api/status/bfb8fb0d-5e85-43ce-bdc8-129fcadc44f0/ HTTP/1.1" 200 69
+"GET /users/logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 3860
+"GET / HTTP/1.1" 200 3664
+"GET / HTTP/1.1" 200 3664
+"GET / HTTP/1.1" 200 3664
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3012
+"GET / HTTP/1.1" 200 3664
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3012
+"GET /users/login/ HTTP/1.1" 200 3789
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3012
+"GET /users/login/ HTTP/1.1" 200 3789
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3012
+"GET /static/css/mobile.css HTTP/1.1" 200 4971
+"GET /static/js/main.js HTTP/1.1" 200 1735
+"GET /static/css/base.css HTTP/1.1" 200 8768
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2901
+"POST /users/login/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 4979
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3012
+"GET /static/css/mobile.css HTTP/1.1" 304 0
+"GET /dating/requests/ HTTP/1.1" 200 7720
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3012
+"GET /static/css/mobile.css HTTP/1.1" 304 0
+"GET /media/profile_pictures/_icon.png HTTP/1.1" 200 16266
+"GET /posts/ HTTP/1.1" 200 13188
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3012
+"GET /static/css/mobile.css HTTP/1.1" 304 0
+"GET /media/posts/images/Screenshot_2023-08-28_203246.png HTTP/1.1" 200 935622
+"GET /dating/requests/ HTTP/1.1" 200 7720
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3012
+"GET /dating/requests/ HTTP/1.1" 200 7720
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3012
+"GET /static/css/mobile.css HTTP/1.1" 304 0
+"GET /posts/ HTTP/1.1" 200 13188
+"GET /static/css/mobile.css HTTP/1.1" 304 0
+"GET /users/profile/ HTTP/1.1" 200 8062
+"GET /media/profile_pictures/stuffion_icon_0.png HTTP/1.1" 200 5926
+"GET /dating/discover/ HTTP/1.1" 200 3739
+"GET /static/css/mobile.css HTTP/1.1" 304 0
+"GET /posts/ HTTP/1.1" 200 13188
+"GET /dating/discover/ HTTP/1.1" 200 3739
+"GET /posts/ HTTP/1.1" 200 13188
+Internal Server Error: /posts/1/
+Traceback (most recent call last):
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\posts\views.py", line 134, in post_detail_view
+    return render(request, 'posts/post_detail.html', {
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 478, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\urls\resolvers.py", line 848, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'feed' not found. 'feed' is not a valid view function or pattern name.
+"GET /posts/1/ HTTP/1.1" 500 185896
+"GET /dating/discover/ HTTP/1.1" 200 3739
+"GET /static/css/base.css HTTP/1.1" 304 0
+"GET /static/js/main.js HTTP/1.1" 304 0
+"GET /static/css/mobile.css HTTP/1.1" 200 4970
+"GET /calls/start/ HTTP/1.1" 302 0
+"GET /calls/room/bfb8fb0d-5e85-43ce-bdc8-129fcadc44f0/ HTTP/1.1" 200 8530
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2901
+"GET /users/profile/ HTTP/1.1" 200 8062
+"GET /media/profile_pictures/stuffion_icon_0.png HTTP/1.1" 304 0
+"GET /dating/discover/ HTTP/1.1" 200 3739
+"GET /posts/ HTTP/1.1" 200 13188
+"GET /media/posts/images/Screenshot_2023-08-28_203246.png HTTP/1.1" 304 0
+"GET /users/profile/ HTTP/1.1" 200 8062
+"GET /posts/ HTTP/1.1" 200 13188
+"GET /users/profile/ HTTP/1.1" 200 8062
+"GET /static/css/base.css HTTP/1.1" 304 0
+"GET /static/css/mobile.css HTTP/1.1" 304 0
+"GET /media/profile_pictures/stuffion_icon_0.png HTTP/1.1" 304 0
+"GET /static/js/main.js HTTP/1.1" 304 0
+"GET /dating/discover/ HTTP/1.1" 200 3739
+"GET /calls/start/ HTTP/1.1" 302 0
+"GET /calls/room/bfb8fb0d-5e85-43ce-bdc8-129fcadc44f0/ HTTP/1.1" 200 8530
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2901
+"GET /calls/api/status/bfb8fb0d-5e85-43ce-bdc8-129fcadc44f0/ HTTP/1.1" 200 69
+"GET /calls/api/status/bfb8fb0d-5e85-43ce-bdc8-129fcadc44f0/ HTTP/1.1" 200 69
+"GET /users/profile/ HTTP/1.1" 200 8062
+"GET /posts/ HTTP/1.1" 200 13188
+"GET /media/posts/images/Screenshot_2023-08-28_203246.png HTTP/1.1" 304 0
+"GET /dating/discover/ HTTP/1.1" 200 3739
+"GET /users/profile/ HTTP/1.1" 200 8062
+"GET /posts/ HTTP/1.1" 200 13188
+"POST /posts/1/like/ HTTP/1.1" 200 34
+"POST /posts/1/like/ HTTP/1.1" 200 33
+"POST /posts/1/like/ HTTP/1.1" 200 34
+Internal Server Error: /posts/1/
+Traceback (most recent call last):
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\posts\views.py", line 134, in post_detail_view
+    return render(request, 'posts/post_detail.html', {
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 478, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\urls\resolvers.py", line 848, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'feed' not found. 'feed' is not a valid view function or pattern name.
+"GET /posts/1/ HTTP/1.1" 500 185915
+"POST /posts/1/like/ HTTP/1.1" 200 33
+"POST /posts/1/like/ HTTP/1.1" 200 34
+"POST /posts/1/like/ HTTP/1.1" 200 33
+Internal Server Error: /posts/1/
+Traceback (most recent call last):
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\posts\views.py", line 134, in post_detail_view
+    return render(request, 'posts/post_detail.html', {
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 478, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\urls\resolvers.py", line 848, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'feed' not found. 'feed' is not a valid view function or pattern name.
+"GET /posts/1/ HTTP/1.1" 500 185896
+"GET /calls/start/ HTTP/1.1" 302 0
+"GET /calls/room/bfb8fb0d-5e85-43ce-bdc8-129fcadc44f0/ HTTP/1.1" 200 8530
+"GET /dating/discover/ HTTP/1.1" 200 3739
+"GET /posts/ HTTP/1.1" 200 13188
+"GET /users/profile/ HTTP/1.1" 200 8062
+"GET /posts/ HTTP/1.1" 200 13188
+"GET / HTTP/1.1" 200 4800
+"GET /posts/ HTTP/1.1" 200 13188
+"GET /users/profile/ HTTP/1.1" 200 8062
+"GET /posts/ HTTP/1.1" 200 13188
+Internal Server Error: /posts/create/
+Traceback (most recent call last):
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\decorators\http.py", line 63, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\posts\views.py", line 100, in create_post_view
+    return render(request, 'posts/create_post.html', {
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 478, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\urls\resolvers.py", line 848, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'feed' not found. 'feed' is not a valid view function or pattern name.
+"GET /posts/create/? HTTP/1.1" 500 184737
+Internal Server Error: /posts/create/
+Traceback (most recent call last):
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\decorators\http.py", line 63, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\posts\views.py", line 100, in create_post_view
+    return render(request, 'posts/create_post.html', {
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 478, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\urls\resolvers.py", line 848, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'feed' not found. 'feed' is not a valid view function or pattern name.
+"GET /posts/create/? HTTP/1.1" 500 184737
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\posts\views.py changed, reloading.
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\posts\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\users\models.py changed, reloading.
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\users\models.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\users\forms.py changed, reloading.
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\users\forms.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\users\views.py changed, reloading.
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\users\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET /posts/create/? HTTP/1.1" 200 13130
+"GET /static/css/base.css HTTP/1.1" 304 0
+"GET /static/css/mobile.css HTTP/1.1" 304 0
+"GET /posts/ HTTP/1.1" 200 13244
+"GET /media/posts/images/Screenshot_2023-08-28_203246.png HTTP/1.1" 304 0
+"GET /posts/ HTTP/1.1" 200 13244
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3012
+"GET /posts/ HTTP/1.1" 200 13244
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3012
+"GET /static/css/base.css HTTP/1.1" 200 8768
+"GET /static/css/mobile.css HTTP/1.1" 200 4970
+"GET /static/js/main.js HTTP/1.1" 200 1735
+"GET /media/posts/images/Screenshot_2023-08-28_203246.png HTTP/1.1" 200 935622
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2901
+"GET /posts/trending/ HTTP/1.1" 200 12450
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3012
+"POST /posts/2/like/ HTTP/1.1" 200 34
+"POST /posts/2/like/ HTTP/1.1" 200 33
+"POST /posts/2/like/ HTTP/1.1" 200 34
+"GET /dating/discover/ HTTP/1.1" 200 3739
+"GET /posts/ HTTP/1.1" 200 13216
+"GET /calls/start/ HTTP/1.1" 302 0
+"GET /calls/room/bfb8fb0d-5e85-43ce-bdc8-129fcadc44f0/ HTTP/1.1" 200 8530
+"GET /calls/api/status/bfb8fb0d-5e85-43ce-bdc8-129fcadc44f0/ HTTP/1.1" 200 69
+"GET /users/profile/ HTTP/1.1" 200 8062
+"GET /media/profile_pictures/stuffion_icon_0.png HTTP/1.1" 200 5926
+"GET /calls/start/ HTTP/1.1" 302 0
+"GET /calls/room/bfb8fb0d-5e85-43ce-bdc8-129fcadc44f0/ HTTP/1.1" 200 8530
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2901
+"GET /calls/api/status/bfb8fb0d-5e85-43ce-bdc8-129fcadc44f0/ HTTP/1.1" 200 69
+"GET /calls/api/status/bfb8fb0d-5e85-43ce-bdc8-129fcadc44f0/ HTTP/1.1" 200 69
+"GET /posts/ HTTP/1.1" 200 13216
+"POST /posts/1/like/ HTTP/1.1" 200 34
+"POST /posts/1/like/ HTTP/1.1" 200 33
+"POST /posts/2/like/ HTTP/1.1" 200 33
+"POST /posts/2/like/ HTTP/1.1" 200 34
+"POST /posts/2/like/ HTTP/1.1" 200 33
+"POST /posts/2/like/ HTTP/1.1" 200 34
+"POST /posts/2/like/ HTTP/1.1" 200 33
+"POST /posts/2/like/ HTTP/1.1" 200 34
+"POST /posts/2/like/ HTTP/1.1" 200 33
+"GET /users/profile/ HTTP/1.1" 200 8062
+"GET /posts/ HTTP/1.1" 200 13231
+"GET /posts/ HTTP/1.1" 200 13744
+"GET /posts/create/ HTTP/1.1" 200 14155
+"GET /posts/ HTTP/1.1" 200 13745
+"GET /posts/trending/ HTTP/1.1" 200 13473
+"GET /dating/discover/ HTTP/1.1" 200 4764
+"GET /calls/start/ HTTP/1.1" 302 0
+"GET /calls/room/bfb8fb0d-5e85-43ce-bdc8-129fcadc44f0/ HTTP/1.1" 200 9555
+"GET /posts/ HTTP/1.1" 200 13745
+"GET /users/profile/ HTTP/1.1" 200 9087
+"GET /posts/ HTTP/1.1" 200 13745
+"GET /posts/ HTTP/1.1" 200 13745
+"GET /posts/ HTTP/1.1" 200 13745
+"GET /users/logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 3998
+"GET /users/login/ HTTP/1.1" 200 3927
+"POST /users/login/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 6004
+"GET /dating/requests/ HTTP/1.1" 200 8754
+"GET /media/profile_pictures/_icon.png HTTP/1.1" 200 16266
+"GET /posts/ HTTP/1.1" 200 13745
+"GET /dating/requests/ HTTP/1.1" 200 8754
+"GET /posts/ HTTP/1.1" 200 13745
+"GET /dating/discover/ HTTP/1.1" 200 4764
+"GET /posts/ HTTP/1.1" 200 13745
+Watching for file changes with StatReloader
+"GET /posts/create/?type=video HTTP/1.1" 200 14155
+"GET / HTTP/1.1" 200 5825
+"GET / HTTP/1.1" 200 5825
+"GET /users/profile/ HTTP/1.1" 200 9087
+"GET /dating/requests/ HTTP/1.1" 200 8755
+"GET /dating/discover/ HTTP/1.1" 200 4764
+"GET /posts/trending/ HTTP/1.1" 200 13473
+"GET /posts/ HTTP/1.1" 200 13745
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3012
+"GET /posts/ HTTP/1.1" 200 13746
+"GET /static/css/base.css HTTP/1.1" 200 12427
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /static/css/mobile.css HTTP/1.1" 200 7716
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3012
+"GET /static/js/main.js HTTP/1.1" 200 1735
+"GET /media/posts/images/Screenshot_2023-08-28_203246.png HTTP/1.1" 200 935622
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2901
+"GET /dating/requests/ HTTP/1.1" 200 8755
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3012
+"GET /media/profile_pictures/_icon.png HTTP/1.1" 200 16266
+"GET /users/search/ HTTP/1.1" 200 5207
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3012
+"GET /dating/requests/ HTTP/1.1" 200 8755
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3012
+"GET /posts/ HTTP/1.1" 200 13746
+"GET /users/search/?q=iloveyou HTTP/1.1" 200 6986
+"GET /static/css/mobile.css HTTP/1.1" 304 0
+Internal Server Error: /users/iloveyou/
+Traceback (most recent call last):
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\decorators\http.py", line 63, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\users\views.py", line 350, in user_profile_view
+    existing_request = MatchRequest.objects.filter(
+        ^
+NameError: name 'Q' is not defined
+"GET /users/iloveyou/ HTTP/1.1" 500 85608
+"GET /dating/requests/ HTTP/1.1" 200 8755
+"POST /dating/request/1/accept/ HTTP/1.1" 302 0
+"GET /dating/requests/ HTTP/1.1" 200 6885
+"GET /users/logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 3998
+"GET /users/login/ HTTP/1.1" 200 3927
+"POST /users/login/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 6004
+"GET /posts/ HTTP/1.1" 200 13746
+"GET /posts/trending/ HTTP/1.1" 200 13475
+"GET /static/css/mobile.css HTTP/1.1" 304 0
+"GET /static/css/base.css HTTP/1.1" 304 0
+"GET / HTTP/1.1" 200 5825
+"GET /posts/ HTTP/1.1" 200 13747
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\users\models.py changed, reloading.
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\users\models.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\users\models.py changed, reloading.
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\users\models.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET /posts/ HTTP/1.1" 200 13747
+"GET /static/css/mobile.css HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3012
+"GET /posts/ HTTP/1.1" 200 13747
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3012
+"GET /static/css/base.css HTTP/1.1" 200 12427
+"GET /static/css/mobile.css HTTP/1.1" 200 7716
+"GET /static/js/main.js HTTP/1.1" 200 1735
+"GET /media/posts/images/Screenshot_2023-08-28_203246.png HTTP/1.1" 200 935622
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2901
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\config\settings.py changed, reloading.
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\config\settings.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Internal Server Error: /users/profile/
+Traceback (most recent call last):
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: user_profiles.show_in_dating_search
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\decorators\http.py", line 63, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\users\views.py", line 213, in profile_view
+    profile = profile_service.get_profile(user)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\users\services.py", line 380, in get_profile
+    return self.profile_repo.get_by_user(user)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\users\repositories.py", line 214, in get_by_user
+    return UserProfile.objects.get(user=user)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py", line 643, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py", line 380, in __len__
+    self._fetch_all()
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py", line 1926, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: user_profiles.show_in_dating_search
+"GET /users/profile/ HTTP/1.1" 500 168515
+Internal Server Error: /users/profile/
+Traceback (most recent call last):
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: user_profiles.show_in_dating_search
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\decorators\http.py", line 63, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\users\views.py", line 213, in profile_view
+    profile = profile_service.get_profile(user)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\users\services.py", line 380, in get_profile
+    return self.profile_repo.get_by_user(user)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\users\repositories.py", line 214, in get_by_user
+    return UserProfile.objects.get(user=user)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py", line 643, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py", line 380, in __len__
+    self._fetch_all()
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py", line 1926, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: user_profiles.show_in_dating_search
+"GET /users/profile/ HTTP/1.1" 500 168646
+Internal Server Error: /users/profile/
+Traceback (most recent call last):
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: user_profiles.show_in_dating_search
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\decorators\http.py", line 63, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\users\views.py", line 213, in profile_view
+    profile = profile_service.get_profile(user)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\users\services.py", line 380, in get_profile
+    return self.profile_repo.get_by_user(user)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\users\repositories.py", line 214, in get_by_user
+    return UserProfile.objects.get(user=user)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py", line 643, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py", line 380, in __len__
+    self._fetch_all()
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py", line 1926, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: user_profiles.show_in_dating_search
+"GET /users/profile/ HTTP/1.1" 500 168646
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\config\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\config\urls.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /users/profile/ HTTP/1.1" 200 9087
+"GET /static/css/base.css HTTP/1.1" 304 0
+"GET /static/css/mobile.css HTTP/1.1" 304 0
+"GET /media/profile_pictures/stuffion_icon_0.png HTTP/1.1" 200 5926
+"GET /posts/ HTTP/1.1" 200 13747
+"GET /posts/trending/ HTTP/1.1" 200 13475
+"GET /dating/discover/ HTTP/1.1" 200 4764
+"GET /calls/start/ HTTP/1.1" 302 0
+"GET /calls/room/bfb8fb0d-5e85-43ce-bdc8-129fcadc44f0/ HTTP/1.1" 200 9555
+"GET /users/profile/ HTTP/1.1" 200 9087
+"GET /dating/requests/ HTTP/1.1" 200 6683
+"GET / HTTP/1.1" 200 5825
+"GET /posts/ HTTP/1.1" 200 13747
+"GET /static/css/base.css HTTP/1.1" 304 0
+"GET /static/css/mobile.css HTTP/1.1" 304 0
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\users\views.py changed, reloading.
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\users\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET /posts/ HTTP/1.1" 200 14068
+"GET /static/css/mobile.css HTTP/1.1" 304 0
+"GET /calls/start/ HTTP/1.1" 302 0
+"GET /calls/room/bfb8fb0d-5e85-43ce-bdc8-129fcadc44f0/ HTTP/1.1" 200 9876
+"GET /users/profile/ HTTP/1.1" 200 9408
+Not Found: /favicon.ico
+- Broken pipe from ('127.0.0.1', 59905)
+"GET /users/search/?q=iloveyou HTTP/1.1" 200 7927
+"GET /media/profile_pictures/_icon.png HTTP/1.1" 200 16266
+Internal Server Error: /users/iloveyou/
+Traceback (most recent call last):
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\decorators\http.py", line 63, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\users\views.py", line 360, in user_profile_view
+    Q(sender=request.user, receiver=profile_user) |
+    ^
+NameError: name 'Q' is not defined
+"GET /users/iloveyou/ HTTP/1.1" 500 95524
+"GET /users/search/?q=iloveyou&filter=dating HTTP/1.1" 200 7927
+"GET /static/css/base.css HTTP/1.1" 304 0
+"GET /users/search/?q=iloveyou&filter=all HTTP/1.1" 200 7927
+"GET /users/search/?q=iloveyou&filter=dating HTTP/1.1" 200 7927
+"GET /users/search/?q=iloveyou&filter=all HTTP/1.1" 200 7927
+"GET / HTTP/1.1" 200 6146
+"GET /posts/ HTTP/1.1" 200 14068
+"GET /posts/ HTTP/1.1" 200 14068
+"GET /static/css/mobile.css HTTP/1.1" 304 0
+"GET /messages/requests/ HTTP/1.1" 200 8611
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\users\views.py changed, reloading.
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\users\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET /messages/inbox/ HTTP/1.1" 200 5187
+"GET /users/profile/ HTTP/1.1" 200 9408
+"GET /posts/ HTTP/1.1" 200 14068
+"GET /messages/inbox/ HTTP/1.1" 200 5187
+"GET /static/css/base.css HTTP/1.1" 304 0
+"GET /users/search/?q=iloveyou HTTP/1.1" 200 7927
+Internal Server Error: /users/iloveyou/
+Traceback (most recent call last):
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\smartif.py", line 179, in translate_token
+    op = OPERATORS[token]
+         ~~~~~~~~~^^^^^^^
+KeyError: '(profile.friends_list_privacy'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\decorators\http.py", line 63, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\users\views.py", line 377, in user_profile_view
+    return render(request, 'users/user_profile.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    return parser.parse()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader_tags.py", line 295, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 959, in do_if
+    condition = TemplateIfParser(parser, bits).parse()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 892, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\smartif.py", line 170, in __init__
+    mapped_tokens.append(self.translate_token(token))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\smartif.py", line 181, in translate_token
+    return self.create_var(token)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 895, in create_var
+    return TemplateLiteral(self.template_parser.compile_filter(value), value)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 597, in compile_filter
+    return FilterExpression(token, self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 698, in __init__
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '(profile.friends_list_privacy' from '(profile.friends_list_privacy'
+"GET /users/iloveyou/ HTTP/1.1" 500 315641
+"GET /posts/ HTTP/1.1" 200 14068
+"GET /static/css/base.css HTTP/1.1" 304 0
+"GET /static/css/mobile.css HTTP/1.1" 304 0
+"GET /messages/requests/ HTTP/1.1" 200 8611
+"GET /messages/inbox/ HTTP/1.1" 200 5187
+"GET /posts/create/ HTTP/1.1" 200 14476
+"GET /posts/ HTTP/1.1" 200 14068
+"POST /posts/2/like/ HTTP/1.1" 200 34
+"POST /posts/2/like/ HTTP/1.1" 200 33
+"POST /posts/2/like/ HTTP/1.1" 200 34
+"POST /posts/2/like/ HTTP/1.1" 200 33
+"POST /posts/2/like/ HTTP/1.1" 200 34
+"POST /posts/2/like/ HTTP/1.1" 200 33
+"POST /posts/1/like/ HTTP/1.1" 200 34
+"POST /posts/1/like/ HTTP/1.1" 200 33
+"GET /posts/ HTTP/1.1" 200 14068
+"GET /posts/1/ HTTP/1.1" 200 11260
+"POST /posts/1/like/ HTTP/1.1" 200 34
+"POST /posts/1/like/ HTTP/1.1" 200 33
+"POST /posts/1/like/ HTTP/1.1" 200 34
+"POST /posts/1/like/ HTTP/1.1" 200 33
+"POST /posts/1/like/ HTTP/1.1" 200 34
+"POST /posts/1/like/ HTTP/1.1" 200 33
+"GET /posts/ HTTP/1.1" 200 14068
+"GET /posts/1/ HTTP/1.1" 200 11260
+"GET /posts/ HTTP/1.1" 200 14068
+"GET /messages/requests/ HTTP/1.1" 200 8611
+"GET /static/css/mobile.css HTTP/1.1" 304 0
+"GET /posts/ HTTP/1.1" 200 14068
+"GET /users/profile/ HTTP/1.1" 200 9408
+"GET /posts/ HTTP/1.1" 200 14068
+"GET /users/profile/ HTTP/1.1" 200 9408
+"GET /posts/ HTTP/1.1" 200 14068
+"GET /posts/ HTTP/1.1" 200 14068
+"GET /static/css/base.css HTTP/1.1" 304 0
+"GET /users/profile/ HTTP/1.1" 200 9408
+"GET /users/profile/ HTTP/1.1" 200 9408
+"GET /users/profile/ HTTP/1.1" 200 9408
+"GET /posts/ HTTP/1.1" 200 14068
+"GET /messages/inbox/ HTTP/1.1" 200 5187
+"GET /users/search/?q=iloveyou HTTP/1.1" 200 7927
+"GET /users/iloveyou/ HTTP/1.1" 200 11218
+"GET /messages/conversation/iloveyou/ HTTP/1.1" 200 8864
+"POST /messages/send/iloveyou/ HTTP/1.1" 200 123
+"GET /messages/inbox/ HTTP/1.1" 200 6722
+"GET /messages/conversation/iloveyou/ HTTP/1.1" 200 9391
+"GET /messages/inbox/ HTTP/1.1" 200 6722
+"GET /messages/requests/ HTTP/1.1" 200 8611
+"GET /messages/inbox/ HTTP/1.1" 200 6722
+"GET /messages/conversation/iloveyou/ HTTP/1.1" 200 9391
+"POST /messages/send/iloveyou/ HTTP/1.1" 200 146
+"GET /users/logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 3998
+"GET /static/css/mobile.css HTTP/1.1" 304 0
+"GET /users/login/ HTTP/1.1" 200 3927
+"POST /users/login/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 6329
+"GET /messages/inbox/ HTTP/1.1" 200 7078
+"GET /messages/conversation/venkat/ HTTP/1.1" 200 10111
+"POST /messages/send/venkat/ HTTP/1.1" 200 135
+"GET /posts/ HTTP/1.1" 200 13016
+"GET /messages/requests/ HTTP/1.1" 200 8611
+"GET /static/css/base.css HTTP/1.1" 304 0
+"GET /static/css/mobile.css HTTP/1.1" 304 0
+"GET /static/js/main.js HTTP/1.1" 304 0
+"GET /posts/ HTTP/1.1" 200 13018
+"GET /media/posts/images/Screenshot_2023-08-28_203246.png HTTP/1.1" 304 0
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\dating\models.py changed, reloading.
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\dating\models.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\dating\models.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\dating\views.py changed, reloading.
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\dating\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\dating\urls.py changed, reloading.
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\dating\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\messaging\views.py changed, reloading.
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\messaging\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET /posts/ HTTP/1.1" 200 13018
+"GET /messages/inbox/ HTTP/1.1" 200 7145
+"GET /media/profile_pictures/stuffion_icon_0.png HTTP/1.1" 304 0
+"GET /messages/conversation/venkat/ HTTP/1.1" 200 10783
+"GET /messages/inbox/ HTTP/1.1" 200 7145
+"GET /messages/conversation/venkat/ HTTP/1.1" 200 10783
+"GET /messages/inbox/ HTTP/1.1" 200 7145
+"GET /messages/requests/ HTTP/1.1" 200 8611
+"GET /messages/inbox/ HTTP/1.1" 200 7145
+"GET /posts/trending/ HTTP/1.1" 200 12746
+"GET /posts/ HTTP/1.1" 200 13018
+"GET /dating/discover/ HTTP/1.1" 200 5085
+"GET /posts/trending/ HTTP/1.1" 200 12746
+"GET /posts/ HTTP/1.1" 200 13018
+"GET /messages/inbox/ HTTP/1.1" 200 7145
+"GET /users/profile/ HTTP/1.1" 200 9363
+"GET /media/profile_pictures/_icon.png HTTP/1.1" 304 0
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\messaging\views.py changed, reloading.
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\messaging\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\messaging\urls.py changed, reloading.
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\messaging\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\users\models.py changed, reloading.
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\users\models.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\messaging\views.py changed, reloading.
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\messaging\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET /users/profile/ HTTP/1.1" 200 9363
+"GET /posts/ HTTP/1.1" 200 13016
+"GET /users/profile/ HTTP/1.1" 200 9363
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3121
+"GET /users/profile/ HTTP/1.1" 200 9363
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3121
+"GET /static/css/mobile.css HTTP/1.1" 200 7716
+"GET /static/css/base.css HTTP/1.1" 200 12427
+"GET /media/profile_pictures/_icon.png HTTP/1.1" 200 16266
+"GET /static/js/main.js HTTP/1.1" 200 1735
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3010
+"GET /posts/trending/ HTTP/1.1" 200 12744
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3121
+"GET /media/posts/images/Screenshot_2023-08-28_203246.png HTTP/1.1" 200 935622
+"GET /dating/discover/ HTTP/1.1" 200 5085
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3121
+"GET /posts/ HTTP/1.1" 200 13016
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3121
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3121
+"GET /users/profile/ HTTP/1.1" 200 9363
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3121
+"GET /posts/ HTTP/1.1" 200 13016
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3121
+"GET /posts/create/ HTTP/1.1" 200 14476
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3121
+"GET /posts/trending/ HTTP/1.1" 200 12744
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3121
+"GET /posts/create/ HTTP/1.1" 200 14476
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3121
+"GET /posts/trending/ HTTP/1.1" 200 12744
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3121
+"GET /posts/create/ HTTP/1.1" 200 14476
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3121
+"GET /posts/ HTTP/1.1" 200 13016
+"GET /posts/ HTTP/1.1" 200 13018
+"GET /messages/requests/ HTTP/1.1" 200 9611
+"GET /users/logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 3998
+"GET /users/login/ HTTP/1.1" 200 3927
+"POST /users/login/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 6329
+"GET /users/profile/ HTTP/1.1" 200 9363
+Watching for file changes with StatReloader
+"GET /users/profile/ HTTP/1.1" 200 9363
+"GET /users/profile/ HTTP/1.1" 200 9363
+"GET /users/profile/ HTTP/1.1" 200 9363
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\users\views.py changed, reloading.
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\users\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\users\views.py changed, reloading.
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\users\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\users\urls.py changed, reloading.
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\users\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET /users/profile/ HTTP/1.1" 302 0
+"GET /users/iloveyou/ HTTP/1.1" 200 14796
+"GET /media/profile_pictures/stuffion_icon_0.png HTTP/1.1" 200 5926
+"POST /dating/dating/breakup/2/ HTTP/1.1" 302 0
+"GET /users/venkat/ HTTP/1.1" 200 17240
+"GET /posts/ HTTP/1.1" 200 13018
+"GET /users/search/?q=venkat HTTP/1.1" 200 7967
+"GET /users/venkat/ HTTP/1.1" 200 17051
+"POST /messages/friend-request/send/venkat/ HTTP/1.1" 200 17
+"GET /dating/discover/ HTTP/1.1" 200 5085
+"GET /dating/preferences/ HTTP/1.1" 200 8572
+"GET /dating/discover/ HTTP/1.1" 200 5085
+"GET /messages/requests/ HTTP/1.1" 200 10657
+"GET /users/profile/ HTTP/1.1" 302 0
+"GET /users/iloveyou/ HTTP/1.1" 200 13296
+"GET /posts/create/ HTTP/1.1" 200 14476
+"GET /users/profile/ HTTP/1.1" 302 0
+"GET /users/iloveyou/ HTTP/1.1" 200 13296
+"GET /users/profile/edit/ HTTP/1.1" 200 9357
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3121
+"GET /posts/ HTTP/1.1" 200 13018
+"GET / HTTP/1.1" 200 6148
+"GET /posts/ HTTP/1.1" 200 13018
+"GET / HTTP/1.1" 200 6148
+"GET /posts/ HTTP/1.1" 200 13018
+"GET /posts/create/? HTTP/1.1" 200 14476
+"GET /posts/create/? HTTP/1.1" 200 18364
+"GET /posts/ HTTP/1.1" 200 16906
+"GET /messages/requests/ HTTP/1.1" 200 14545
+"GET /messages/inbox/ HTTP/1.1" 200 10809
+"GET /messages/conversation/venkat/ HTTP/1.1" 200 14671
+"GET /messages/inbox/ HTTP/1.1" 200 10809
+"GET /messages/conversation/venkat/ HTTP/1.1" 200 14671
+"GET /posts/ HTTP/1.1" 200 16906
+"GET /posts/trending/ HTTP/1.1" 200 16634
+"GET /dating/discover/ HTTP/1.1" 200 8973
+"GET /dating/preferences/ HTTP/1.1" 200 12460
+"GET /posts/ HTTP/1.1" 200 16906
+"GET /messages/inbox/ HTTP/1.1" 200 10809
+"GET /messages/conversation/venkat/ HTTP/1.1" 200 14671
+"GET / HTTP/1.1" 200 10036
+"GET /users/profile/ HTTP/1.1" 302 0
+"GET /users/iloveyou/ HTTP/1.1" 200 17184
+"GET /users/profile/edit/ HTTP/1.1" 200 15244
+"GET /users/change-password/ HTTP/1.1" 200 10259
+"GET /posts/ HTTP/1.1" 200 16906
+"GET /posts/ HTTP/1.1" 200 16906
+"GET / HTTP/1.1" 200 10036
+"GET / HTTP/1.1" 200 10036
+"GET /posts/ HTTP/1.1" 200 16906
+"GET /posts/ HTTP/1.1" 200 22318
+"GET /static/css/mobile.css HTTP/1.1" 304 0
+"GET /media/posts/images/Screenshot_2023-08-28_203246.png HTTP/1.1" 304 0
+"GET /static/js/main.js HTTP/1.1" 304 0
+"GET /static/css/base.css HTTP/1.1" 200 14666
+"GET /posts/?page=2 HTTP/1.1" 200 22318
+"GET /posts/?page=3 HTTP/1.1" 200 22318
+"GET /posts/?page=4 HTTP/1.1" 200 22318
+"GET /posts/?page=5 HTTP/1.1" 200 22318
+"GET /posts/?page=6 HTTP/1.1" 200 22318
+"GET /posts/?page=7 HTTP/1.1" 200 22318
+"GET /posts/ HTTP/1.1" 200 22318
+"GET /posts/trending/ HTTP/1.1" 200 22046
+"GET /posts/trending/?page=2 HTTP/1.1" 200 22046
+"GET /posts/trending/?page=3 HTTP/1.1" 200 22046
+"GET /posts/trending/ HTTP/1.1" 200 22046
+"GET /dating/discover/ HTTP/1.1" 200 8973
+"GET /calls/start/ HTTP/1.1" 302 0
+"GET /calls/room/bfb8fb0d-5e85-43ce-bdc8-129fcadc44f0/ HTTP/1.1" 200 14304
+"GET /media/profile_pictures/stuffion_icon_0.png HTTP/1.1" 304 0
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3010
+"GET /messages/requests/ HTTP/1.1" 200 14545
+"GET /posts/ HTTP/1.1" 200 22318
+"GET /posts/?page=2 HTTP/1.1" 200 22318
+"GET / HTTP/1.1" 200 13254
+"GET /posts/ HTTP/1.1" 200 23172
+"GET /static/css/base.css HTTP/1.1" 304 0
+"GET /posts/?page=2 HTTP/1.1" 200 23172
+"GET /posts/trending/ HTTP/1.1" 200 22900
+"GET /posts/trending/?page=2 HTTP/1.1" 200 22900
+"GET /dating/discover/ HTTP/1.1" 200 8973
+"GET /calls/start/ HTTP/1.1" 302 0
+"GET /calls/room/bfb8fb0d-5e85-43ce-bdc8-129fcadc44f0/ HTTP/1.1" 200 14304
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3010
+"GET /users/profile/ HTTP/1.1" 302 0
+"GET /users/iloveyou/ HTTP/1.1" 200 17184
+"GET /media/profile_pictures/_icon.png HTTP/1.1" 304 0
+"GET /messages/requests/ HTTP/1.1" 200 14545
+"GET /messages/inbox/ HTTP/1.1" 200 10811
+"GET /messages/conversation/venkat/ HTTP/1.1" 200 14671
+"GET /posts/ HTTP/1.1" 200 23172
+"GET /posts/?page=2 HTTP/1.1" 200 23172
+"GET / HTTP/1.1" 200 13254
+"GET /users/profile/ HTTP/1.1" 302 0
+"GET /users/iloveyou/ HTTP/1.1" 200 17184
+"GET /users/profile/ HTTP/1.1" 302 0
+"GET /users/iloveyou/ HTTP/1.1" 200 17184
+"GET /calls/start/ HTTP/1.1" 302 0
+"GET /calls/room/bfb8fb0d-5e85-43ce-bdc8-129fcadc44f0/ HTTP/1.1" 200 14304
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3010
+"GET /posts/ HTTP/1.1" 200 23172
+"GET /posts/?page=2 HTTP/1.1" 200 23172
+"GET /posts/2/ HTTP/1.1" 200 13855
+"POST /posts/2/ HTTP/1.1" 302 0
+"GET /posts/2/ HTTP/1.1" 200 14991
+"GET /posts/2/ HTTP/1.1" 200 14819
+"GET /posts/ HTTP/1.1" 200 23362
+"GET /posts/?page=2 HTTP/1.1" 200 23362
+"GET /posts/create/? HTTP/1.1" 200 18364
+"GET /posts/ HTTP/1.1" 200 23362
+"GET /posts/?page=2 HTTP/1.1" 200 23362
+"GET /posts/create/ HTTP/1.1" 200 18364
+"GET /static/css/base.css HTTP/1.1" 304 0
+"GET / HTTP/1.1" 200 13254
+"GET /messages/requests/ HTTP/1.1" 200 14545
+"GET /users/logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 6893
+"GET /users/login/ HTTP/1.1" 200 7158
+"POST /users/login/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 13435
+"GET /posts/ HTTP/1.1" 200 23362
+"GET /posts/?page=2 HTTP/1.1" 200 23362
+"GET /posts/2/ HTTP/1.1" 200 14830
+"GET /static/css/base.css HTTP/1.1" 304 0
+"GET /static/css/mobile.css HTTP/1.1" 304 0
+"GET /media/posts/images/Screenshot_2023-08-28_203246.png HTTP/1.1" 304 0
+"GET /static/js/main.js HTTP/1.1" 304 0
+"GET /posts/ HTTP/1.1" 200 23362
+"GET /posts/create/?type=image HTTP/1.1" 200 18364
+"GET /static/css/base.css HTTP/1.1" 304 0
+"GET / HTTP/1.1" 200 13254
+"GET /posts/ HTTP/1.1" 200 23330
+"GET /static/css/base.css HTTP/1.1" 304 0
+"GET /posts/?page=2 HTTP/1.1" 200 23330
+"GET /messages/inbox/ HTTP/1.1" 200 10811
+"GET /media/profile_pictures/stuffion_icon_0.png HTTP/1.1" 304 0
+"GET /messages/conversation/venkat/ HTTP/1.1" 200 14671
+"GET /messages/requests/ HTTP/1.1" 200 14545
+"GET /users/search/?q=venkat HTTP/1.1" 200 14955
+"GET /users/venkat/ HTTP/1.1" 200 20906
+Bad Request: /messages/friend-request/send/venkat/
+"POST /messages/friend-request/send/venkat/ HTTP/1.1" 400 33
+Bad Request: /messages/friend-request/send/venkat/
+"POST /messages/friend-request/send/venkat/ HTTP/1.1" 400 33
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\users\views.py changed, reloading.
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\users\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET /users/venkat/ HTTP/1.1" 200 20924
+"GET /posts/2/ HTTP/1.1" 200 14830
+"POST /posts/2/like/ HTTP/1.1" 200 34
+"POST /posts/2/like/ HTTP/1.1" 200 33
+"GET /posts/ HTTP/1.1" 200 27062
+"GET /posts/?page=2 HTTP/1.1" 200 27062
+"GET /posts/ HTTP/1.1" 200 27062
+"GET /dating/discover/ HTTP/1.1" 200 8973
+"GET /dating/preferences/ HTTP/1.1" 200 12460
+"GET /dating/discover/ HTTP/1.1" 200 8973
+"GET /users/profile/ HTTP/1.1" 302 0
+"GET /users/iloveyou/ HTTP/1.1" 200 17184
+"GET /media/profile_pictures/_icon.png HTTP/1.1" 304 0
+"GET /messages/requests/ HTTP/1.1" 200 14545
+"GET /messages/inbox/ HTTP/1.1" 200 10811
+"GET /messages/conversation/venkat/ HTTP/1.1" 200 14671
+"GET /messages/inbox/ HTTP/1.1" 200 10811
+"GET /static/css/mobile.css HTTP/1.1" 304 0
+"GET /static/css/base.css HTTP/1.1" 304 0
+"GET /posts/ HTTP/1.1" 200 27062
+"GET /posts/?page=2 HTTP/1.1" 200 27062
+"GET /posts/1/ HTTP/1.1" 200 14643
+"GET /posts/1/ HTTP/1.1" 200 14643
+"GET /posts/ HTTP/1.1" 200 27062
+"GET /posts/?page=2 HTTP/1.1" 200 27062
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3121
+"GET /posts/ HTTP/1.1" 200 27062
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3121
+"GET /static/css/base.css HTTP/1.1" 200 14666
+"GET /static/js/main.js HTTP/1.1" 200 1735
+"GET /static/css/mobile.css HTTP/1.1" 200 7716
+"GET /media/posts/images/Screenshot_2023-08-28_203246.png HTTP/1.1" 200 935622
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3010
+"GET /posts/?page=2 HTTP/1.1" 200 27062
+"GET /users/profile/ HTTP/1.1" 302 0
+"GET /users/iloveyou/ HTTP/1.1" 200 17184
+"GET /media/profile_pictures/_icon.png HTTP/1.1" 200 16266
+"GET /users/profile/edit/ HTTP/1.1" 200 15244
+"GET /posts/ HTTP/1.1" 200 27062
+"GET /posts/?page=2 HTTP/1.1" 200 27062
+"GET /posts/ HTTP/1.1" 200 27062
+"GET /posts/trending/ HTTP/1.1" 200 24092
+"GET /dating/discover/ HTTP/1.1" 200 8973
+"GET /posts/trending/ HTTP/1.1" 200 24092
+"GET /posts/trending/?page=2 HTTP/1.1" 200 24092
+"POST /posts/2/like/ HTTP/1.1" 200 34
+"POST /posts/2/like/ HTTP/1.1" 200 33
+"GET /posts/trending/ HTTP/1.1" 200 24092
+"GET /posts/trending/?page=2 HTTP/1.1" 200 24092
+"GET /posts/trending/ HTTP/1.1" 200 24092
+"GET /dating/discover/ HTTP/1.1" 200 8973
+"GET /calls/start/ HTTP/1.1" 302 0
+"GET /calls/room/bfb8fb0d-5e85-43ce-bdc8-129fcadc44f0/ HTTP/1.1" 200 14304
+"GET /media/profile_pictures/stuffion_icon_0.png HTTP/1.1" 200 5926
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3010
+"POST /calls/room/bfb8fb0d-5e85-43ce-bdc8-129fcadc44f0/end/ HTTP/1.1" 200 21
+"GET /posts/ HTTP/1.1" 200 27231
+"GET /posts/?page=2 HTTP/1.1" 200 27062
+"GET /posts/ HTTP/1.1" 200 27064
+"GET /posts/?page=2 HTTP/1.1" 200 27064
+"GET /messages/inbox/ HTTP/1.1" 200 10811
+"GET /messages/conversation/venkat/ HTTP/1.1" 200 14671
+"GET /posts/trending/ HTTP/1.1" 200 26792
+"GET /posts/ HTTP/1.1" 200 27064
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 13254
+"GET /static/css/base.css HTTP/1.1" 304 0
+"GET /users/profile/ HTTP/1.1" 302 0
+"GET /users/iloveyou/ HTTP/1.1" 200 17184
+"GET /posts/ HTTP/1.1" 200 27064
+"GET /posts/?page=2 HTTP/1.1" 200 27064
+"GET /messages/inbox/ HTTP/1.1" 200 10810
+"GET /messages/conversation/venkat/ HTTP/1.1" 200 14671
+"GET /posts/ HTTP/1.1" 200 27064
+"GET /admin HTTP/1.1" 301 0
+"GET /admin/ HTTP/1.1" 302 0
+"GET /admin/login/?next=/admin/ HTTP/1.1" 200 3705
+"GET /static/admin/css/base.css HTTP/1.1" 200 21544
+"GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+"GET /static/admin/css/login.css HTTP/1.1" 200 958
+"GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2682
+"GET /static/admin/css/responsive.css HTTP/1.1" 200 17905
+"GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+"GET /static/admin/js/theme.js HTTP/1.1" 200 1943
+"POST /admin/login/?next=/admin/ HTTP/1.1" 200 3885
+"POST /admin/login/?next=/admin/ HTTP/1.1" 200 3884
+"POST /admin/login/?next=/admin/ HTTP/1.1" 200 3884
+"GET /admin/login/?next=/admin/ HTTP/1.1" 200 3705
+"GET /posts/ HTTP/1.1" 200 27064
+"GET /posts/?page=2 HTTP/1.1" 200 27064
+"GET /users/logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 6893
+"GET /users/signup/ HTTP/1.1" 200 9380
+"GET /static/css/mobile.css HTTP/1.1" 304 0
+"POST /users/signup/ HTTP/1.1" 200 9621
+"POST /users/signup/ HTTP/1.1" 200 9886
+"POST /users/signup/ HTTP/1.1" 200 9657
+"POST /users/signup/ HTTP/1.1" 200 9861
+"POST /users/signup/ HTTP/1.1" 302 0
+"GET /users/verify-otp/ HTTP/1.1" 200 5692
+"POST /users/verify-otp/ HTTP/1.1" 200 5632
+"POST /users/verify-otp/ HTTP/1.1" 302 0
+"GET /users/login/ HTTP/1.1" 200 7364
+"POST /users/login/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 13437
+"GET /posts/ HTTP/1.1" 200 27009
+"GET /posts/?page=2 HTTP/1.1" 200 27009
+"GET /posts/trending/ HTTP/1.1" 200 26737
+"GET /messages/inbox/ HTTP/1.1" 200 9075
+"GET /users/profile/ HTTP/1.1" 302 0
+"GET /users/pruthvi.n/ HTTP/1.1" 200 16512
+"GET /users/search/?q=venkat HTTP/1.1" 200 22258
+"GET /users/venkat/ HTTP/1.1" 200 21423
+"POST /messages/friend-request/send/venkat/ HTTP/1.1" 200 17
+"GET /users/logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 6893
+"GET /users/login/ HTTP/1.1" 200 7158
+"POST /users/login/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 13431
+"GET /messages/requests/ HTTP/1.1" 200 16852
+"POST /messages/friend-request/accept/2/ HTTP/1.1" 200 17
+"GET /messages/requests/ HTTP/1.1" 200 15031
+"GET /messages/inbox/ HTTP/1.1" 200 11136
+"GET /messages/conversation/iloveyou/ HTTP/1.1" 200 14660
+"GET /messages/inbox/ HTTP/1.1" 200 10802
+"GET /users/profile/ HTTP/1.1" 302 0
+"GET /users/venkat/ HTTP/1.1" 200 23756
+"GET /users/pruthvi.n/ HTTP/1.1" 200 16597
+"GET /messages/conversation/pruthvi.n/ HTTP/1.1" 200 12947
+"GET /messages/inbox/ HTTP/1.1" 200 13021
+"GET /messages/conversation/pruthvi.n/ HTTP/1.1" 200 12947
+"POST /messages/send/pruthvi.n/ HTTP/1.1" 200 123
+"GET /users/logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 6893
+"GET /users/login/ HTTP/1.1" 200 7158
+"POST /users/login/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 13437
+"GET /messages/inbox/ HTTP/1.1" 200 11341
+"GET /messages/conversation/venkat/ HTTP/1.1" 200 13291
+"GET /users/profile/ HTTP/1.1" 302 0
+"GET /users/pruthvi.n/ HTTP/1.1" 200 18039
+"GET /users/venkat/ HTTP/1.1" 200 22249
+"POST /dating/knowing/send/2/ HTTP/1.1" 302 0
+"GET /users/venkat/ HTTP/1.1" 200 22207
+"GET /messages/requests/ HTTP/1.1" 200 14493
+"GET /messages/requests/ HTTP/1.1" 200 14493
+"GET /posts/ HTTP/1.1" 200 27009
+"GET /posts/?page=2 HTTP/1.1" 200 27009
+"GET /users/search/?q=iloveyou HTTP/1.1" 200 16876
+"GET /users/iloveyou/ HTTP/1.1" 200 16326
+"POST /dating/knowing/send/3/ HTTP/1.1" 302 0
+"GET /users/iloveyou/ HTTP/1.1" 200 16284
+"GET /posts/ HTTP/1.1" 200 27009
+"GET /posts/create/? HTTP/1.1" 200 18364
+"POST /posts/create/? HTTP/1.1" 200 18364
+"GET /posts/ HTTP/1.1" 200 27009
+"GET /posts/?page=2 HTTP/1.1" 200 27009
+"GET /posts/ HTTP/1.1" 200 27009
+"GET /posts/?page=2 HTTP/1.1" 200 27009
+"GET /posts/create/? HTTP/1.1" 200 18364
+"GET /posts/ HTTP/1.1" 200 27009
+"GET /users/search/?q=iloveyou HTTP/1.1" 200 16216
+"GET /users/iloveyou/ HTTP/1.1" 200 16097
+"GET /dating/discover/ HTTP/1.1" 200 8973
+"GET /dating/preferences/ HTTP/1.1" 200 12460
+"POST /dating/preferences/ HTTP/1.1" 302 0
+"GET /dating/preferences/ HTTP/1.1" 200 12678
+"GET /dating/discover/ HTTP/1.1" 200 8973
+"GET /dating/preferences/ HTTP/1.1" 200 12478
+"POST /dating/preferences/ HTTP/1.1" 302 0
+"GET /dating/preferences/ HTTP/1.1" 200 12705
+"GET /dating/discover/ HTTP/1.1" 200 8973
+"GET /messages/requests/ HTTP/1.1" 200 15635
+"GET /users/logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 6893
+"GET /users/login/ HTTP/1.1" 200 7158
+"POST /users/login/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 13435
+"GET /dating/discover/ HTTP/1.1" 200 8973
+"GET /calls/start/ HTTP/1.1" 302 0
+"GET /calls/room/f6128e57-8ef2-4106-951c-997fa1b3f7c4/ HTTP/1.1" 200 13764
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3010
+"GET /calls/api/status/f6128e57-8ef2-4106-951c-997fa1b3f7c4/ HTTP/1.1" 200 69
+"GET /users/profile/ HTTP/1.1" 302 0
+"GET /users/iloveyou/ HTTP/1.1" 200 17184
+"GET /calls/start/ HTTP/1.1" 302 0
+"GET /calls/room/f6128e57-8ef2-4106-951c-997fa1b3f7c4/ HTTP/1.1" 200 13764
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3010
+"GET /calls/api/status/f6128e57-8ef2-4106-951c-997fa1b3f7c4/ HTTP/1.1" 200 69
+"GET /calls/api/status/f6128e57-8ef2-4106-951c-997fa1b3f7c4/ HTTP/1.1" 200 69
+"GET /messages/requests/ HTTP/1.1" 200 16340
+"GET /messages/requests/ HTTP/1.1" 200 16340
+"POST /dating/knowing/accept/3/ HTTP/1.1" 302 0
+"GET /messages/requests/ HTTP/1.1" 200 15700
+"GET /messages/inbox/ HTTP/1.1" 200 10811
+"GET /posts/ HTTP/1.1" 200 27064
+"GET /posts/?page=2 HTTP/1.1" 200 27064
+"GET /users/search/?q=pruthvi HTTP/1.1" 200 20539
+"GET /messages/conversation/pruthvi.n/ HTTP/1.1" 200 12947
+"POST /messages/send/pruthvi.n/ HTTP/1.1" 200 125
+"GET /messages/inbox/ HTTP/1.1" 200 13146
+"GET /posts/ HTTP/1.1" 200 27064
+"GET /posts/?page=2 HTTP/1.1" 200 27064
+"GET /users/logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 6893
+"GET /users/login/ HTTP/1.1" 200 7158
+"POST /users/login/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 13437
+"GET /posts/ HTTP/1.1" 200 27009
+"GET /posts/?page=2 HTTP/1.1" 200 27009
+"GET /posts/create/? HTTP/1.1" 200 18364
+Internal Server Error: /posts/create/
+Traceback (most recent call last):
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\decorators\http.py", line 63, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\posts\views.py", line 65, in create_post_view
+    return redirect('posts:feed')
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 48, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 179, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhani\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\urls\resolvers.py", line 848, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'feed' not found. 'feed' is not a valid view function or pattern name.
+"POST /posts/create/? HTTP/1.1" 500 104889
+"GET /posts/create/? HTTP/1.1" 200 18548
+Watching for file changes with StatReloader
+"GET /posts/create/? HTTP/1.1" 200 18364
+"POST /posts/create/? HTTP/1.1" 302 0
+"GET /posts/ HTTP/1.1" 200 33457
+"POST /posts/3/like/ HTTP/1.1" 200 33
+"GET /posts/?page=2 HTTP/1.1" 200 33301
+"GET /users/profile/ HTTP/1.1" 302 0
+"GET /users/pruthvi.n/ HTTP/1.1" 200 24551
+"GET /dating/discover/ HTTP/1.1" 200 8973
+"GET /posts/trending/ HTTP/1.1" 200 32747
+"GET /posts/trending/?page=2 HTTP/1.1" 200 32747
+"GET /users/profile/ HTTP/1.1" 302 0
+"GET /users/pruthvi.n/ HTTP/1.1" 200 24551
+"GET /dating/discover/ HTTP/1.1" 200 8973
+"GET /dating/discover/ HTTP/1.1" 200 8973
+"GET /posts/ HTTP/1.1" 200 33302
+"GET /posts/create/? HTTP/1.1" 200 18364
+"POST /posts/create/? HTTP/1.1" 302 0
+"GET /posts/ HTTP/1.1" 200 36607
+"GET /dating/discover/ HTTP/1.1" 200 8973
+"GET /posts/trending/ HTTP/1.1" 200 35729
+"GET /posts/ HTTP/1.1" 200 36424
+"GET /posts/trending/ HTTP/1.1" 200 35729
+"GET /dating/discover/ HTTP/1.1" 200 8973
+"GET /calls/start/ HTTP/1.1" 302 0
+"GET /calls/room/f6128e57-8ef2-4106-951c-997fa1b3f7c4/ HTTP/1.1" 200 14252
+"GET /media/profile_pictures/_icon.png HTTP/1.1" 304 0
+"GET /dating/discover/ HTTP/1.1" 200 8973
+"GET /posts/trending/ HTTP/1.1" 200 35729
+"GET /posts/ HTTP/1.1" 200 36424
+"GET /posts/trending/ HTTP/1.1" 200 35729
+"GET /posts/ HTTP/1.1" 200 36424
+"GET / HTTP/1.1" 200 13249
+"GET /posts/ HTTP/1.1" 200 36424
+"GET /posts/?page=2 HTTP/1.1" 200 36424
+"POST /posts/1/like/ HTTP/1.1" 200 33
+"POST /posts/1/like/ HTTP/1.1" 200 34
+"POST /posts/1/like/ HTTP/1.1" 200 33
+"GET /posts/trending/ HTTP/1.1" 200 35757
+"GET /posts/ HTTP/1.1" 200 36452
+"GET /messages/requests/ HTTP/1.1" 200 15872
+"GET /media/profile_pictures/stuffion_icon_0.png HTTP/1.1" 304 0
+"GET /messages/inbox/ HTTP/1.1" 200 13464
+"GET /messages/requests/ HTTP/1.1" 200 15872
+"GET /messages/inbox/ HTTP/1.1" 200 13464
+"GET /messages/conversation/iloveyou/ HTTP/1.1" 200 13293
+"GET /messages/inbox/ HTTP/1.1" 200 13130
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\dating\services.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\dhani\OneDrive\Desktop\code with friends\software_development\short_media\dating\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /posts/trending/ HTTP/1.1" 200 35757
+"GET /posts/ HTTP/1.1" 200 36452
+"GET / HTTP/1.1" 200 13249
+"GET /dating/discover/ HTTP/1.1" 200 9963
+"GET /users/iloveyou/ HTTP/1.1" 200 17057
+"GET /users/search/?q=venkat HTTP/1.1" 200 22825
+"GET /users/venkat/ HTTP/1.1" 200 22048
+"GET /dating/discover/ HTTP/1.1" 200 9963
+"GET /users/iloveyou/ HTTP/1.1" 200 17057
+"GET /dating/discover/ HTTP/1.1" 200 9963
+"GET /posts/ HTTP/1.1" 200 36453
+"GET /static/css/base.css HTTP/1.1" 304 0
+"GET /media/posts/images/Screenshot_2023-08-28_203246.png HTTP/1.1" 304 0
+"GET /posts/?page=2 HTTP/1.1" 200 36453
+"GET /posts/ HTTP/1.1" 200 36453
+"GET /static/js/main.js HTTP/1.1" 200 3412
+"GET /posts/?page=2 HTTP/1.1" 200 36453
+"GET /posts/trending/ HTTP/1.1" 200 35758
+"GET /dating/discover/ HTTP/1.1" 200 9963
+"GET /calls/start/ HTTP/1.1" 302 0
+"GET /calls/room/f6128e57-8ef2-4106-951c-997fa1b3f7c4/ HTTP/1.1" 200 14252
+"GET /users/profile/ HTTP/1.1" 302 0
+"GET /users/pruthvi.n/ HTTP/1.1" 200 27148
+"GET / HTTP/1.1" 200 13249
+"GET /posts/ HTTP/1.1" 200 36449
+"GET /static/js/main.js HTTP/1.1" 304 0
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 6697
+"GET /static/css/mobile.css HTTP/1.1" 200 7716
+"GET /static/js/main.js HTTP/1.1" 200 3412
+"GET /static/css/base.css HTTP/1.1" 200 14666
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3010
+"GET /users/signup/ HTTP/1.1" 200 9380
+"POST /users/signup/ HTTP/1.1" 200 9831
+"POST /users/signup/ HTTP/1.1" 200 9654
+"POST /users/signup/ HTTP/1.1" 200 9649
+"POST /users/signup/ HTTP/1.1" 302 0
+"GET /users/verify-otp/ HTTP/1.1" 200 5687
+"POST /users/verify-otp/ HTTP/1.1" 302 0
+"GET /users/login/ HTTP/1.1" 200 7364
+"POST /users/login/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 13425
+"GET /posts/ HTTP/1.1" 200 34848
+"GET /media/posts/images/Screenshot_2023-08-28_203246.png HTTP/1.1" 200 935622
+"GET /posts/?page=2 HTTP/1.1" 200 34848
+"GET /posts/create/ HTTP/1.1" 200 18364
+"POST /posts/create/ HTTP/1.1" 302 0
+"GET /posts/ HTTP/1.1" 200 38145
+"GET /posts/6/ HTTP/1.1" 200 14152
+"GET /dating/discover/ HTTP/1.1" 200 9116
+"GET /posts/trending/ HTTP/1.1" 200 37128
+"GET /dating/discover/ HTTP/1.1" 200 9116
+"GET /users/search/ HTTP/1.1" 200 12012
+"GET /users/search/?q=&filter=dating HTTP/1.1" 200 12012
+"GET /calls/start/ HTTP/1.1" 302 0
+"GET /calls/room/8f3c3cbf-9fda-4504-b585-edf6caa3ce43/ HTTP/1.1" 200 13764
+"GET /calls/api/status/8f3c3cbf-9fda-4504-b585-edf6caa3ce43/ HTTP/1.1" 200 69
+"GET /calls/api/status/8f3c3cbf-9fda-4504-b585-edf6caa3ce43/ HTTP/1.1" 200 69
+"GET /calls/api/status/8f3c3cbf-9fda-4504-b585-edf6caa3ce43/ HTTP/1.1" 200 69
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3010
+"GET /calls/api/status/8f3c3cbf-9fda-4504-b585-edf6caa3ce43/ HTTP/1.1" 200 69
+"GET /calls/api/status/8f3c3cbf-9fda-4504-b585-edf6caa3ce43/ HTTP/1.1" 200 69
+"GET /calls/api/status/8f3c3cbf-9fda-4504-b585-edf6caa3ce43/ HTTP/1.1" 200 69
+"GET /users/profile/ HTTP/1.1" 302 0
+"GET /users/Deepak/ HTTP/1.1" 200 18922
+"GET /users/search/?q=venkat HTTP/1.1" 200 22258
+"GET /media/profile_pictures/stuffion_icon_0.png HTTP/1.1" 200 5926
+"GET /media/profile_pictures/_icon.png HTTP/1.1" 200 16266
+"POST /dating/knowing/send/2/ HTTP/1.1" 302 0
+"GET /users/venkat/ HTTP/1.1" 200 22209
+"POST /messages/friend-request/send/venkat/ HTTP/1.1" 200 17
+"GET /messages/requests/ HTTP/1.1" 200 15539
+"GET /posts/ HTTP/1.1" 200 37960
+"GET /users/search/?q=venkat HTTP/1.1" 200 21598
+"GET /users/venkat/ HTTP/1.1" 200 22022
+"GET /messages/requests/ HTTP/1.1" 200 15539
+"GET /users/search/?q=venkat HTTP/1.1" 200 21598
+"POST /dating/knowing/send/3/ HTTP/1.1" 302 0
+"GET /users/iloveyou/ HTTP/1.1" 200 16284
+"POST /messages/friend-request/send/iloveyou/ HTTP/1.1" 200 17
+"GET /messages/requests/ HTTP/1.1" 200 17823
+"GET /users/search/?q=venkat HTTP/1.1" 200 20938
+"GET /users/search/?q=pruthvi HTTP/1.1" 200 19311
+"POST /dating/knowing/send/5/ HTTP/1.1" 302 0
+"GET /users/pruthvi.n/ HTTP/1.1" 200 24211
+"GET /messages/requests/ HTTP/1.1" 200 18837
+"GET /users/logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 6893
+"GET /users/login/ HTTP/1.1" 200 7158
+"GET /users/login/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 13249
+"GET /static/css/base.css HTTP/1.1" 200 14666
+"GET /static/css/mobile.css HTTP/1.1" 200 7716
+"GET /static/js/main.js HTTP/1.1" 200 3412
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3010
+"GET /users/profile/ HTTP/1.1" 302 0
+"GET /users/pruthvi.n/ HTTP/1.1" 200 27181
+"GET /media/profile_pictures/stuffion_icon_0.png HTTP/1.1" 200 5926
+"GET /media/profile_pictures/_icon.png HTTP/1.1" 200 16266
+"GET /users/logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 6893
+"GET /users/login/ HTTP/1.1" 200 7158
+"POST /users/login/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 13425
+"GET / HTTP/1.1" 200 6697
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3010
+"GET /users/login/ HTTP/1.1" 200 7158
+"POST /users/login/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 13425
+"GET /messages/requests/ HTTP/1.1" 200 20587
+"POST /dating/knowing/accept/4/ HTTP/1.1" 302 0
+"GET /messages/requests/ HTTP/1.1" 200 20092
+"POST /messages/friend-request/accept/1/ HTTP/1.1" 200 17
+"GET /messages/requests/ HTTP/1.1" 200 18266
+"POST /messages/friend-request/accept/3/ HTTP/1.1" 200 17
+"GET /messages/requests/ HTTP/1.1" 200 16551
+"GET /messages/inbox/ HTTP/1.1" 200 13577
+"GET /users/profile/ HTTP/1.1" 302 0
+"GET /users/venkat/ HTTP/1.1" 200 28612
+"GET /media/posts/images/Screenshot_2023-08-28_203246.png HTTP/1.1" 200 935622
+"GET /users/Deepak/ HTTP/1.1" 200 19732
+"GET /messages/conversation/Deepak/ HTTP/1.1" 200 12935
+"POST /messages/send/Deepak/ HTTP/1.1" 200 123
+"GET /messages/inbox/ HTTP/1.1" 200 11341
+"GET /messages/conversation/venkat/ HTTP/1.1" 200 13288
+"POST /messages/send/venkat/ HTTP/1.1" 200 133
+"GET /messages/conversation/Deepak/ HTTP/1.1" 200 14141
+"GET /posts/trending/ HTTP/1.1" 200 37711
+"GET /posts/ HTTP/1.1" 200 38544
+"GET /dating/discover/ HTTP/1.1" 200 9940
+"GET /posts/ HTTP/1.1" 200 38544
+"GET /dating/discover/ HTTP/1.1" 200 9940
+"GET /users/Deepak/ HTTP/1.1" 200 19732
+"GET /posts/ HTTP/1.1" 200 38544
+"GET /posts/trending/ HTTP/1.1" 200 37711
+"GET /dating/discover/ HTTP/1.1" 200 9940
+"GET /users/profile/ HTTP/1.1" 302 0
+"GET /users/venkat/ HTTP/1.1" 200 28612
+"GET /posts/ HTTP/1.1" 200 38544
+"GET /posts/ HTTP/1.1" 200 37961
+"GET /dating/discover/ HTTP/1.1" 200 11204
+"GET /dating/preferences/ HTTP/1.1" 200 12460
+"GET /posts/trending/ HTTP/1.1" 200 37115
+"GET /dating/discover/ HTTP/1.1" 200 11204
+"GET /users/profile/ HTTP/1.1" 302 0
+"GET /users/venkat/ HTTP/1.1" 200 28612
+"POST /messages/friend/remove/6/ HTTP/1.1" 302 0
+"GET /users/profile/ HTTP/1.1" 302 0
+"GET /users/venkat/ HTTP/1.1" 200 27114
+"GET /posts/ HTTP/1.1" 200 38544
+"GET /dating/discover/ HTTP/1.1" 200 11131
+"GET /users/Deepak/ HTTP/1.1" 200 18792
+"GET /users/Deepak/ HTTP/1.1" 200 18792
+"GET /dating/discover/ HTTP/1.1" 200 11131
+"GET /users/profile/ HTTP/1.1" 302 0
+"GET /users/venkat/ HTTP/1.1" 200 26914
+"GET /dating/discover/ HTTP/1.1" 200 11131
+"GET /dating/preferences/ HTTP/1.1" 200 12467
+"GET /posts/ HTTP/1.1" 200 38545
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3121
+"GET /messages/inbox/ HTTP/1.1" 200 10809
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3121
+"GET /messages/conversation/venkat/ HTTP/1.1" 200 13958
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3121
+"GET /messages/inbox/ HTTP/1.1" 200 10809
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3121
+"GET /posts/ HTTP/1.1" 200 37969
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3121
+"GET /posts/?page=2 HTTP/1.1" 200 37969
+"GET /posts/ HTTP/1.1" 200 37969
+"GET /posts/ HTTP/1.1" 200 38554
+"GET /static/css/base.css HTTP/1.1" 304 0
+"GET /static/js/main.js HTTP/1.1" 304 0
+"GET /users/profile/ HTTP/1.1" 302 0
+"GET /users/venkat/ HTTP/1.1" 200 26914
+"GET /users/logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 6893
+"GET /users/signup/ HTTP/1.1" 200 9380
+"GET /users/login/ HTTP/1.1" 200 7158
+"POST /users/login/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 13425
+"GET /users/profile/ HTTP/1.1" 302 0
+"GET /users/venkat/ HTTP/1.1" 200 26914
+"GET /users/search/?q=deepak HTTP/1.1" 200 16630
+"GET /users/Deepak/ HTTP/1.1" 200 18802
+"POST /messages/friend-request/send/Deepak/ HTTP/1.1" 200 17
+"GET / HTTP/1.1" 200 13246
+"GET /static/css/base.css HTTP/1.1" 304 0
+"GET /static/js/main.js HTTP/1.1" 304 0
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3010
+"GET /users/profile/ HTTP/1.1" 302 0
+"GET /users/Deepak/ HTTP/1.1" 200 20393
+"GET /messages/requests/ HTTP/1.1" 200 19675
+"POST /messages/friend-request/accept/5/ HTTP/1.1" 200 17
+"GET /messages/requests/ HTTP/1.1" 200 17928
+"GET /users/profile/ HTTP/1.1" 302 0
+"GET /users/Deepak/ HTTP/1.1" 200 21920
+"GET /messages/inbox/ HTTP/1.1" 200 11033
+"GET /messages/conversation/venkat/ HTTP/1.1" 200 13958
+"POST /messages/send/venkat/ HTTP/1.1" 200 128
+"GET /posts/ HTTP/1.1" 200 37971
+"GET /posts/?page=2 HTTP/1.1" 200 37971
+"POST /posts/4/like/ HTTP/1.1" 200 33
+"GET /posts/trending/ HTTP/1.1" 200 37166
+"GET /dating/discover/ HTTP/1.1" 200 11204
+"GET /dating/preferences/ HTTP/1.1" 200 12460
+"GET /dating/discover/ HTTP/1.1" 200 11204
+"GET /posts/ HTTP/1.1" 200 37999
+"GET /posts/create/? HTTP/1.1" 200 18364
+"GET /posts/ HTTP/1.1" 200 37999
+"GET /calls/start/ HTTP/1.1" 302 0
+"GET /calls/room/8f3c3cbf-9fda-4504-b585-edf6caa3ce43/ HTTP/1.1" 200 13764
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3010
+"GET /calls/api/status/8f3c3cbf-9fda-4504-b585-edf6caa3ce43/ HTTP/1.1" 200 69
+"GET /calls/api/status/8f3c3cbf-9fda-4504-b585-edf6caa3ce43/ HTTP/1.1" 200 69
+"GET /calls/api/status/8f3c3cbf-9fda-4504-b585-edf6caa3ce43/ HTTP/1.1" 200 69
+"GET /calls/api/status/8f3c3cbf-9fda-4504-b585-edf6caa3ce43/ HTTP/1.1" 200 69
+"GET /calls/api/status/8f3c3cbf-9fda-4504-b585-edf6caa3ce43/ HTTP/1.1" 200 69
+"GET /users/profile/ HTTP/1.1" 302 0
+"GET /users/Deepak/ HTTP/1.1" 200 21920
+"GET /dating/discover/ HTTP/1.1" 200 11131
+"GET /static/js/main.js HTTP/1.1" 304 0
+"GET /static/css/mobile.css HTTP/1.1" 304 0
+"GET /users/Deepak/ HTTP/1.1" 200 19743
+"GET /media/profile_pictures/stuffion_icon_0.png HTTP/1.1" 304 0

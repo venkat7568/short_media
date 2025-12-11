@@ -1,0 +1,27 @@
+# Core Django
+Django==5.0.0
+python-decouple==3.8
+
+# REST Framework & JWT
+djangorestframework==3.14.0
+djangorestframework-simplejwt==5.3.1
+
+# Database
+mysqlclient==2.2.1
+
+# Django Channels for WebSockets
+channels==4.0.0
+channels-redis==4.1.0
+daphne==4.0.0
+
+# Image Processing
+Pillow==10.1.0
+
+# CORS Headers (for API)
+django-cors-headers==4.3.1
+
+# Redis (for Channels layer)
+redis==5.0.1
+
+# Utilities
+pytz==2023.3

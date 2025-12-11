@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Full UML — Short Media Platform (Complete)</title>
+<style>
+  :root{
+    --bg:#0b1220; --panel:#0f1724; --muted:#9aa4b2; --accent:#60a5fa;
+    --card:#0b1220; --glass: rgba(255,255,255,0.03);
+    --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Segoe UI Mono", monospace;
+  }
+  body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial; background:linear-gradient(180deg,#071021 0%, #071525 100%); color:#e6eef6;}
+  header{padding:20px 28px;border-bottom:1px solid rgba(255,255,255,0.03);display:flex;gap:16px;align-items:center}
+  header h1{margin:0;font-size:18px;letter-spacing:0.2px}
+  header p{margin:0;font-size:13px;color:var(--muted)}
+  main{padding:18px;max-width:1300px;margin:0 auto}
+  .grid{display:grid;grid-template-columns:1fr;gap:18px}
+  .card{background:var(--panel);border-radius:12px;padding:14px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 8px 40px rgba(3,7,18,0.6)}
+  .card h2{margin:0 0 8px 0;font-size:14px}
+  .legend{font-size:12px;color:var(--muted);margin-bottom:8px}
+  svg{width:100%;height:auto;display:block; background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.0)); border-radius:8px}
+  .hint{font-size:12px;color:var(--muted); margin-top:8px}
+  .small{font-size:12px;color:var(--muted)}
+  .row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+  .btn{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:6px 10px;border-radius:8px;color:var(--muted);cursor:pointer}
+  /* tooltip */
+  .tt{position:relative;}
+  .tt:hover .ttext{opacity:1;transform:none}
+  .ttext{position:absolute;left:0;top:calc(100% + 8px);background:#041025;color:#cfe6ff;padding:8px;border-radius:8px;min-width:200px;box-shadow:0 8px 30px rgba(0,0,0,0.6);opacity:0;transform:translateY(6px);transition:all .18s ease;font-size:12px;z-index:40}
+  pre{background:rgba(255,255,255,0.02);padding:10px;border-radius:8px;overflow:auto;color:#dbeafe}
+  /* small screen */
+  @media (max-width:900px){ header{flex-direction:column;align-items:flex-start} .grid{gap:12px} }
+</style>
+</head>
+<body>
+<header>
+  <div style="flex:1">
+    <h1>Full UML — Short Media Platform (Complete design, signals included)</h1>
+    <p>Based on the architecture documentation (models, services, repositories, strategies, factories, builders, signals). :contentReference[oaicite:1]{index=1}</p>
+  </div>
+  <div class="row">
+    <button class="btn" onclick="document.getElementById('class-diagram').scrollIntoView({behavior:'smooth'})">Jump to class</button>
+    <button class="btn" onclick="document.getElementById('seq-create').scrollIntoView({behavior:'smooth'})">Create Post seq</button>
+    <button class="btn" onclick="document.getElementById('seq-match').scrollIntoView({behavior:'smooth'})">Match seq</button>
+    <button class="btn" onclick="document.getElementById('erd').scrollIntoView({behavior:'smooth'})">ER Diagram</button>
+  </div>
+</header>
+
+<main>
+  <div class="grid">
+
+    <!-- Class / Component Diagram -->
+    <section id="class-diagram" class="card">
+      <h2>Class / Component Diagram (Services, Repositories, Strategies, Factories, Signals)</h2>
+      <div class="legend">Hover any box to read responsibilities / methods.</div>
+
+      <!-- SVG Class diagram -->
+      <svg viewBox="0 0 1200 820" preserveAspectRatio="xMinYMin meet">
+        <defs>
+          <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+            <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.45"/>
+          </filter>
+          <style>
+            .box{fill:#071428; stroke:#17314b; stroke-width:1.2; rx:8; ry:8}
+            .title{font-family:Inter, sans-serif; font-size:13px; fill:#cfe6ff; font-weight:600}
+            .subtitle{font-size:11px; fill:#9fb7d8}
+            .method{font-size:11px; fill:#bfd7f3}
+            .strokeline{stroke:#2d6aa7; stroke-width:1.2; marker-end:url(#arr)}
+            .dashed{stroke-dasharray:6 4; stroke:#4b6f92}
+          </style>
+          <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+            <path d="M0 0 L10 5 L0 10 z" fill="#bfd7f3"/>
+          </marker>
+        </defs>
+
+        <!-- Services group -->
+        <g transform="translate(40,20)" filter="url(#shadow)">
+          <rect class="box" x="0" y="0" width="520" height="220" />
+          <text x="18" y="22" class="title">Service Layer</text>
+          <text x="18" y="42" class="subtitle">Business rules & orchestration</text>
+
+          <!-- Services boxes -->
+          <rect class="box" x="16" y="56" width="150" height="70" />
+          <text x="24" y="76" class="title">PostService</text>
+          <text x="24" y="94" class="method">+ create_text_post(author,text,vis)</text>
+          <text x="24" y="110" class="method">+ delete_post(post,user)</text>
+
+          <rect class="box" x="186" y="56" width="150" height="70" />
+          <text x="194" y="76" class="title">FeedService</text>
+          <text x="194" y="94" class="method">- ranking_strategy</text>
+          <text x="194" y="110" class="method">+ get_feed(user,limit)</text>
+
+          <rect class="box" x="356" y="56" width="150" height="70" />
+          <text x="364" y="76" class="title">LikeService</text>
+          <text x="364" y="94" class="method">+ toggle_like(post,user)</text>
+          <text x="364" y="110" class="method">+ get_like_count(post)</text>
+
+          <rect class="box" x="16" y="136" width="150" height="70" />
+          <text x="24" y="156" class="title">CommentService</text>
+          <text x="24" y="174" class="method">+ add_comment()</text>
+          <text x="24" y="190" class="method">+ delete_comment()</text>
+
+          <rect class="box" x="186" y="136" width="150" height="70" />
+          <text x="194" y="156" class="title">DatingService</text>
+          <text x="194" y="174" class="method">+ find_matches(user)</text>
+          <text x="194" y="190" class="method">+ set_strategy(s)</text>
+
+          <rect class="box" x="356" y="136" width="150" height="70" />
+          <text x="364" y="156" class="title">MatchingService</text>
+          <text x="364" y="174" class="method">- strategy</text>
+          <text x="364" y="190" class="method">+ execute_matching()</text>
+        </g>
+
+        <!-- Repositories group -->
+        <g transform="translate(580,20)" filter="url(#shadow)">
+          <rect class="box" x="0" y="0" width="560" height="220" />
+          <text x="18" y="22" class="title">Repository Layer</text>
+          <text x="18" y="42" class="subtitle">Data access abstractions (ORM hidden)</text>
+
+          <rect class="box" x="16" y="56" width="160" height="60" />
+          <text x="24" y="76" class="title">PostRepository</text>
+          <text x="24" y="94" class="method">+ get_all_posts()</text>
+          <text x="24" y="110" class="method">+ get_by_id(id)</text>
+
+          <rect class="box" x="196" y="56" width="160" height="60" />
+          <text x="204" y="76" class="title">UserRepository</text>
+          <text x="204" y="94" class="method">+ get_by_id()</text>
+          <text x="204" y="110" class="method">+ get_followers(user)</text>
+
+          <rect class="box" x="376" y="56" width="160" height="60" />
+          <text x="384" y="76" class="title">LikeRepository</text>
+          <text x="384" y="94" class="method">+ create()</text>
+          <text x="384" y="110" class="method">+ delete()</text>
+
+          <rect class="box" x="16" y="126" width="160" height="60" />
+          <text x="24" y="146" class="title">CommentRepository</text>
+          <text x="24" y="164" class="method">+ create()</text>
+
+          <rect class="box" x="196" y="126" width="160" height="60" />
+          <text x="204" y="146" class="title">MatchRequestRepository</text>
+          <text x="204" y="164" class="method">+ create()</text>
+          <text x="204" y="180" class="method">+ get_pending()</text>
+
+          <rect class="box" x="376" y="126" width="160" height="60" />
+          <text x="384" y="146" class="title">MessageRepository</text>
+          <text x="384" y="164" class="method">+ get_conversation()</text>
+        </g>
+
+        <!-- Strategies / Factories / Builders -->
+        <g transform="translate(40,260)">
+          <rect class="box" x="0" y="0" width="400" height="160" />
+          <text x="18" y="22" class="title">Patterns: Strategies / Factory / Builder</text>
+          <text x="18" y="42" class="subtitle">Extensible algorithms & creators</text>
+
+          <rect class="box" x="16" y="56" width="160" height="44" />
+          <text x="24" y="76" class="title">IStrategy / MatchingStrategy</text>
+          <text x="24" y="92" class="method">+ execute(...)</text>
+
+          <rect class="box" x="186" y="56" width="160" height="44" />
+          <text x="194" y="76" class="title">Recency / Engagement / Trending</text>
+          <text x="194" y="92" class="method">+ execute(posts,user)</text>
+
+          <rect class="box" x="16" y="106" width="160" height="44" />
+          <text x="24" y="126" class="title">PostFactory</text>
+          <text x="24" y="142" class="method">+ create_text_post(...)</text>
+
+          <rect class="box" x="186" y="106" width="160" height="44" />
+          <text x="194" y="126" class="title">MatchSearchBuilder</text>
+          <text x="194" y="142" class="method">+ apply_default_filters()</text>
+        </g>
+
+        <!-- Models -->
+        <g transform="translate(460,260)">
+          <rect class="box" x="0" y="0" width="680" height="260" />
+          <text x="18" y="22" class="title">Domain Models</text>
+          <text x="18" y="42" class="subtitle">Entities / Base models</text>
+
+          <!-- User -->
+          <rect class="box" x="16" y="56" width="200" height="84" />
+          <text x="24" y="76" class="title">User</text>
+          <text x="24" y="94" class="method">id, email, username, password</text>
+          <text x="24" y="112" class="method">profile (FK), following</text>
+
+          <!-- Post -->
+          <rect class="box" x="236" y="56" width="200" height="84" />
+          <text x="244" y="76" class="title">Post (abstract)</text>
+          <text x="244" y="94" class="method">author (FK), content, visibility</text>
+          <text x="244" y="112" class="method">likes_count, comments_count</text>
+
+          <!-- Subtypes -->
+          <rect class="box" x="456" y="56" width="200" height="84" />
+          <text x="464" y="76" class="title">TextPost / ImagePost / VideoPost</text>
+          <text x="464" y="94" class="method">text / image / video + caption</text>
+
+          <!-- Comment / Like -->
+          <rect class="box" x="16" y="156" width="200" height="84" />
+          <text x="24" y="176" class="title">Comment</text>
+          <text x="24" y="194" class="method">post(FK), author(FK), text</text>
+
+          <rect class="box" x="236" y="156" width="200" height="84" />
+          <text x="244" y="176" class="title">Like</text>
+          <text x="244" y="194" class="method">user(FK), post(FK), created_at</text>
+
+          <rect class="box" x="456" y="156" width="200" height="84" />
+          <text x="464" y="176" class="title">MatchRequest / Match</text>
+          <text x="464" y="194" class="method">sender, receiver, status, match_score</text>
+        </g>
+
+        <!-- Arrows: Service -> Repository -->
+        <path class="strokeline" d="M200 200 L540 200" />
+        <text x="360" y="188" fill="#bcd7f6" font-size="11" text-anchor="middle">uses</text>
+
+        <!-- Arrows: FeedService -> Strategy -->
+        <path class="strokeline" d="M336 120 L300 260" />
+        <text x="320" y="165" fill="#bcd7f6" font-size="11" text-anchor="middle">delegates ranking</text>
+
+        <!-- Signals box (bottom-left) -->
+        <g transform="translate(40,440)">
+          <rect class="box" x="0" y="0" width="360" height="120" />
+          <text x="18" y="22" class="title">Signals (side-effects)</text>
+          <text x="18" y="42" class="subtitle">Decoupled side effects via Django signals</text>
+
+          <text x="24" y="68" class="method">@receiver(post_save, sender=Post)</text>
+          <text x="24" y="86" class="method">def notify_followers(sender, instance, created, **kwargs)</text>
+          <text x="24" y="104" class="method">→ NotificationService.notify_followers(author, post)</text>
+        </g>
+
+        <!-- Signal arrow to NotificationService -->
+        <g transform="translate(420,520)">
+          <rect class="box" x="0" y="0" width="240" height="80" />
+          <text x="12" y="22" class="title">NotificationService</text>
+          <text x="12" y="42" class="method">+ notify_followers(user, post)</text>
+          <text x="12" y="60" class="method">+ notify_user(user, payload)</text>
+        </g>
+
+        <path class="dashed" d="M220 500 L420 540" stroke-width="1.2" marker-end="url(#arr)"/>
+        <text x="320" y="520" fill="#9db9d8" font-size="11" text-anchor="middle">signal → notify</text>
+
+      </svg>
+
+      <div class="hint small">Notes: Services call repositories. Strategies are pluggable and injected into FeedService/MatchingService. Factories create concrete Post types. Signals like `post_save` trigger `notify_followers` in a decoupled manner. See sequence diagrams below for real flows.</div>
+    </section>
+
+    <!-- Sequence diagram: Create Post -->
+    <section id="seq-create" class="card">
+      <h2>Sequence Diagram — Create Post (including signal & notifications)</h2>
+      <div class="legend">Shows the lifecycle from view → service → factory → repository → DB, and `post_save` signal triggering `notify_followers`.</div>
+
+      <svg viewBox="0 0 1200 320">
+        <defs>
+          <style>
+            .lane{fill:rgba(255,255,255,0.02);stroke:rgba(255,255,255,0.03);rx:6}
+            .actor{font-size:13px;fill:#cfe6ff;font-weight:600}
+            .msg{stroke:#79b7ff; stroke-width:1.4; fill:none; marker-end:url(#arr)}
+            .dotted{stroke:#6ea0d9; stroke-dasharray:6 4}
+            .note{font-size:12px; fill:#cfe6ff}
+          </style>
+          <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+            <path d="M0 0 L10 5 L0 10 z" fill="#79b7ff"/>
+          </marker>
+        </defs>
+
+        <!-- Lifelines -->
+        <text x="40" y="36" class="actor">Client</text>
+        <text x="200" y="36" class="actor">PostsView</text>
+        <text x="360" y="36" class="actor">PostService</text>
+        <text x="520" y="36" class="actor">PostFactory</text>
+        <text x="680" y="36" class="actor">PostRepository</text>
+        <text x="840" y="36" class="actor">Database</text>
+        <text x="1000" y="36" class="actor">Django Signals</text>
+        <text x="1100" y="36" class="actor">NotificationService</text>
+
+        <!-- vertical lifelines -->
+        <line x1="60" y1="56" x2="60" y2="260" stroke="#13324a" stroke-dasharray="2 6"/>
+        <line x1="220" y1="56" x2="220" y2="260" stroke="#13324a" stroke-dasharray="2 6"/>
+        <line x1="380" y1="56" x2="380" y2="260" stroke="#13324a" stroke-dasharray="2 6"/>
+        <line x1="540" y1="56" x2="540" y2="260" stroke="#13324a" stroke-dasharray="2 6"/>
+        <line x1="700" y1="56" x2="700" y2="260" stroke="#13324a" stroke-dasharray="2 6"/>
+        <line x1="860" y1="56" x2="860" y2="260" stroke="#13324a" stroke-dasharray="2 6"/>
+        <line x1="1020" y1="56" x2="1020" y2="260" stroke="#13324a" stroke-dasharray="2 6"/>
+        <line x1="1120" y1="56" x2="1120" y2="260" stroke="#13324a" stroke-dasharray="2 6"/>
+
+        <!-- Messages -->
+        <path class="msg" d="M80 80 L220 80" />
+        <text x="150" y="72" class="note" text-anchor="middle">POST /posts/ (form)</text>
+
+        <path class="msg" d="M220 100 L360 100" />
+        <text x="290" y="92" class="note" text-anchor="middle">create_text_post(author, text, vis)</text>
+
+        <path class="msg" d="M360 120 L540 120" />
+        <text x="450" y="112" class="note" text-anchor="middle">post_factory.create_text_post(...)</text>
+
+        <path class="msg" d="M540 140 L700 140" />
+        <text x="620" y="132" class="note" text-anchor="middle">PostRepository.create(post)</text>
+
+        <path class="msg" d="M700 160 L860 160" />
+        <text x="780" y="152" class="note" text-anchor="middle">INSERT into posts — commit</text>
+
+        <!-- post_save signal emitted -->
+        <path class="dotted" d="M860 180 L1020 180" />
+        <text x="940" y="172" class="note" text-anchor="middle">post_save(sender=Post, instance=post, created=True)</text>
+
+        <!-- signal handler -->
+        <path class="msg" d="M1020 200 L1120 200" />
+        <text x="1070" y="192" class="note" text-anchor="middle">notify_followers(instance.author, instance)</text>
+
+        <!-- notification actions -->
+        <path class="msg" d="M1120 220 L220 220" />
+        <text x="670" y="212" class="note" text-anchor="middle">NotificationService.notify_followers → create Notification rows</text>
+
+        <!-- response -->
+        <path class="msg" d="M220 240 L80 240" />
+        <text x="150" y="232" class="note" text-anchor="middle">HTTP 302 redirect to feed</text>
+      </svg>
+
+      <div class="hint small">Important: the `post_save` is asynchronous/decoupled from the request thread in production (offload to background task) — document shows separation, notifications handled by signals and NotificationService. See architecture doc for exact `@receiver` snippet. :contentReference[oaicite:2]{index=2}</div>
+    </section>
+
+    <!-- Sequence diagram: Match Discovery -->
+    <section id="seq-match" class="card">
+      <h2>Sequence Diagram — Match Discovery (Builder + Composite Strategy)</h2>
+      <div class="legend">Shows: View -> DatingService -> MatchSearchBuilder -> DB (candidate selection) -> MatchingService (CompositeStrategy) -> Results</div>
+
+      <svg viewBox="0 0 1200 360">
+        <defs>
+          <marker id="arr2" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+            <path d="M0 0 L10 5 L0 10 z" fill="#ffd27a"/>
+          </marker>
+          <style>
+            .actor{font-size:13px;fill:#ffd27a;font-weight:700}
+            .line{stroke:#f7c874; stroke-width:1.2}
+            .call{stroke:#f7c874; stroke-width:1.6; fill:none; marker-end:url(#arr2)}
+            .note{font-size:12px; fill:#ffd27a}
+          </style>
+        </defs>
+
+        <text x="40" y="36" class="actor">User</text>
+        <text x="160" y="36" class="actor">View</text>
+        <text x="320" y="36" class="actor">DatingService</text>
+        <text x="520" y="36" class="actor">MatchSearchBuilder</text>
+        <text x="700" y="36" class="actor">Database</text>
+        <text x="920" y="36" class="actor">MatchingService</text>
+        <text x="1100" y="36" class="actor">Return</text>
+
+        <line x1="60" y1="56" x2="60" y2="320" stroke="#2f2f2f" stroke-dasharray="3 6"/>
+        <line x1="180" y1="56" x2="180" y2="320" stroke="#2f2f2f" stroke-dasharray="3 6"/>
+        <line x1="340" y1="56" x2="340" y2="320" stroke="#2f2f2f" stroke-dasharray="3 6"/>
+        <line x1="540" y1="56" x2="540" y2="320" stroke="#2f2f2f" stroke-dasharray="3 6"/>
+        <line x1="720" y1="56" x2="720" y2="320" stroke="#2f2f2f" stroke-dasharray="3 6"/>
+        <line x1="940" y1="56" x2="940" y2="320" stroke="#2f2f2f" stroke-dasharray="3 6"/>
+        <line x1="1120" y1="56" x2="1120" y2="320" stroke="#2f2f2f" stroke-dasharray="3 6"/>
+
+        <!-- sequence -->
+        <path class="call" d="M80 80 L180 80" />
+        <text x="130" y="72" class="note" text-anchor="middle">GET /discover_matches</text>
+
+        <path class="call" d="M180 100 L340 100" />
+        <text x="260" y="92" class="note" text-anchor="middle">dating_service.find_matches(user)</text>
+
+        <path class="call" d="M340 120 L540 120" />
+        <text x="440" y="112" class="note" text-anchor="middle">MatchSearchBuilder.apply_default_filters()</text>
+
+        <path class="call" d="M540 140 L720 140" />
+        <text x="630" y="132" class="note" text-anchor="middle">SQL: pre-filter candidates (WHERE + INDEX)</text>
+
+        <path class="call" d="M720 160 L940 160" />
+        <text x="830" y="152" class="note" text-anchor="middle">candidates returned</text>
+
+        <path class="call" d="M940 180 L340 180" />
+        <text x="640" y="172" class="note" text-anchor="middle">MatchingService.strategy.execute(user, candidates)</text>
+
+        <path class="call" d="M340 200 L180 200" />
+        <text x="260" y="192" class="note" text-anchor="middle">return matches (top N)</text>
+
+        <path class="call" d="M180 220 L80 220" />
+        <text x="130" y="212" class="note" text-anchor="middle">HTTP 200 JSON [matches]</text>
+
+        <!-- annotation -->
+        <text x="340" y="260" fill="#ffd27a" font-size="12">CompositeStrategy: AttributeMatching (70%) + BehavioralMatching (30%) — weights validated; scoring computed then sorted. See doc for the breakdown logic per strategy. :contentReference[oaicite:3]{index=3}</text>
+      </svg>
+
+      <div class="hint small">Builder reduces candidate set before scoring; scoring is performed by matching strategies which compute breakdown and weighted scores. This reduces O(n²) behavior — documented improvements (~77×). :contentReference[oaicite:4]{index=4}</div>
+    </section>
+
+    <!-- ER Diagram -->
+    <section id="erd" class="card">
+      <h2>Entity-Relationship Diagram (Core Models)</h2>
+      <div class="legend">Primary keys (PK) and relationships (1:N, 1:1) are shown. Hover boxes for attributes.</div>
+
+      <svg viewBox="0 0 1200 420">
+        <defs>
+          <style>
+            .ent{fill:#051324; stroke:#23507a; stroke-width:1.2; rx:8}
+            .ent-title{font-size:13px; fill:#cfe6ff; font-weight:700}
+            .attr{font-size:12px; fill:#cfe6ff}
+            .reltext{font-size:12px; fill:#a3c6e8}
+          </style>
+        </defs>
+
+        <!-- User -->
+        <rect class="ent" x="40" y="40" width="260" height="110"/>
+        <text class="ent-title" x="56" y="64">User (PK: id)</text>
+        <text class="attr" x="56" y="86">email</text>
+        <text class="attr" x="56" y="102">username</text>
+        <text class="attr" x="56" y="118">is_verified</text>
+
+        <!-- Post -->
+        <rect class="ent" x="360" y="40" width="260" height="130"/>
+        <text class="ent-title" x="376" y="64">Post (PK: id)</text>
+        <text class="attr" x="376" y="86">author_id (FK → User)</text>
+        <text class="attr" x="376" y="102">content</text>
+        <text class="attr" x="376" y="118">visibility</text>
+        <text class="attr" x="376" y="134">likes_count, created_at</text>
+
+        <!-- Comment -->
+        <rect class="ent" x="680" y="40" width="220" height="90"/>
+        <text class="ent-title" x="696" y="64">Comment (PK: id)</text>
+        <text class="attr" x="696" y="86">post_id (FK → Post)</text>
+        <text class="attr" x="696" y="102">author_id (FK → User)</text>
+
+        <!-- Like -->
+        <rect class="ent" x="40" y="180" width="260" height="80"/>
+        <text class="ent-title" x="56" y="204">Like (PK: id)</text>
+        <text class="attr" x="56" y="224">user_id (FK → User)</text>
+        <text class="attr" x="56" y="244">post_id (FK → Post)</text>
+
+        <!-- MatchRequest -->
+        <rect class="ent" x="360" y="200" width="360" height="120"/>
+        <text class="ent-title" x="376" y="224">MatchRequest (PK: id)</text>
+        <text class="attr" x="376" y="244">sender_id (FK → User)</text>
+        <text class="attr" x="376" y="260">receiver_id (FK → User)</text>
+        <text class="attr" x="376" y="276">status, match_score, created_at</text>
+
+        <!-- relationships arrows -->
+        <path d="M300 95 L360 95" stroke="#82b3e8" stroke-width="1.2" marker-end="url(#arr2)"/>
+        <text class="reltext" x="330" y="86" text-anchor="middle">1..* (User → Post)</text>
+
+        <path d="M420 170 L420 200" stroke="#82b3e8" stroke-width="1.2" marker-end="url(#arr2)"/>
+        <text class="reltext" x="420" y="158" text-anchor="middle">1..* (Post → Comment)</text>
+
+        <path d="M180 145 L180 180" stroke="#82b3e8" stroke-width="1.2" marker-end="url(#arr2)"/>
+        <text class="reltext" x="180" y="134" text-anchor="middle">1..* (User → Like)</text>
+
+        <path d="M460 260 L360 260" stroke="#82b3e8" stroke-width="1.2" marker-end="url(#arr2)"/>
+        <text class="reltext" x="420" y="248" text-anchor="middle">1..* (User → MatchRequest)</text>
+
+      </svg>
+
+      <div class="hint small">ERD: Each user creates many posts and comments. Likes are unique per (user,post). MatchRequest models sender/receiver; accepted requests form a Match entity (1:1). See documentation ERD for more relationships and indexing guidance. :contentReference[oaicite:5]{index=5}</div>
+    </section>
+
+    <!-- Component / Dependencies -->
+    <section id="component" class="card">
+      <h2>Component Diagram & Dependencies</h2>
+      <div class="legend">Which apps depend on Core and how modules import each other.</div>
+
+      <pre>
+Core
+ ├─ base_models.py (TimeStampedModel, SoftDeletable)
+ ├─ design_patterns (Strategy, Factory)
+ └─ exceptions.py
+
+Users App  -> depends on Core
+Posts App  -> depends on Users, Core
+Dating App -> depends on Users, Core
+Messaging  -> depends on Users, Core
+
+Notes:
+ - No circular dependencies; use settings.AUTH_USER_MODEL for FK to avoid circular imports.
+ - Repositories hide ORM; Services testable with mock repositories. :contentReference[oaicite:6]{index=6}
+      </pre>
+
+      <div class="hint small">If you want a downloadable dependency graph (DOT / PNG), I can generate it next.</div>
+    </section>
+
+    <!-- Footer -->
+    <section class="card">
+      <h2>Quick Reference / Where to find things in the docs</h2>
+      <div class="small">
+        • Strategy implementations: <code>posts/strategies/</code>, <code>dating/strategies/</code>. :contentReference[oaicite:7]{index=7}<br>
+        • Repository implementations: <code>*/repositories.py</code> (PostRepository, LikeRepository, MatchRequestRepository). :contentReference[oaicite:8]{index=8}<br>
+        • Signals example (notify_followers): <code>posts/signals.py</code> — uses <code>@receiver(post_save, sender=Post)</code>. :contentReference[oaicite:9]{index=9}<br>
+        • Matching strategy & composite scoring: <code>dating/strategies/matching.py</code>. :contentReference[oaicite:10]{index=10}
+      </div>
+      <div style="margin-top:10px" class="small">If you'd like, I can:
+        <ol>
+          <li>Export any diagram to PNG/SVG ready-to-download.</li>
+          <li>Produce a class-by-class clickable doc (expand each class to show methods & example code).</li>
+          <li>Generate a PlantUML source file you can load into tools like PlantUML or draw.io.</li>
+        </ol>
+      </div>
+    </section>
+
+  </div>
+</main>
+</body>
+</html>
