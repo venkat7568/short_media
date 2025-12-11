@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Chat with {{ other_user.username }} - Short Media Platform{% endblock %}
+
+{% block content %}
+<div class="container" style="margin-top: 2rem; margin-bottom: 6rem;">
+    <div style="max-width: 700px; margin: 0 auto;">
+
+        <!-- Chat Header -->
+        <div class="card" style="margin-bottom: 1rem; padding: 1rem;">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <a href="{% url 'messaging:inbox' %}" class="btn btn-text" style="padding: 0.5rem;">
+                    ←
+                </a>
+                <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--secondary-gray-light); display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">
+                    {% if other_user.profile.profile_picture %}
+                    <img src="{{ other_user.profile.profile_picture.url }}" alt="{{ other_user.username }}" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+                    {% else %}
+                    <svg style="width: 20px; height: 20px; color: var(--text-secondary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                    </svg>
+                    {% endif %}
+                </div>
+                <div style="flex: 1;">
+                    <h2 style="margin: 0; font-size: 1.125rem; font-weight: 600;">
+                        <a href="{% url 'users:user_profile' other_user.username %}" style="text-decoration: none; color: inherit;">
+                            {{ other_user.username }}
+                        </a>
+                    </h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- Messages Container -->
+        <div class="card" style="padding: 1rem; min-height: 400px; max-height: 60vh; overflow-y: auto; display: flex; flex-direction: column;" id="messages-container">
+            {% if messages %}
+                {% for message in messages %}
+                <div style="margin-bottom: 1rem; display: flex; {% if message.sender == user %}justify-content: flex-end;{% else %}justify-content: flex-start;{% endif %}">
+                    <div style="max-width: 70%; padding: 0.75rem 1rem; border-radius: 18px; {% if message.sender == user %}background: var(--primary-green); color: white;{% else %}background: var(--secondary-gray-light);{% endif %}">
+                        <p style="margin: 0; font-size: 0.9375rem; word-wrap: break-word;">{{ message.text }}</p>
+                        <p style="margin: 0.25rem 0 0 0; font-size: 0.6875rem; {% if message.sender == user %}opacity: 0.8;{% else %}color: var(--secondary-gray);{% endif %}">
+                            {{ message.created_at|date:"H:i" }}
+                        </p>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <div style="flex: 1; display: flex; align-items: center; justify-content: center; color: var(--secondary-gray);">
+                    <p>No messages yet. Start the conversation!</p>
+                </div>
+            {% endif %}
+        </div>
+
+        <!-- Message Input -->
+        <div class="card" style="margin-top: 1rem; padding: 1rem;">
+            <form id="message-form" style="display: flex; gap: 0.5rem;">
+                {% csrf_token %}
+                <input
+                    type="text"
+                    id="message-input"
+                    name="text"
+                    placeholder="Type a message..."
+                    class="form-control"
+                    style="flex: 1;"
+                    required
+                    autocomplete="off"
+                >
+                <button type="submit" class="btn btn-primary">
+                    Send
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+// Auto-scroll to bottom on load
+const messagesContainer = document.getElementById('messages-container');
+messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+// Handle message sending
+document.getElementById('message-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const input = document.getElementById('message-input');
+    const text = input.value.trim();
+
+    if (!text) return;
+
+    try {
+        const response = await fetch('{% url "messaging:send_message" other_user.username %}', {
+            method: 'POST',
+            headers: {
+                'X-CSRFToken': '{{ csrf_token }}',
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `text=${encodeURIComponent(text)}`
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+            // Add message to UI
+            const messageDiv = document.createElement('div');
+            messageDiv.style.marginBottom = '1rem';
+            messageDiv.style.display = 'flex';
+            messageDiv.style.justifyContent = 'flex-end';
+            messageDiv.innerHTML = `
+                <div style="max-width: 70%; padding: 0.75rem 1rem; border-radius: 18px; background: var(--primary-green); color: white;">
+                    <p style="margin: 0; font-size: 0.9375rem; word-wrap: break-word;">${text}</p>
+                    <p style="margin: 0.25rem 0 0 0; font-size: 0.6875rem; opacity: 0.8;">Just now</p>
+                </div>
+            `;
+            messagesContainer.appendChild(messageDiv);
+
+            // Clear input and scroll to bottom
+            input.value = '';
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        } else {
+            alert('Failed to send message');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Failed to send message');
+    }
+});
+</script>
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Messages - Short Media Platform{% endblock %}
+
+{% block content %}
+<div class="container" style="margin-top: 2rem; margin-bottom: 6rem;">
+    <div style="max-width: 700px; margin: 0 auto;">
+
+        <h1 style="margin-bottom: 1.5rem; font-size: 1.75rem; font-weight: 700;">Messages</h1>
+
+        {% if conversations %}
+            {% for conv_data in conversations %}
+            <a href="{% url 'messaging:conversation' conv_data.other_user.username %}" style="text-decoration: none; color: inherit;">
+                <div class="card" style="margin-bottom: 1rem; padding: 1rem; cursor: pointer; transition: transform 0.2s;">
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <!-- Profile Picture -->
+                        <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--secondary-gray-light); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0;">
+                            {% if conv_data.other_user.profile.profile_picture %}
+                            <img src="{{ conv_data.other_user.profile.profile_picture.url }}" alt="{{ conv_data.other_user.username }}" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+                            {% else %}
+                            <svg style="width: 24px; height: 24px; color: var(--text-secondary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                            </svg>
+                            {% endif %}
+                        </div>
+
+                        <!-- Conversation Info -->
+                        <div style="flex: 1; min-width: 0;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.25rem;">
+                                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <h3 style="margin: 0; font-size: 1rem; font-weight: 600;">{{ conv_data.other_user.username }}</h3>
+                                    {% if conv_data.is_dating %}
+                                    <span style="background: #E91E63; color: white; padding: 0.1rem 0.4rem; border-radius: 12px; font-size: 0.7rem; font-weight: 600;">💕 Dating</span>
+                                    {% elif conv_data.is_friend %}
+                                    <span style="background: #4CAF50; color: white; padding: 0.1rem 0.4rem; border-radius: 12px; font-size: 0.7rem; font-weight: 600;">👥 Friend</span>
+                                    {% endif %}
+                                </div>
+                                {% if conv_data.last_message %}
+                                <span style="font-size: 0.75rem; color: var(--secondary-gray);">
+                                    {{ conv_data.last_message.created_at|timesince }} ago
+                                </span>
+                                {% endif %}
+                            </div>
+                            {% if conv_data.last_message %}
+                            <p style="margin: 0; font-size: 0.875rem; color: var(--secondary-gray); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                                {% if conv_data.last_message.sender == user %}You: {% endif %}{{ conv_data.last_message.text }}
+                            </p>
+                            {% else %}
+                            <p style="margin: 0; font-size: 0.875rem; color: var(--secondary-gray);">No messages yet</p>
+                            {% endif %}
+                        </div>
+
+                        <!-- Unread Badge -->
+                        {% if conv_data.unread_count > 0 %}
+                        <div style="width: 24px; height: 24px; border-radius: 50%; background: var(--primary-green); color: white; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 600; flex-shrink: 0;">
+                            {{ conv_data.unread_count }}
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        {% else %}
+            <div class="card" style="padding: 3rem 1rem; text-align: center;">
+                <p style="font-size: 1.25rem; color: var(--secondary-gray); margin: 0 0 1rem 0;">
+                    No conversations yet
+                </p>
+                <p style="font-size: 0.875rem; color: var(--secondary-gray); margin: 0;">
+                    Start chatting with friends or matches!
+                </p>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+<style>
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+</style>
+{% endblock %}
