@@ -1,0 +1,439 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}@{{ profile_user.username }} - Short Media Platform{% endblock %}
+
+{% block content %}
+<div class="container" style="max-width: 900px; margin: 2rem auto;">
+    <!-- Profile Header -->
+    <div class="card profile-header-card" style="margin-bottom: 2rem; padding: 1.5rem;">
+        <div style="display: flex; align-items: start; gap: 2rem; flex-wrap: wrap;">
+            <!-- Profile Picture -->
+            <div style="flex-shrink: 0;">
+                {% if profile.profile_picture %}
+                <img src="{{ profile.profile_picture.url }}" alt="{{ profile_user.username }}" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 4px solid var(--primary-green); box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                {% else %}
+                <div style="width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-light) 100%); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                    {{ profile_user.username|first|upper }}
+                </div>
+                {% endif %}
+            </div>
+
+            <!-- Profile Info -->
+            <div style="flex: 1; min-width: 300px;">
+                <h1 style="margin: 0 0 0.75rem 0; font-size: 2rem; font-weight: 700;">
+                    @{{ profile_user.username }}
+                </h1>
+
+                {% if profile_user.first_name or profile_user.last_name %}
+                <p style="margin: 0 0 0.75rem 0; color: var(--text-secondary); font-size: 1.2rem; font-weight: 500;">
+                    {{ profile_user.first_name }} {{ profile_user.last_name }}
+                </p>
+                {% endif %}
+
+                {% if profile.bio %}
+                <p style="margin: 1rem 0; line-height: 1.7; color: var(--text-primary); font-size: 1rem;">
+                    {{ profile.bio }}
+                </p>
+                {% endif %}
+
+                <div style="display: flex; gap: 2rem; flex-wrap: wrap; margin-top: 1rem; color: var(--text-secondary); font-size: 0.95rem;">
+                    {% if profile.location %}
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="font-size: 1.1rem;">📍</span>
+                        <span>{{ profile.location }}</span>
+                    </div>
+                    {% endif %}
+                    {% if profile.gender %}
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <span>{{ profile.get_gender_display }}</span>
+                    </div>
+                    {% endif %}
+                </div>
+
+                <!-- Action Buttons -->
+                {% if not is_own_profile %}
+                <div class="profile-actions" style="margin-top: 2rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                    <!-- Message Button -->
+                    <a href="{% url 'messaging:conversation' profile_user.username %}" class="btn btn-outline">
+                        💬 Message
+                    </a>
+
+                    <!-- Friend Request Button -->
+                    <button class="btn btn-primary" id="friend-request-btn" data-username="{{ profile_user.username }}">
+                        👥 Add Friend
+                    </button>
+
+                    <!-- Relationship Status Buttons -->
+                    {% if not existing_request %}
+                        <!-- No relationship: Show "Know Each Other" button -->
+                        <form method="post" action="{% url 'dating:send_knowing_request' profile_user.id %}" style="display: inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-primary">
+                                🤝 Know Each Other
+                            </button>
+                        </form>
+                    {% elif existing_request.status == 'PENDING' %}
+                        <!-- Pending Request: Could be knowing request or dating request -->
+                        {% if existing_request.sender == user %}
+                            <button class="btn btn-secondary" disabled>
+                                ⏳ Request Sent
+                            </button>
+                        {% else %}
+                            <!-- Received request: Show accept/reject buttons -->
+                            <form method="post" action="{% url 'dating:accept_knowing_request' existing_request.id %}" style="display: inline;">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-primary">
+                                    ✓ Accept
+                                </button>
+                            </form>
+                            <form method="post" action="{% url 'dating:reject_request' existing_request.id %}" style="display: inline;">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-outline">
+                                    ✗ Reject
+                                </button>
+                            </form>
+                        {% endif %}
+                    {% elif existing_request.status == 'KNOWING' %}
+                        <!-- Knowing Each Other: Show dating request and unknow buttons -->
+                        <button class="btn" style="background: #4CAF50; color: white; box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);" disabled>
+                            🤝 Knowing Each Other
+                        </button>
+                        <form method="post" action="{% url 'dating:send_dating_request' profile_user.id %}" style="display: inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-primary">
+                                💕 Send Dating Request
+                            </button>
+                        </form>
+                        <form method="post" action="{% url 'dating:unknow' profile_user.id %}" style="display: inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-outline" style="border-color: #f44336; color: #f44336;">
+                                Unknow
+                            </button>
+                        </form>
+                    {% elif existing_request.status == 'ACCEPTED' %}
+                        <!-- Dating: Show dating status and breakup button -->
+                        <button class="btn" style="background: linear-gradient(135deg, var(--primary-green), var(--primary-green-light)); color: white; box-shadow: 0 4px 12px rgba(27, 94, 32, 0.3);" disabled>
+                            💕 Dating
+                        </button>
+                        <form method="post" action="{% url 'dating:breakup' profile_user.id %}" style="display: inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-outline" style="border-color: #f44336; color: #f44336;">
+                                💔 Breakup
+                            </button>
+                        </form>
+                    {% endif %}
+                </div>
+                {% else %}
+                <div class="profile-actions" style="margin-top: 2rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                    <a href="{% url 'users:profile_edit' %}" class="btn btn-primary">
+                        ✏️ Edit Profile
+                    </a>
+                    <a href="{% url 'posts:create_post' %}" class="btn btn-outline">
+                        ➕ Create Post
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Friends Section -->
+    {% if is_own_profile or profile.friends_list_privacy == 'PUBLIC' %}
+    <div class="card profile-section-card" style="margin-bottom: 2rem; padding: 1.5rem;">
+        <h2 style="margin-bottom: 1.5rem; font-size: 1.5rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem;">
+            <span>👥</span>
+            <span>Friends</span>
+            <span style="color: var(--primary-green); font-size: 1.25rem;">({{ profile.get_friends|length }})</span>
+        </h2>
+        <div class="profile-section-grid" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            {% for friend in profile.get_friends %}
+            <div class="profile-user-item" style="display: flex; flex-direction: column; align-items: center; width: 90px; position: relative;">
+                <a href="{% url 'users:user_profile' friend.username %}" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; align-items: center; transition: transform 0.2s;">
+                    <div class="profile-user-avatar" style="width: 70px; height: 70px; border-radius: 50%; background: linear-gradient(135deg, var(--secondary-gray-light), #e0e0e0); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; overflow: hidden; border: 3px solid var(--primary-green); box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: all 0.2s;">
+                        {% if friend.profile.profile_picture %}
+                        <img src="{{ friend.profile.profile_picture.url }}" alt="{{ friend.username }}" style="width: 100%; height: 100%; object-fit: cover;">
+                        {% else %}
+                        {{ friend.username|first|upper }}
+                        {% endif %}
+                    </div>
+                    <span class="profile-user-name" style="font-size: 0.8rem; margin-top: 0.5rem; text-align: center; word-wrap: break-word; font-weight: 500; max-width: 90px; overflow: hidden; text-overflow: ellipsis;">{{ friend.username }}</span>
+                </a>
+                {% if is_own_profile %}
+                <form method="post" action="{% url 'messaging:remove_friend' friend.id %}" style="margin-top: 0.5rem;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-outline" style="font-size: 0.75rem; padding: 0.3rem 0.6rem; border-color: #f44336; color: #f44336; transition: all 0.2s;" onclick="return confirm('Remove {{ friend.username }} from your friends?')">
+                        Remove
+                    </button>
+                </form>
+                {% endif %}
+            </div>
+            {% empty %}
+            <div style="text-align: center; padding: 2rem; width: 100%; color: var(--text-secondary);">
+                <div style="font-size: 3rem; margin-bottom: 0.5rem;">👥</div>
+                <p style="margin: 0; font-size: 1.1rem;">No friends yet</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Knowing Each Other Section -->
+    {% if is_own_profile %}
+    <div class="card profile-section-card" style="margin-bottom: 2rem; padding: 1.5rem;">
+        <h2 style="margin-bottom: 1.5rem; font-size: 1.5rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem;">
+            <span>🤝</span>
+            <span>Knowing Each Other</span>
+            <span style="color: #4CAF50; font-size: 1.25rem;">({{ profile.get_knowing_relationships|length }})</span>
+        </h2>
+        <div class="profile-section-grid" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            {% for person in profile.get_knowing_relationships %}
+            <div class="profile-user-item" style="display: flex; flex-direction: column; align-items: center; width: 90px; position: relative;">
+                <a href="{% url 'users:user_profile' person.username %}" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; align-items: center; transition: transform 0.2s;">
+                    <div class="profile-user-avatar" style="width: 70px; height: 70px; border-radius: 50%; background: linear-gradient(135deg, var(--secondary-gray-light), #e0e0e0); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; overflow: hidden; border: 3px solid #4CAF50; box-shadow: 0 2px 8px rgba(76, 175, 80, 0.2); transition: all 0.2s;">
+                        {% if person.profile.profile_picture %}
+                        <img src="{{ person.profile.profile_picture.url }}" alt="{{ person.username }}" style="width: 100%; height: 100%; object-fit: cover;">
+                        {% else %}
+                        {{ person.username|first|upper }}
+                        {% endif %}
+                    </div>
+                    <span class="profile-user-name" style="font-size: 0.8rem; margin-top: 0.5rem; text-align: center; word-wrap: break-word; font-weight: 500; max-width: 90px; overflow: hidden; text-overflow: ellipsis;">{{ person.username }}</span>
+                </a>
+                <form method="post" action="{% url 'dating:unknow' person.id %}" style="margin-top: 0.5rem;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-outline" style="font-size: 0.75rem; padding: 0.3rem 0.6rem; border-color: #f44336; color: #f44336; transition: all 0.2s;" onclick="return confirm('Unknow {{ person.username }}?')">
+                        Unknow
+                    </button>
+                </form>
+            </div>
+            {% empty %}
+            <div style="text-align: center; padding: 2rem; width: 100%; color: var(--text-secondary);">
+                <div style="font-size: 3rem; margin-bottom: 0.5rem;">🤝</div>
+                <p style="margin: 0; font-size: 1.1rem;">Not knowing anyone yet</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Dating Section -->
+    {% if is_own_profile or profile.dating_list_privacy == 'PUBLIC' %}
+    <div class="card profile-section-card" style="margin-bottom: 2rem; padding: 1.5rem;">
+        <h2 style="margin-bottom: 1.5rem; font-size: 1.5rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem;">
+            <span>💕</span>
+            <span>Dating</span>
+            <span style="color: #E91E63; font-size: 1.25rem;">({{ profile.get_dating_relationships|length }})</span>
+        </h2>
+        <div class="profile-section-grid" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            {% for partner in profile.get_dating_relationships %}
+            <div class="profile-user-item" style="display: flex; flex-direction: column; align-items: center; width: 90px; position: relative;">
+                <a href="{% url 'users:user_profile' partner.username %}" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; align-items: center; transition: transform 0.2s;">
+                    <div class="profile-user-avatar" style="width: 70px; height: 70px; border-radius: 50%; background: linear-gradient(135deg, var(--secondary-gray-light), #e0e0e0); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; overflow: hidden; border: 3px solid #E91E63; box-shadow: 0 2px 8px rgba(233, 30, 99, 0.2); transition: all 0.2s;">
+                        {% if partner.profile.profile_picture %}
+                        <img src="{{ partner.profile.profile_picture.url }}" alt="{{ partner.username }}" style="width: 100%; height: 100%; object-fit: cover;">
+                        {% else %}
+                        {{ partner.username|first|upper }}
+                        {% endif %}
+                    </div>
+                    <span class="profile-user-name" style="font-size: 0.8rem; margin-top: 0.5rem; text-align: center; word-wrap: break-word; font-weight: 500; max-width: 90px; overflow: hidden; text-overflow: ellipsis;">{{ partner.username }}</span>
+                </a>
+                {% if is_own_profile %}
+                <form method="post" action="{% url 'dating:breakup' partner.id %}" style="margin-top: 0.5rem;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-outline" style="font-size: 0.75rem; padding: 0.3rem 0.6rem; border-color: #f44336; color: #f44336; transition: all 0.2s;" onclick="return confirm('Breakup with {{ partner.username }}?')">
+                        Breakup
+                    </button>
+                </form>
+                {% endif %}
+            </div>
+            {% empty %}
+            <div style="text-align: center; padding: 2rem; width: 100%; color: var(--text-secondary);">
+                <div style="font-size: 3rem; margin-bottom: 0.5rem;">💕</div>
+                <p style="margin: 0; font-size: 1.1rem;">No dating relationships</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Posts Section -->
+    <div>
+        <h2 style="margin-bottom: 1.5rem; font-size: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
+            📝 Public Posts
+            <span style="color: var(--text-secondary); font-size: 1rem; font-weight: 400;">
+                ({{ posts|length }})
+            </span>
+        </h2>
+
+        {% if posts %}
+            <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                {% for post in posts %}
+                <div class="post-card card">
+                    <!-- Post Header -->
+                    <div class="post-header" style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem; border-bottom: 1px solid var(--secondary-gray-light);">
+                        {% if profile.profile_picture %}
+                        <img src="{{ profile.profile_picture.url }}" alt="{{ profile_user.username }}" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                        {% else %}
+                        <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--primary-green); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">
+                            {{ profile_user.username|first|upper }}
+                        </div>
+                        {% endif %}
+                        <div style="flex: 1;">
+                            <div style="font-weight: 600;">@{{ profile_user.username }}</div>
+                            <div style="font-size: 0.875rem; color: var(--text-secondary);">{{ post.created_at|timesince }} ago</div>
+                        </div>
+                    </div>
+
+                    <!-- Post Content -->
+                    <div class="post-content" style="padding: 1rem;">
+                        {% if post.content %}
+                        <p style="margin: 0 0 1rem 0; white-space: pre-wrap; line-height: 1.6;">{{ post.content }}</p>
+                        {% endif %}
+
+                        {% if post.post_type == 'IMAGE' and post.imagepost.image %}
+                        <img src="{{ post.imagepost.image.url }}" alt="Post image" style="width: 100%; border-radius: 8px; margin-bottom: 0.5rem;">
+                        {% elif post.post_type == 'VIDEO' and post.videopost.video %}
+                        <video controls style="width: 100%; border-radius: 8px; margin-bottom: 0.5rem;">
+                            <source src="{{ post.videopost.video.url }}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        {% endif %}
+                    </div>
+
+                    <!-- Post Stats -->
+                    <div style="padding: 0.5rem 1rem; border-top: 1px solid var(--secondary-gray-light); display: flex; align-items: center; gap: 1rem; font-size: 0.875rem; color: var(--text-secondary);">
+                        <span class="hash-count" style="font-weight: 600; color: var(--primary-green);">
+                            {% if post.likes_count >= 1000 %}
+                                {{ post.likes_count|floatformat:0|slice:":-3" }}k
+                            {% else %}
+                                {{ post.likes_count }}
+                            {% endif %}
+                        </span>
+                        <span>{{ post.comments_count }} comment{{ post.comments_count|pluralize }}</span>
+                        <span>{{ post.views_count }} view{{ post.views_count|pluralize }}</span>
+                    </div>
+
+                    <!-- Post Actions -->
+                    <div class="post-actions" style="padding: 0.75rem 1rem; border-top: 1px solid var(--secondary-gray-light); display: flex; gap: 1.5rem;">
+                        <button class="hash-btn btn btn-text" data-post-id="{{ post.id }}" style="font-size: 1.5rem; {% if post.id in user_liked_post_ids %}color: var(--primary-green);{% endif %}">
+                            #
+                        </button>
+                        <a href="{% url 'posts:post_detail' post.id %}" class="btn btn-text" style="font-size: 1.5rem; text-decoration: none;">
+                            💬
+                        </a>
+                        <button class="share-btn btn btn-text" data-post-id="{{ post.id }}" style="font-size: 1.5rem;">
+                            ➤
+                        </button>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="card" style="text-align: center; padding: 3rem 1rem; color: var(--text-secondary);">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">📭</div>
+                <p style="font-size: 1.1rem; margin: 0;">No public posts yet</p>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+<script>
+// Hashtag (like) functionality
+document.querySelectorAll('.hash-btn').forEach(button => {
+    button.addEventListener('click', async function() {
+        const postId = this.getAttribute('data-post-id');
+        const hashCountEl = this.closest('.post-card').querySelector('.hash-count');
+
+        try {
+            const response = await fetch(`/posts/${postId}/like/`, {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}',
+                    'Content-Type': 'application/json',
+                }
+            });
+
+            const data = await response.json();
+
+            if (data.status === 'liked') {
+                this.style.color = 'var(--primary-green)';
+            } else {
+                this.style.color = '';
+            }
+
+            // Format count
+            let displayCount = data.likes_count;
+            if (data.likes_count >= 1000) {
+                displayCount = Math.floor(data.likes_count / 1000) + 'k';
+            }
+            hashCountEl.textContent = displayCount;
+
+        } catch (err) {
+            console.error('Error:', err);
+        }
+    });
+});
+
+// Share functionality
+document.querySelectorAll('.share-btn').forEach(button => {
+    button.addEventListener('click', async function() {
+        const postId = this.getAttribute('data-post-id');
+        const postUrl = `${window.location.origin}/posts/${postId}/`;
+
+        if (navigator.share) {
+            try {
+                await navigator.share({
+                    title: 'Check out this post on Short Media',
+                    url: postUrl
+                });
+            } catch (err) {
+                if (err.name !== 'AbortError') {
+                    console.error('Error sharing:', err);
+                    copyToClipboard(postUrl);
+                }
+            }
+        } else {
+            copyToClipboard(postUrl);
+        }
+    });
+});
+
+function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(() => {
+        alert('Link copied to clipboard!');
+    }).catch(err => {
+        console.error('Failed to copy:', err);
+    });
+}
+
+// Friend request button
+const friendRequestBtn = document.getElementById('friend-request-btn');
+if (friendRequestBtn) {
+    friendRequestBtn.addEventListener('click', async function() {
+        const username = this.getAttribute('data-username');
+
+        try {
+            const response = await fetch(`/messages/friend-request/send/${username}/`, {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}',
+                }
+            });
+
+            const data = await response.json();
+            if (data.success) {
+                this.textContent = '⏳ Friend Request Sent';
+                this.disabled = true;
+                this.classList.remove('btn-primary');
+                this.classList.add('btn-secondary');
+            } else if (data.error) {
+                alert(data.error);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Failed to send friend request');
+        }
+    });
+}
+</script>
+{% endblock %}

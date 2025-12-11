@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Edit Profile - Short Media Platform{% endblock %}
+
+{% block content %}
+<div class="container" style="max-width: 900px; margin: 2rem auto;">
+    <!-- Header -->
+    <div style="margin-bottom: 2rem;">
+        <h1 style="font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem;">Edit Profile</h1>
+        <p style="color: var(--text-secondary); font-size: 1rem;">Update your personal information and preferences</p>
+    </div>
+
+    <div class="card profile-header-card" style="padding: 2rem;">
+        <div style="margin-bottom: 2rem;">
+            <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.5rem;">Profile Information</h2>
+            <p style="color: var(--text-secondary); font-size: 0.9rem;">Your profile details are visible to other users</p>
+        </div>
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <!-- Profile Picture -->
+            <div style="text-align: center; margin-bottom: 2.5rem;">
+                {% if profile.profile_picture %}
+                <img
+                    src="{{ profile.profile_picture.url }}"
+                    alt="Profile Picture"
+                    style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 4px solid var(--primary-green); box-shadow: 0 4px 12px rgba(0,0,0,0.1);"
+                >
+                {% else %}
+                <div style="width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-light) 100%); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white; margin: 0 auto; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                    {{ user.username|first|upper }}
+                </div>
+                {% endif %}
+            </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+                    <!-- First Name -->
+                    <div class="form-group">
+                        <label class="form-label" for="{{ form.first_name.id_for_label }}">First Name</label>
+                        {{ form.first_name }}
+                    </div>
+
+                    <!-- Last Name -->
+                    <div class="form-group">
+                        <label class="form-label" for="{{ form.last_name.id_for_label }}">Last Name</label>
+                        {{ form.last_name }}
+                    </div>
+                </div>
+
+                <!-- Bio -->
+                <div class="form-group">
+                    <label class="form-label" for="{{ form.bio.id_for_label }}">Bio</label>
+                    {{ form.bio }}
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+                    <!-- Date of Birth -->
+                    <div class="form-group">
+                        <label class="form-label" for="{{ form.date_of_birth.id_for_label }}">Date of Birth</label>
+                        {{ form.date_of_birth }}
+                    </div>
+
+                    <!-- Gender -->
+                    <div class="form-group">
+                        <label class="form-label" for="{{ form.gender.id_for_label }}">Gender</label>
+                        {{ form.gender }}
+                    </div>
+                </div>
+
+                <!-- Location -->
+                <div class="form-group">
+                    <label class="form-label" for="{{ form.location.id_for_label }}">Location</label>
+                    {{ form.location }}
+                </div>
+
+                <!-- Profile Picture Upload -->
+                <div class="form-group">
+                    <label class="form-label" for="{{ form.profile_picture.id_for_label }}">Profile Picture</label>
+                    {{ form.profile_picture }}
+                </div>
+
+            <!-- Buttons -->
+            <div style="display: flex; gap: 1rem; margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid rgba(0,0,0,0.08);">
+                <button type="submit" class="btn btn-primary btn-lg" style="flex: 1;">
+                    Save Changes
+                </button>
+                <a href="{% url 'users:profile' %}" class="btn btn-outline btn-lg" style="flex: 1;">
+                    Cancel
+                </a>
+            </div>
+        </form>
+    </div>
+
+    <!-- Account Info Card -->
+    <div class="card profile-section-card" style="padding: 2rem; margin-top: 1.5rem;">
+        <div style="margin-bottom: 2rem;">
+            <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.5rem;">Account Information</h2>
+            <p style="color: var(--text-secondary); font-size: 0.9rem;">Your account details and security settings</p>
+        </div>
+        <div style="display: grid; gap: 1.5rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; background: rgba(0,0,0,0.02); border-radius: 8px;">
+                <div>
+                    <div style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.25rem;">Email Address</div>
+                    <div style="font-weight: 600;">{{ user.email }}</div>
+                </div>
+                {% if user.is_verified %}
+                <span style="padding: 0.4rem 0.8rem; background: #4CAF50; color: white; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">Verified</span>
+                {% else %}
+                <span style="padding: 0.4rem 0.8rem; background: #f44336; color: white; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">Not Verified</span>
+                {% endif %}
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; background: rgba(0,0,0,0.02); border-radius: 8px;">
+                <div>
+                    <div style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.25rem;">Username</div>
+                    <div style="font-weight: 600;">@{{ user.username }}</div>
+                </div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; background: rgba(0,0,0,0.02); border-radius: 8px;">
+                <div>
+                    <div style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.25rem;">Member Since</div>
+                    <div style="font-weight: 600;">{{ user.date_joined|date:"F d, Y" }}</div>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(0,0,0,0.08);">
+            <a href="{% url 'users:change_password' %}" class="btn btn-outline btn-lg" style="width: 100%;">
+                Change Password
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

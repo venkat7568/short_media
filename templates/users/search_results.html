@@ -1,0 +1,232 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{% if query %}Search: {{ query }}{% else %}Search Users{% endif %} - Short Media Platform{% endblock %}
+
+{% block content %}
+<div class="container" style="max-width: 900px; margin: 2rem auto;">
+    <!-- Modern Search Header -->
+    <div style="margin-bottom: 2.5rem;">
+        <h1 style="font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem;">Search Users</h1>
+        <p style="color: var(--text-secondary); font-size: 1rem;">Find friends, connections, and potential matches</p>
+    </div>
+
+    <!-- Enhanced Search Form -->
+    <div class="card profile-header-card" style="margin-bottom: 2rem; padding: 2rem;">
+        <form method="get" action="{% url 'users:search' %}" style="display: flex; flex-direction: column; gap: 1.5rem;">
+            <!-- Search Input -->
+            <div style="position: relative;">
+                <svg style="position: absolute; left: 1.25rem; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; color: var(--text-secondary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+                <input
+                    type="text"
+                    name="q"
+                    value="{{ query }}"
+                    placeholder="Search by name or username..."
+                    class="form-input"
+                    style="flex: 1; padding: 1rem 1rem 1rem 3.5rem; border: 2px solid rgba(0,0,0,0.1); border-radius: 12px; font-size: 1rem; transition: all 0.3s; width: 100%;"
+                    onfocus="this.style.borderColor='var(--primary-green)'; this.style.boxShadow='0 0 0 4px rgba(27, 94, 32, 0.1)';"
+                    onblur="this.style.borderColor='rgba(0,0,0,0.1)'; this.style.boxShadow='none';"
+                    autofocus
+                >
+            </div>
+
+            <!-- Filter Tabs -->
+            <div style="display: flex; gap: 0.75rem; padding: 0.5rem; background: rgba(0,0,0,0.03); border-radius: 12px;">
+                <a href="?q={{ query }}&filter=all" class="{% if filter_type == 'all' %}btn btn-primary{% else %}btn btn-text{% endif %}" style="flex: 1; text-align: center; padding: 0.75rem; border-radius: 8px; font-weight: 600; transition: all 0.2s;">
+                    All Users
+                </a>
+                <a href="?q={{ query }}&filter=dating" class="{% if filter_type == 'dating' %}btn btn-primary{% else %}btn btn-text{% endif %}" style="flex: 1; text-align: center; padding: 0.75rem; border-radius: 8px; font-weight: 600; transition: all 0.2s;">
+                    Dating
+                </a>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; padding: 1rem;">
+                Search
+            </button>
+        </form>
+    </div>
+
+    {% if query %}
+        <!-- Results Header -->
+        <div style="margin-bottom: 1.5rem;">
+            <h2 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">
+                Search Results{% if results %} ({{ results|length }}){% endif %}
+            </h2>
+            <p style="color: var(--text-secondary); font-size: 0.9rem;">
+                Showing results for "<strong>{{ query }}</strong>"
+            </p>
+        </div>
+
+        {% if results %}
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+                {% for user in results %}
+                <div class="card profile-section-card" style="padding: 1.5rem; transition: all 0.3s;">
+                    <div style="display: flex; align-items: start; gap: 1.5rem;">
+                        <!-- Profile Picture (Clickable) -->
+                        <a href="{% url 'users:user_profile' user.username %}" style="text-decoration: none; flex-shrink: 0;">
+                            {% if user.profile.profile_picture %}
+                            <img src="{{ user.profile.profile_picture.url }}" alt="{{ user.username }}" style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary-green); box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                            {% else %}
+                            <div style="width: 70px; height: 70px; border-radius: 50%; background: linear-gradient(135deg, var(--primary-green), var(--primary-green-light)); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: white; font-weight: 600; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                                {{ user.username|first|upper }}
+                            </div>
+                            {% endif %}
+                        </a>
+
+                        <!-- User Info -->
+                        <div style="flex: 1; min-width: 0;">
+                            <a href="{% url 'users:user_profile' user.username %}" style="text-decoration: none; color: inherit;">
+                                <h3 style="margin: 0 0 0.25rem 0; font-size: 1.15rem; font-weight: 600; color: var(--text-primary);">
+                                    @{{ user.username }}
+                                </h3>
+                            </a>
+                            {% if user.first_name or user.last_name %}
+                            <p style="margin: 0 0 0.5rem 0; color: var(--text-secondary); font-size: 0.95rem; font-weight: 500;">
+                                {{ user.first_name }} {{ user.last_name }}
+                            </p>
+                            {% endif %}
+                            {% if user.profile.bio %}
+                            <p style="margin: 0 0 0.5rem 0; color: var(--text-secondary); font-size: 0.9rem; line-height: 1.5; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">
+                                {{ user.profile.bio }}
+                            </p>
+                            {% endif %}
+                            <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 0.75rem;">
+                                {% if user.profile.location %}
+                                <span style="color: var(--text-secondary); font-size: 0.85rem; display: flex; align-items: center; gap: 0.25rem;">
+                                    <svg style="width: 16px; height: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    </svg>
+                                    {{ user.profile.location }}
+                                </span>
+                                {% endif %}
+                                {% if user.profile.gender %}
+                                <span style="color: var(--text-secondary); font-size: 0.85rem;">
+                                    {{ user.profile.get_gender_display }}
+                                </span>
+                                {% endif %}
+                            </div>
+
+                            <!-- Quick Action Buttons -->
+                            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                                {% if user.relationship_status == 'none' %}
+                                    <!-- No relationship: Show Know Each Other button -->
+                                    <form method="post" action="{% url 'dating:send_knowing_request' user.id %}" style="display: inline;">
+                                        {% csrf_token %}
+                                        <button type="submit" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">
+                                            <svg style="width: 14px; height: 14px; display: inline-block; vertical-align: middle; margin-right: 0.25rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                            </svg>
+                                            Know Each Other
+                                        </button>
+                                    </form>
+                                {% elif user.relationship_status == 'pending_sent' %}
+                                    <button class="btn btn-secondary" disabled style="padding: 0.5rem 1rem; font-size: 0.875rem;">
+                                        <svg style="width: 14px; height: 14px; display: inline-block; vertical-align: middle; margin-right: 0.25rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                        Request Sent
+                                    </button>
+                                {% elif user.relationship_status == 'pending_received' %}
+                                    <form method="post" action="{% url 'dating:accept_knowing_request' user.request_id %}" style="display: inline;">
+                                        {% csrf_token %}
+                                        <button type="submit" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">
+                                            <svg style="width: 14px; height: 14px; display: inline-block; vertical-align: middle; margin-right: 0.25rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                            </svg>
+                                            Accept
+                                        </button>
+                                    </form>
+                                    <form method="post" action="{% url 'dating:reject_request' user.request_id %}" style="display: inline;">
+                                        {% csrf_token %}
+                                        <button type="submit" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.875rem;">
+                                            Reject
+                                        </button>
+                                    </form>
+                                {% elif user.relationship_status == 'knowing' %}
+                                    <button class="btn" style="background: #4CAF50; color: white; padding: 0.5rem 1rem; font-size: 0.875rem;" disabled>
+                                        <svg style="width: 14px; height: 14px; display: inline-block; vertical-align: middle; margin-right: 0.25rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        Knowing Each Other
+                                    </button>
+                                    <form method="post" action="{% url 'dating:send_dating_request' user.id %}" style="display: inline;">
+                                        {% csrf_token %}
+                                        <button type="submit" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">
+                                            <svg style="width: 14px; height: 14px; display: inline-block; vertical-align: middle; margin-right: 0.25rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                                            </svg>
+                                            Send Dating Request
+                                        </button>
+                                    </form>
+                                    <a href="{% url 'messaging:conversation' user.username %}" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.875rem; text-decoration: none;">
+                                        <svg style="width: 14px; height: 14px; display: inline-block; vertical-align: middle; margin-right: 0.25rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                                        </svg>
+                                        Message
+                                    </a>
+                                {% elif user.relationship_status == 'dating' %}
+                                    <button class="btn" style="background: linear-gradient(135deg, #E91E63, #F48FB1); color: white; padding: 0.5rem 1rem; font-size: 0.875rem;" disabled>
+                                        <svg style="width: 14px; height: 14px; display: inline-block; vertical-align: middle; margin-right: 0.25rem;" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
+                                        </svg>
+                                        Dating
+                                    </button>
+                                    <a href="{% url 'messaging:conversation' user.username %}" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.875rem; text-decoration: none;">
+                                        <svg style="width: 14px; height: 14px; display: inline-block; vertical-align: middle; margin-right: 0.25rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                                        </svg>
+                                        Message
+                                    </a>
+                                {% endif %}
+
+                                <!-- View Profile Link -->
+                                <a href="{% url 'users:user_profile' user.username %}" class="btn btn-text" style="padding: 0.5rem 1rem; font-size: 0.875rem; text-decoration: none;">
+                                    View Profile
+                                    <svg style="width: 14px; height: 14px; display: inline-block; vertical-align: middle; margin-left: 0.25rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="card profile-section-card" style="text-align: center; padding: 4rem 2rem; color: var(--text-secondary);">
+                <div style="margin-bottom: 1.5rem;">
+                    <svg style="width: 80px; height: 80px; color: rgba(0,0,0,0.2); margin: 0 auto;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </div>
+                <p style="font-size: 1.25rem; margin: 0 0 0.5rem 0; font-weight: 600;">No users found</p>
+                <p style="margin: 0; font-size: 0.95rem; color: var(--text-secondary);">
+                    No users match "{{ query }}". Try a different search term.
+                </p>
+            </div>
+        {% endif %}
+    {% else %}
+        <div class="card profile-section-card" style="text-align: center; padding: 4rem 2rem; color: var(--text-secondary);">
+            <div style="margin-bottom: 1.5rem;">
+                <svg style="width: 80px; height: 80px; color: rgba(0,0,0,0.2); margin: 0 auto;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                </svg>
+            </div>
+            <p style="font-size: 1.25rem; margin: 0 0 0.5rem 0; font-weight: 600;">Search for people</p>
+            <p style="margin: 0; font-size: 0.95rem; color: var(--text-secondary);">
+                Find friends and potential matches by name or username
+            </p>
+        </div>
+    {% endif %}
+</div>
+
+<style>
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+</style>
+{% endblock %}

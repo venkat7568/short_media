@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Match Requests - Short Media Platform{% endblock %}
+
+{% block content %}
+<div class="container" style="margin-top: 2rem; margin-bottom: 2rem;">
+    <div style="max-width: 900px; margin: 0 auto;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+            <h1 style="margin: 0;">Match Requests</h1>
+            <a href="{% url 'dating:preferences' %}" class="btn btn-outline-primary">
+                <svg style="width: 18px; height: 18px; margin-right: 0.5rem; vertical-align: middle;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+                Preferences
+            </a>
+        </div>
+
+        <!-- Tabs -->
+        <div style="display: flex; gap: 1rem; margin-bottom: 2rem; border-bottom: 2px solid var(--secondary-gray-light);">
+            <button class="tab-btn active" data-tab="received" style="padding: 0.75rem 1.5rem; border: none; background: none; cursor: pointer; border-bottom: 2px solid var(--primary-green); font-weight: 600; color: var(--primary-green);">
+                Received ({{ pending_received.count }})
+            </button>
+            <button class="tab-btn" data-tab="sent" style="padding: 0.75rem 1.5rem; border: none; background: none; cursor: pointer; color: var(--secondary-gray);">
+                Sent ({{ pending_sent.count }})
+            </button>
+        </div>
+
+        <!-- Received Requests -->
+        <div id="received-tab" class="tab-content">
+            {% if pending_received %}
+                {% for request in pending_received %}
+                <div class="card" style="margin-bottom: 1.5rem;">
+                    <div class="card-body">
+                        <div style="display: flex; gap: 1rem;">
+                            {% if request.sender.profile.profile_picture %}
+                            <img src="{{ request.sender.profile.profile_picture.url }}" alt="{{ request.sender.username }}" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover;">
+                            {% else %}
+                            <div style="width: 80px; height: 80px; border-radius: 50%; background: var(--secondary-gray-light); display: flex; align-items: center; justify-content: center; font-size: 2rem; flex-shrink: 0;">
+                                👤
+                            </div>
+                            {% endif %}
+
+                            <div style="flex: 1;">
+                                <h3 style="margin-bottom: 0.5rem;">{{ request.sender.username }}</h3>
+                                <p style="color: var(--secondary-gray); font-size: 0.875rem; margin-bottom: 0.5rem;">{{ request.created_at|timesince }} ago</p>
+                                {% if request.message %}
+                                <p style="margin-bottom: 1rem;">{{ request.message }}</p>
+                                {% endif %}
+
+                                <div style="display: flex; gap: 0.5rem;">
+                                    <form method="post" action="{% url 'dating:accept_request' request.id %}" style="display: inline;">
+                                        {% csrf_token %}
+                                        <button type="submit" class="btn btn-primary">Accept</button>
+                                    </form>
+                                    <form method="post" action="{% url 'dating:reject_request' request.id %}" style="display: inline;">
+                                        {% csrf_token %}
+                                        <button type="submit" class="btn btn-outline">Reject</button>
+                                    </form>
+                                    <form method="post" action="{% url 'dating:block_user' request.id %}" style="display: inline;" onsubmit="return confirm('Are you sure you want to block this user?');">
+                                        {% csrf_token %}
+                                        <button type="submit" class="btn btn-text" style="color: var(--danger);">Block</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <div class="card">
+                    <div class="card-body" style="text-align: center; padding: 3rem 1rem;">
+                        <p style="color: var(--secondary-gray);">No pending match requests</p>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+
+        <!-- Sent Requests -->
+        <div id="sent-tab" class="tab-content" style="display: none;">
+            {% if pending_sent %}
+                {% for request in pending_sent %}
+                <div class="card" style="margin-bottom: 1.5rem;">
+                    <div class="card-body">
+                        <div style="display: flex; gap: 1rem;">
+                            {% if request.receiver.profile.profile_picture %}
+                            <img src="{{ request.receiver.profile.profile_picture.url }}" alt="{{ request.receiver.username }}" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover;">
+                            {% else %}
+                            <div style="width: 80px; height: 80px; border-radius: 50%; background: var(--secondary-gray-light); display: flex; align-items: center; justify-content: center; font-size: 2rem; flex-shrink: 0;">
+                                👤
+                            </div>
+                            {% endif %}
+
+                            <div style="flex: 1;">
+                                <h3 style="margin-bottom: 0.5rem;">{{ request.receiver.username }}</h3>
+                                <p style="color: var(--secondary-gray); font-size: 0.875rem; margin-bottom: 0.5rem;">Sent {{ request.created_at|timesince }} ago</p>
+                                <p style="color: var(--warning); margin-bottom: 1rem;">⏳ Pending</p>
+
+                                <form method="post" action="{% url 'dating:cancel_request' request.id %}" onsubmit="return confirm('Are you sure you want to cancel this request?');">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-outline">Cancel Request</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <div class="card">
+                    <div class="card-body" style="text-align: center; padding: 3rem 1rem;">
+                        <p style="color: var(--secondary-gray);">No pending sent requests</p>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<script>
+// Tab switching
+document.querySelectorAll('.tab-btn').forEach(button => {
+    button.addEventListener('click', function() {
+        const tab = this.getAttribute('data-tab');
+
+        // Update buttons
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.classList.remove('active');
+            btn.style.borderBottom = 'none';
+            btn.style.color = 'var(--secondary-gray)';
+            btn.style.fontWeight = '400';
+        });
+        this.classList.add('active');
+        this.style.borderBottom = '2px solid var(--primary-green)';
+        this.style.color = 'var(--primary-green)';
+        this.style.fontWeight = '600';
+
+        // Show corresponding content
+        document.querySelectorAll('.tab-content').forEach(content => {
+            content.style.display = 'none';
+        });
+        document.getElementById(`${tab}-tab`).style.display = 'block';
+    });
+});
+</script>
+{% endblock %}

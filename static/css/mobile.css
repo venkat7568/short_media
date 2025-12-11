@@ -1,0 +1,366 @@
+/**
+ * Mobile-first responsive styling for Short Media Platform
+ */
+
+/* Mobile Bottom Navigation with Glassmorphism */
+.mobile-bottom-nav {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(27, 94, 32, 0.1);
+    padding: 0.75rem 0;
+    z-index: 1000;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.mobile-bottom-nav-items {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.mobile-bottom-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.mobile-bottom-nav-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 3px;
+    background: var(--primary-green);
+    border-radius: 0 0 10px 10px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.mobile-bottom-nav-item.active {
+    color: var(--primary-green);
+}
+
+.mobile-bottom-nav-item.active::before {
+    opacity: 1;
+}
+
+.mobile-bottom-nav-item:active {
+    transform: scale(0.9);
+}
+
+/* Mobile Top Bar with Glassmorphism */
+.mobile-top-bar {
+    display: none;
+    position: sticky;
+    top: 0;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(27, 94, 32, 0.1);
+    padding: 1rem;
+    z-index: 999;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.mobile-top-bar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mobile-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-green);
+}
+
+.mobile-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.mobile-action-btn {
+    background: rgba(27, 94, 32, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(27, 94, 32, 0.2);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    cursor: pointer;
+    color: var(--primary-green);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+}
+
+.mobile-action-btn:hover {
+    background: rgba(27, 94, 32, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(27, 94, 32, 0.2);
+}
+
+.mobile-action-btn:active {
+    transform: scale(0.95);
+}
+
+.notification-badge {
+    position: relative;
+}
+
+.notification-badge::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 8px;
+    height: 8px;
+    background: var(--danger);
+    border-radius: 50%;
+}
+
+/* Mobile Post Cards */
+@media (max-width: 768px) {
+    /* Show mobile navigation */
+    .mobile-bottom-nav {
+        display: block;
+    }
+
+    .mobile-top-bar {
+        display: block;
+    }
+
+    /* Hide desktop navbar */
+    .navbar {
+        display: none;
+    }
+
+    /* Adjust container for mobile */
+    .container {
+        padding: 0 !important;
+        margin: 0 !important;
+        max-width: 100% !important;
+    }
+
+    /* Full-width glass cards on mobile */
+    .card {
+        border-radius: 0 !important;
+        margin-bottom: 0 !important;
+        border-left: none !important;
+        border-right: none !important;
+        background: rgba(255, 255, 255, 0.75) !important;
+        backdrop-filter: blur(15px) !important;
+        -webkit-backdrop-filter: blur(15px) !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.5) !important;
+        border-bottom: 1px solid rgba(27, 94, 32, 0.08) !important;
+    }
+
+    .post-card {
+        margin-bottom: 0.5rem !important;
+        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06) !important;
+    }
+
+    /* Adjust body padding for fixed navigation */
+    body {
+        padding-bottom: 70px;
+    }
+
+    /* Make images full width */
+    .card-body img,
+    .card-body video {
+        width: 100%;
+        border-radius: 0 !important;
+        margin-left: -1rem;
+        margin-right: -1rem;
+        width: calc(100% + 2rem);
+    }
+
+    /* Mobile-optimized text */
+    h1 {
+        font-size: 1.5rem !important;
+    }
+
+    h2 {
+        font-size: 1.25rem !important;
+    }
+
+    h3 {
+        font-size: 1.1rem !important;
+    }
+
+    /* Touch-friendly buttons */
+    .btn {
+        min-height: 44px;
+        font-size: 1rem;
+    }
+
+    /* Mobile feed spacing */
+    .feed-container {
+        padding: 0 !important;
+    }
+
+    /* Post actions larger for touch */
+    .hash-btn,
+    .comment-btn,
+    .share-btn {
+        font-size: 1.8rem !important;
+        padding: 1rem !important;
+    }
+
+    /* Date display */
+    .post-date {
+        font-size: 0.75rem;
+        color: var(--secondary-gray);
+    }
+
+    /* Hide some elements on mobile */
+    .auth-container {
+        padding: 1rem;
+    }
+
+    .auth-card {
+        box-shadow: none;
+    }
+}
+
+/* Tablet adjustments */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        max-width: 720px;
+    }
+}
+
+/* Post Actions Mobile */
+.post-actions-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+}
+
+.post-action-group {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.action-icon {
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.action-icon.active {
+    color: var(--primary-green);
+}
+
+/* Mobile Create Post Button with Glassmorphism */
+.mobile-create-post-btn {
+    display: none;
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-green) 0%, #2E7D32 100%);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    font-size: 2rem;
+    box-shadow: 0 8px 24px rgba(27, 94, 32, 0.4);
+    cursor: pointer;
+    z-index: 999;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-create-post-btn:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 12px 32px rgba(27, 94, 32, 0.5);
+}
+
+.mobile-create-post-btn:active {
+    transform: translateY(-2px) scale(1);
+}
+
+@media (max-width: 768px) {
+    .mobile-create-post-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* Swipeable cards (for dating) with enhanced animations */
+.swipeable-card {
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform, opacity;
+}
+
+.swipeable-card.swiping-left {
+    transform: translateX(-150px) rotate(-15deg) scale(0.95);
+    opacity: 0.3;
+}
+
+.swipeable-card.swiping-right {
+    transform: translateX(150px) rotate(15deg) scale(0.95);
+    opacity: 0.3;
+}
+
+/* Add smooth entrance animation */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Ripple effect for interactive elements */
+@keyframes ripple {
+    0% {
+        transform: scale(0);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+.mobile-bottom-nav-item:active::after,
+.mobile-action-btn:active::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: var(--primary-green);
+    animation: ripple 0.6s ease-out;
+}

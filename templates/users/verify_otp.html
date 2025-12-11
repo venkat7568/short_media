@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Verify Email - Short Media Platform{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <div class="auth-card">
+        <div class="auth-header">
+            <div class="auth-logo">✉️</div>
+            <h1 class="auth-title">Verify Your Email</h1>
+            <p class="auth-subtitle">We've sent a 6-digit code to<br><strong>{{ email }}</strong></p>
+        </div>
+
+        <form method="post" novalidate>
+            {% csrf_token %}
+
+            <!-- OTP Code -->
+            <div class="form-group">
+                <label class="form-label" for="{{ form.otp_code.id_for_label }}" style="text-align: center; display: block;">
+                    Enter Verification Code
+                </label>
+                <input
+                    type="text"
+                    name="{{ form.otp_code.name }}"
+                    class="form-control otp-input"
+                    id="{{ form.otp_code.id_for_label }}"
+                    placeholder="000000"
+                    maxlength="6"
+                    pattern="[0-9]{6}"
+                    autocomplete="one-time-code"
+                    inputmode="numeric"
+                    required
+                >
+                {% if form.otp_code.errors %}
+                    {% for error in form.otp_code.errors %}
+                        <span class="form-error" style="text-align: center;">{{ error }}</span>
+                    {% endfor %}
+                {% endif %}
+                <span class="form-text" style="text-align: center;">Code expires in 10 minutes</span>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary btn-block btn-lg">
+                Verify Email
+            </button>
+        </form>
+
+        <!-- Resend OTP -->
+        <div style="text-align: center; margin-top: 1.5rem;">
+            <p style="color: var(--text-secondary); margin-bottom: 0.5rem;">Didn't receive the code?</p>
+            <button
+                id="resendBtn"
+                class="btn btn-outline"
+                style="padding: 0.5rem 1.5rem;"
+                onclick="resendOTP()"
+            >
+                Resend Code
+            </button>
+        </div>
+
+        <div class="auth-footer">
+            <p>Wrong email? <a href="{% url 'users:signup' %}">Sign up again</a></p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    function resendOTP() {
+        const btn = document.getElementById('resendBtn');
+        btn.disabled = true;
+        btn.textContent = 'Sending...';
+
+        fetch('{% url "users:resend_otp" %}', {
+            method: 'POST',
+            headers: {
+                'X-CSRFToken': '{{ csrf_token }}',
+                'Content-Type': 'application/json',
+            },
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.message) {
+                alert('Verification code sent successfully!');
+                btn.textContent = 'Code Sent!';
+                setTimeout(() => {
+                    btn.disabled = false;
+                    btn.textContent = 'Resend Code';
+                }, 30000); // Enable after 30 seconds
+            } else {
+                alert(data.error || 'Failed to resend code');
+                btn.disabled = false;
+                btn.textContent = 'Resend Code';
+            }
+        })
+        .catch(error => {
+            alert('Failed to resend code. Please try again.');
+            btn.disabled = false;
+            btn.textContent = 'Resend Code';
+        });
+    }
+
+    // Auto-focus on OTP input
+    document.querySelector('.otp-input').focus();
+</script>
+{% endblock %}

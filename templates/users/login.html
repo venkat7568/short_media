@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Login - Short Media Platform{% endblock %}
+
+{% block content %}
+<div class="auth-container" style="min-height: calc(100vh - 200px); display: flex; align-items: center; justify-content: center; padding: 2rem 1rem;">
+    <div class="card profile-header-card" style="max-width: 480px; width: 100%; padding: 2.5rem;">
+        <!-- Header with SVG Icon -->
+        <div style="text-align: center; margin-bottom: 2.5rem;">
+            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary-green), var(--primary-green-light)); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; box-shadow: 0 4px 16px rgba(27, 94, 32, 0.2);">
+                <svg style="width: 40px; height: 40px; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path>
+                </svg>
+            </div>
+            <h1 style="font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-primary);">Welcome Back</h1>
+            <p style="color: var(--text-secondary); font-size: 1rem;">Login to your account</p>
+        </div>
+
+        <form method="post" novalidate>
+            {% csrf_token %}
+
+            <!-- Email or Username -->
+            <div class="form-group" style="margin-bottom: 1.5rem;">
+                <label class="form-label" for="{{ form.email_or_username.id_for_label }}" style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-primary);">Email or Username</label>
+                <div style="position: relative;">
+                    <svg style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; color: var(--text-secondary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                    </svg>
+                    <input type="text" name="{{ form.email_or_username.name }}" value="{{ form.email_or_username.value|default:'' }}" class="form-input" style="width: 100%; padding: 0.875rem 1rem 0.875rem 3rem; border: 2px solid rgba(0,0,0,0.1); border-radius: 12px; font-size: 1rem; transition: all 0.3s;" onfocus="this.style.borderColor='var(--primary-green)'; this.style.boxShadow='0 0 0 4px rgba(27, 94, 32, 0.1)';" onblur="this.style.borderColor='rgba(0,0,0,0.1)'; this.style.boxShadow='none';" placeholder="Enter your email or username">
+                </div>
+                {% if form.email_or_username.errors %}
+                    {% for error in form.email_or_username.errors %}
+                        <span class="form-error" style="color: #f44336; font-size: 0.875rem; margin-top: 0.5rem; display: block;">{{ error }}</span>
+                    {% endfor %}
+                {% endif %}
+            </div>
+
+            <!-- Password -->
+            <div class="form-group" style="margin-bottom: 1.5rem;">
+                <label class="form-label" for="{{ form.password.id_for_label }}" style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-primary);">Password</label>
+                <div style="position: relative;">
+                    <svg style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; color: var(--text-secondary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                    </svg>
+                    <input type="password" name="{{ form.password.name }}" class="form-input" style="width: 100%; padding: 0.875rem 1rem 0.875rem 3rem; border: 2px solid rgba(0,0,0,0.1); border-radius: 12px; font-size: 1rem; transition: all 0.3s;" onfocus="this.style.borderColor='var(--primary-green)'; this.style.boxShadow='0 0 0 4px rgba(27, 94, 32, 0.1)';" onblur="this.style.borderColor='rgba(0,0,0,0.1)'; this.style.boxShadow='none';" placeholder="Enter your password">
+                </div>
+                {% if form.password.errors %}
+                    {% for error in form.password.errors %}
+                        <span class="form-error" style="color: #f44336; font-size: 0.875rem; margin-top: 0.5rem; display: block;">{{ error }}</span>
+                    {% endfor %}
+                {% endif %}
+            </div>
+
+            <!-- Remember Me -->
+            <div class="form-group" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem;">
+                {{ form.remember_me }}
+                <label for="{{ form.remember_me.id_for_label }}" style="margin: 0; cursor: pointer; color: var(--text-secondary); font-size: 0.95rem;">
+                    Remember me
+                </label>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; padding: 1rem; font-size: 1.05rem; font-weight: 600;">
+                Login
+            </button>
+        </form>
+
+        <div style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(0,0,0,0.08);">
+            <p style="color: var(--text-secondary); margin: 0;">
+                Don't have an account? <a href="{% url 'users:signup' %}" style="color: var(--primary-green); font-weight: 600; text-decoration: none;">Sign up here</a>
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

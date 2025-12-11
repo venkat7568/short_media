@@ -1,0 +1,177 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Video Call - Short Media Platform{% endblock %}
+
+{% block content %}
+<div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: #000; display: flex; flex-direction: column;">
+    <!-- Video Area -->
+    <div style="flex: 1; position: relative; display: flex;">
+        <!-- Remote Video (Partner) -->
+        <video id="remoteVideo" autoplay playsinline style="width: 100%; height: 100%; object-fit: cover; background: #1a1a1a;"></video>
+
+        <!-- Local Video (You) - Small overlay -->
+        <video id="localVideo" autoplay muted playsinline style="position: absolute; bottom: 80px; right: 20px; width: 150px; height: 200px; border-radius: 12px; border: 2px solid var(--primary-green); object-fit: cover; background: #1a1a1a;"></video>
+
+        <!-- Waiting Message -->
+        {% if is_waiting %}
+        <div id="waitingMessage" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: white;">
+            <div style="font-size: 3rem; margin-bottom: 1rem;">⏳</div>
+            <h2>Searching for someone online...</h2>
+            <p style="margin-top: 1rem; color: #ccc;">Matching based on your preferences</p>
+        </div>
+        {% endif %}
+
+        <!-- Partner Bio (shown when connected) -->
+        {% if other_user %}
+        <div id="partnerBio" style="position: absolute; top: 20px; left: 20px; background: rgba(0,0,0,0.7); backdrop-filter: blur(10px); padding: 1rem; border-radius: 12px; color: white; max-width: 300px;">
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
+                {% if other_user.profile.profile_picture %}
+                <img src="{{ other_user.profile.profile_picture.url }}" alt="{{ other_user.username }}" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
+                {% else %}
+                <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--primary-green); display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">👤</div>
+                {% endif %}
+                <div>
+                    <h3 style="margin: 0; font-size: 1.1rem;">{{ other_user.username }}</h3>
+                    {% if other_user.profile.location %}
+                    <p style="margin: 0; font-size: 0.875rem; color: #ccc;">📍 {{ other_user.profile.location }}</p>
+                    {% endif %}
+                </div>
+            </div>
+            {% if other_user.profile.bio %}
+            <p style="margin: 0; font-size: 0.875rem; line-height: 1.4;">{{ other_user.profile.bio|truncatewords:20 }}</p>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- Controls -->
+    <div style="background: rgba(0,0,0,0.9); padding: 1.5rem; display: flex; justify-content: center; align-items: center; gap: 1.5rem;">
+        <!-- Skip Button -->
+        <form method="post" action="{% url 'video_calls:skip' room_id %}" style="display: inline;">
+            {% csrf_token %}
+            <button type="submit" class="btn" style="width: 60px; height: 60px; border-radius: 50%; background: var(--secondary-gray); color: white; font-size: 1.5rem; border: none; cursor: pointer;">
+                ⏭️
+            </button>
+        </form>
+
+        <!-- End Call Button -->
+        <button id="endCallBtn" class="btn" style="width: 70px; height: 70px; border-radius: 50%; background: var(--danger); color: white; font-size: 1.8rem; border: none; cursor: pointer;">
+            📞
+        </button>
+
+        <!-- Send Request Button -->
+        {% if other_user %}
+        <form method="post" action="{% url 'dating:send_request' other_user.id %}" style="display: inline;">
+            {% csrf_token %}
+            <button type="submit" class="btn" style="width: 60px; height: 60px; border-radius: 50%; background: var(--primary-green); color: white; font-size: 1.5rem; border: none; cursor: pointer;">
+                💚
+            </button>
+        </form>
+        {% endif %}
+
+        <!-- Mute/Unmute -->
+        <button id="muteBtn" class="btn" style="width: 60px; height: 60px; border-radius: 50%; background: var(--secondary-gray); color: white; font-size: 1.5rem; border: none; cursor: pointer;">
+            🎤
+        </button>
+
+        <!-- Camera On/Off -->
+        <button id="cameraBtn" class="btn" style="width: 60px; height: 60px; border-radius: 50%; background: var(--secondary-gray); color: white; font-size: 1.5rem; border: none; cursor: pointer;">
+            📹
+        </button>
+    </div>
+</div>
+
+<script>
+let localStream;
+let localVideo = document.getElementById('localVideo');
+let remoteVideo = document.getElementById('remoteVideo');
+let isMuted = false;
+let isCameraOff = false;
+
+// Start local video
+async function startLocalVideo() {
+    try {
+        localStream = await navigator.mediaDevices.getUserMedia({
+            video: true,
+            audio: true
+        });
+        localVideo.srcObject = localStream;
+    } catch (err) {
+        console.error('Error accessing media devices:', err);
+        alert('Please allow camera and microphone access to use video calls.');
+    }
+}
+
+// Mute/Unmute
+document.getElementById('muteBtn').addEventListener('click', function() {
+    if (localStream) {
+        const audioTrack = localStream.getAudioTracks()[0];
+        isMuted = !isMuted;
+        audioTrack.enabled = !isMuted;
+        this.textContent = isMuted ? '🔇' : '🎤';
+    }
+});
+
+// Camera On/Off
+document.getElementById('cameraBtn').addEventListener('click', function() {
+    if (localStream) {
+        const videoTrack = localStream.getVideoTracks()[0];
+        isCameraOff = !isCameraOff;
+        videoTrack.enabled = !isCameraOff;
+        this.textContent = isCameraOff ? '📷' : '📹';
+    }
+});
+
+// End Call
+document.getElementById('endCallBtn').addEventListener('click', async function() {
+    if (confirm('End this call?')) {
+        try {
+            await fetch('{% url "video_calls:end" room_id %}', {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}',
+                }
+            });
+
+            // Stop local stream
+            if (localStream) {
+                localStream.getTracks().forEach(track => track.stop());
+            }
+
+            window.location.href = '{% url "posts:feed" %}';
+        } catch (err) {
+            console.error('Error ending call:', err);
+        }
+    }
+});
+
+// Poll for partner connection
+{% if is_waiting %}
+const pollInterval = setInterval(async () => {
+    try {
+        const response = await fetch('{% url "video_calls:status" room_id %}');
+        const data = await response.json();
+
+        if (data.has_partner) {
+            clearInterval(pollInterval);
+            document.getElementById('waitingMessage').style.display = 'none';
+            location.reload(); // Reload to show partner info
+        }
+    } catch (err) {
+        console.error('Error polling status:', err);
+    }
+}, 2000);
+{% endif %}
+
+// Start video when page loads
+startLocalVideo();
+
+// Cleanup on page unload
+window.addEventListener('beforeunload', () => {
+    if (localStream) {
+        localStream.getTracks().forEach(track => track.stop());
+    }
+});
+</script>
+{% endblock %}

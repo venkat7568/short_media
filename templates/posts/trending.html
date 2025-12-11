@@ -1,0 +1,465 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Trending - Short Media Platform{% endblock %}
+
+{% block content %}
+<div class="container" style="margin-top: 2rem; margin-bottom: 2rem;">
+    <div style="max-width: 700px; margin: 0 auto;">
+
+        <!-- Create Post Card -->
+        <div class="card" style="margin-bottom: 1.5rem;">
+            <div class="card-body" style="padding: 1rem;">
+                <form method="get" action="{% url 'posts:create_post' %}">
+                    <button type="submit" class="btn btn-outline" style="width: 100%; text-align: left;">
+                        What's on your mind, {{ user.username }}?
+                    </button>
+                </form>
+                <div style="display: flex; justify-content: space-around; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--secondary-gray);">
+                    <a href="{% url 'posts:create_post' %}?type=text" class="btn btn-text" style="flex: 1; margin: 0 0.25rem;">
+                        📝 Text
+                    </a>
+                    <a href="{% url 'posts:create_post' %}?type=image" class="btn btn-text" style="flex: 1; margin: 0 0.25rem;">
+                        🖼️ Image
+                    </a>
+                    <a href="{% url 'posts:create_post' %}?type=video" class="btn btn-text" style="flex: 1; margin: 0 0.25rem;">
+                        🎥 Video
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Feed Posts -->
+        {% if posts %}
+            {% for post in posts %}
+            <div class="card post-card" style="margin-bottom: 1.5rem;" data-post-id="{{ post.id }}">
+                <!-- Post Header -->
+                <div class="card-header" style="display: flex; align-items: center; padding: 1rem;">
+                    <div style="flex: 1;">
+                        <h3 style="margin: 0; font-size: 1rem; font-weight: 600;">
+                            {{ post.author.username }}
+                        </h3>
+                        <p style="margin: 0; font-size: 0.875rem; color: var(--secondary-gray);">
+                            {{ post.created_at|timesince }} ago
+                        </p>
+                    </div>
+                    {% if post.author == user %}
+                    <form method="post" action="{% url 'posts:delete_post' post.id %}" style="display: inline;" onsubmit="return confirm('Are you sure you want to delete this post?');">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-text" style="color: var(--danger);">
+                            Delete
+                        </button>
+                    </form>
+                    {% endif %}
+                </div>
+
+                <!-- Post Content -->
+                <div class="card-body" style="padding: 1rem;">
+                    {% if post.post_type == 'TEXT' %}
+                        <p class="post-content-text" data-content="{{ post.textpost.text }}" style="white-space: pre-wrap; margin-bottom: 0.5rem; line-height: 1.6;">{{ post.textpost.text }}</p>
+                    {% elif post.post_type == 'IMAGE' %}
+                        <p class="post-content-text" data-content="{{ post.imagepost.caption }}" style="white-space: pre-wrap; margin-bottom: 0.75rem; line-height: 1.6;">{{ post.imagepost.caption }}</p>
+                        <img src="{{ post.imagepost.image.url }}" alt="Post image" style="width: 100%; border-radius: 8px;">
+                    {% elif post.post_type == 'VIDEO' %}
+                        <p class="post-content-text" data-content="{{ post.videopost.caption }}" style="white-space: pre-wrap; margin-bottom: 0.75rem; line-height: 1.6;">{{ post.videopost.caption }}</p>
+                        <video controls style="width: 100%; border-radius: 8px;">
+                            <source src="{{ post.videopost.video.url }}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    {% endif %}
+
+                    <!-- Hashtags Container (populated by JavaScript) -->
+                    <div class="post-hashtags" style="margin-top: 0.75rem; display: flex; flex-wrap: wrap; gap: 0.5rem;"></div>
+                </div>
+
+                <!-- Post Stats -->
+                <div style="padding: 0.5rem 1rem; display: flex; align-items: center; gap: 1rem; color: var(--text-secondary); font-size: 0.875rem;">
+                    <span style="font-weight: 600; font-size: 1rem; color: var(--text-primary);" class="hash-count">
+                        {% if post.likes_count >= 1000 %}
+                            {{ post.likes_count|floatformat:0|slice:":-3" }}k
+                        {% else %}
+                            {{ post.likes_count }}
+                        {% endif %}
+                    </span>
+                    <span>{{ post.comments_count }} comment{{ post.comments_count|pluralize }}</span>
+                </div>
+
+                <!-- Post Actions -->
+                <div style="display: flex; padding: 0.5rem; border-top: 1px solid var(--secondary-gray-light);">
+                    <button class="btn btn-text hash-btn" data-post-id="{{ post.id }}" style="flex: 1; font-size: 1.5rem; {% if post.id in user_liked_post_ids %}color: var(--primary-green);{% endif %}">
+                        #
+                    </button>
+                    <a href="{% url 'posts:post_detail' post.id %}" class="btn btn-text" style="flex: 1; font-size: 1.5rem;">
+                        💬
+                    </a>
+                    <button class="btn btn-text share-btn" data-post-id="{{ post.id }}" style="flex: 1; font-size: 1.5rem;">
+                        ➤
+                    </button>
+                </div>
+
+                <!-- Recent Comments Preview -->
+                {% if post.comments_count > 0 %}
+                <div style="padding: 0 1rem 1rem 1rem; border-top: 1px solid var(--secondary-gray-light);">
+                    {% for comment in post.comment_set.all|slice:":2" %}
+                    <div style="margin-top: 0.75rem; padding: 0.875rem; background: var(--secondary-gray-light); border-radius: 16px; transition: background 0.2s;" onmouseover="this.style.background='rgba(0,0,0,0.06)'" onmouseout="this.style.background='var(--secondary-gray-light)'">
+                        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                            <svg style="width: 14px; height: 14px; color: var(--primary-green);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                            </svg>
+                            <p style="margin: 0; font-weight: 600; font-size: 0.875rem;">{{ comment.author.username }}</p>
+                            <span style="margin-left: auto; font-size: 0.75rem; color: var(--secondary-gray);">
+                                {{ comment.created_at|timesince }} ago
+                            </span>
+                        </div>
+                        <p style="margin: 0; font-size: 0.875rem; line-height: 1.5; padding-left: 1.25rem;">{{ comment.text }}</p>
+                    </div>
+                    {% endfor %}
+                    {% if post.comments_count > 2 %}
+                    <a href="{% url 'posts:post_detail' post.id %}" style="display: flex; align-items: center; gap: 0.25rem; margin-top: 0.75rem; padding: 0.5rem; font-size: 0.875rem; color: var(--primary-green); text-decoration: none; font-weight: 600; border-radius: 8px; transition: background 0.2s;" onmouseover="this.style.background='rgba(27, 94, 32, 0.05)'" onmouseout="this.style.background='transparent'">
+                        <svg style="width: 16px; height: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                        </svg>
+                        View all {{ post.comments_count }} comments
+                    </a>
+                    {% endif %}
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+
+            <!-- Infinite Scroll Loading Indicator -->
+            <div id="loading-indicator" style="text-align: center; margin: 2rem 0; display: none;">
+                <div style="display: inline-block; padding: 1rem 2rem; background: rgba(27, 94, 32, 0.1); border-radius: 12px;">
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <div style="width: 20px; height: 20px; border: 3px solid rgba(27, 94, 32, 0.3); border-top-color: var(--primary-green); border-radius: 50%; animation: spin 1s linear infinite;"></div>
+                        <span style="color: var(--primary-green); font-weight: 600;">Loading more posts...</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- End of Posts Indicator -->
+            <div id="end-of-posts" style="text-align: center; margin: 2rem 0; display: none;">
+                <p style="color: var(--text-secondary); font-size: 0.95rem;">You've reached the end of the feed</p>
+            </div>
+        {% else %}
+            <div class="card">
+                <div class="card-body" style="text-align: center; padding: 3rem 1rem;">
+                    <p style="font-size: 1.25rem; color: var(--secondary-gray); margin: 0;">
+                        No posts yet. Be the first to post!
+                    </p>
+                    <a href="{% url 'posts:create_post' %}" class="btn btn-primary" style="margin-top: 1rem;">
+                        Create Post
+                    </a>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+<style>
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+</style>
+
+<script>
+// Infinite Scroll Implementation
+let currentPage = 1;
+let isLoading = false;
+let hasMorePosts = true;
+let loadedPostIds = new Set(); // Track loaded post IDs to prevent duplicates
+
+// Initialize with existing posts
+document.querySelectorAll('.post-card').forEach(post => {
+    const postId = post.getAttribute('data-post-id');
+    if (postId) loadedPostIds.add(postId);
+});
+
+function loadMorePosts() {
+    if (isLoading || !hasMorePosts) return;
+
+    isLoading = true;
+    document.getElementById('loading-indicator').style.display = 'block';
+
+    currentPage++;
+
+    fetch(`?page=${currentPage}`, {
+        headers: {
+            'X-Requested-With': 'XMLHttpRequest'
+        }
+    })
+    .then(response => response.text())
+    .then(html => {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        const newPosts = doc.querySelectorAll('.post-card');
+
+        if (newPosts.length === 0) {
+            // No posts returned - end of feed
+            hasMorePosts = false;
+            document.getElementById('loading-indicator').style.display = 'none';
+            document.getElementById('end-of-posts').style.display = 'block';
+            return;
+        }
+
+        let addedCount = 0;
+        const postsContainer = document.querySelector('.container > div');
+        const loadingIndicator = document.getElementById('loading-indicator');
+
+        newPosts.forEach(post => {
+            const postId = post.getAttribute('data-post-id');
+
+            // Only add if we haven't seen this post before
+            if (postId && !loadedPostIds.has(postId)) {
+                postsContainer.insertBefore(post, loadingIndicator);
+                loadedPostIds.add(postId);
+                addedCount++;
+
+                // Re-attach event listeners for new posts
+                attachPostEventListeners(post, postId);
+            }
+        });
+
+        // If no new unique posts were added, we've reached the end
+        if (addedCount === 0) {
+            hasMorePosts = false;
+            document.getElementById('loading-indicator').style.display = 'none';
+            document.getElementById('end-of-posts').style.display = 'block';
+        } else {
+            document.getElementById('loading-indicator').style.display = 'none';
+            isLoading = false;
+        }
+    })
+    .catch(error => {
+        console.error('Error loading more posts:', error);
+        document.getElementById('loading-indicator').style.display = 'none';
+        isLoading = false;
+    });
+}
+
+// Detect scroll near bottom
+window.addEventListener('scroll', () => {
+    if (isLoading || !hasMorePosts) return;
+
+    const scrollPosition = window.innerHeight + window.scrollY;
+    const pageHeight = document.documentElement.scrollHeight;
+
+    // Load more when within 500px of bottom
+    if (scrollPosition >= pageHeight - 500) {
+        loadMorePosts();
+    }
+});
+
+// Function to attach event listeners to posts
+function attachPostEventListeners(postElement, postId) {
+    // Hash button
+    const hashBtn = postElement.querySelector('.hash-btn');
+    if (hashBtn) {
+        hashBtn.addEventListener('click', handleHashClick);
+    }
+
+    // Share button
+    const shareBtn = postElement.querySelector('.share-btn');
+    if (shareBtn) {
+        shareBtn.addEventListener('click', handleShareClick);
+    }
+}
+
+// Hash button handler
+async function handleHashClick() {
+    const postId = this.getAttribute('data-post-id');
+    const postCard = document.querySelector(`.post-card[data-post-id="${postId}"]`);
+    const hashCountEl = postCard.querySelector('.hash-count');
+
+    try {
+        const response = await fetch(`/posts/${postId}/like/`, {
+            method: 'POST',
+            headers: {
+                'X-CSRFToken': '{{ csrf_token }}',
+                'Content-Type': 'application/json',
+            }
+        });
+
+        const data = await response.json();
+
+        if (data.status === 'liked') {
+            this.style.color = 'var(--primary-green)';
+        } else {
+            this.style.color = '';
+        }
+
+        // Format count (k for thousands)
+        let displayCount = data.likes_count;
+        if (data.likes_count >= 1000) {
+            displayCount = Math.floor(data.likes_count / 1000) + 'k';
+        }
+        hashCountEl.textContent = displayCount;
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+// Share button handler
+async function handleShareClick() {
+    const postId = this.getAttribute('data-post-id');
+    const postUrl = `${window.location.origin}/posts/${postId}/`;
+
+    if (navigator.share) {
+        try {
+            await navigator.share({
+                title: 'Check out this post on Short Media',
+                url: postUrl
+            });
+        } catch (err) {
+            if (err.name !== 'AbortError') {
+                console.error('Error sharing:', err);
+                copyToClipboard(postUrl);
+            }
+        }
+    } else {
+        copyToClipboard(postUrl);
+    }
+}
+
+function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(() => {
+        alert('Link copied to clipboard!');
+    }).catch(err => {
+        console.error('Failed to copy:', err);
+        alert('Failed to copy link. Please try again.');
+    });
+}
+
+// Initialize event listeners for existing posts
+// AJAX for hash button
+document.querySelectorAll('.hash-btn').forEach(button => {
+    button.addEventListener('click', async function() {
+        const postId = this.getAttribute('data-post-id');
+        const postCard = document.querySelector(`.post-card[data-post-id="${postId}"]`);
+        const hashCountEl = postCard.querySelector('.hash-count');
+
+        try {
+            const response = await fetch(`/posts/${postId}/like/`, {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}',
+                    'Content-Type': 'application/json',
+                }
+            });
+
+            const data = await response.json();
+
+            if (data.status === 'liked') {
+                this.style.color = 'var(--primary-green)';
+            } else {
+                this.style.color = '';
+            }
+
+            // Format count (k for thousands)
+            let displayCount = data.likes_count;
+            if (data.likes_count >= 1000) {
+                displayCount = Math.floor(data.likes_count / 1000) + 'k';
+            }
+            hashCountEl.textContent = displayCount;
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    });
+});
+
+// Share button functionality
+document.querySelectorAll('.share-btn').forEach(button => {
+    button.addEventListener('click', async function() {
+        const postId = this.getAttribute('data-post-id');
+        const postUrl = `${window.location.origin}/posts/${postId}/`;
+
+        if (navigator.share) {
+            try {
+                await navigator.share({
+                    title: 'Check out this post on Short Media',
+                    url: postUrl
+                });
+            } catch (err) {
+                if (err.name !== 'AbortError') {
+                    console.error('Error sharing:', err);
+                    copyToClipboard(postUrl);
+                }
+            }
+        } else {
+            copyToClipboard(postUrl);
+        }
+    });
+});
+
+function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(() => {
+        alert('Link copied to clipboard!');
+    }).catch(err => {
+        console.error('Failed to copy:', err);
+        alert('Failed to copy link. Please try again.');
+    });
+}
+
+// Hashtag extraction and display
+function extractAndDisplayHashtags() {
+    document.querySelectorAll('.post-content-text').forEach(contentEl => {
+        const text = contentEl.textContent || '';
+        const hashtags = text.match(/#[\w]+/g);
+
+        if (hashtags && hashtags.length > 0) {
+            const hashtagsContainer = contentEl.closest('.card-body').querySelector('.post-hashtags');
+            if (hashtagsContainer) {
+                // Clear existing hashtags
+                hashtagsContainer.innerHTML = '';
+
+                // Create unique hashtags set
+                const uniqueHashtags = [...new Set(hashtags)];
+
+                // Display hashtags as badges
+                uniqueHashtags.forEach(hashtag => {
+                    const badge = document.createElement('span');
+                    badge.textContent = hashtag;
+                    badge.style.cssText = `
+                        padding: 0.375rem 0.75rem;
+                        background: linear-gradient(135deg, rgba(27, 94, 32, 0.1), rgba(27, 94, 32, 0.15));
+                        color: var(--primary-green);
+                        border-radius: 20px;
+                        font-size: 0.8125rem;
+                        font-weight: 600;
+                        cursor: pointer;
+                        transition: all 0.2s;
+                        border: 1px solid rgba(27, 94, 32, 0.2);
+                    `;
+                    badge.onmouseover = function() {
+                        this.style.background = 'linear-gradient(135deg, rgba(27, 94, 32, 0.2), rgba(27, 94, 32, 0.25))';
+                        this.style.transform = 'translateY(-1px)';
+                        this.style.boxShadow = '0 2px 8px rgba(27, 94, 32, 0.2)';
+                    };
+                    badge.onmouseout = function() {
+                        this.style.background = 'linear-gradient(135deg, rgba(27, 94, 32, 0.1), rgba(27, 94, 32, 0.15))';
+                        this.style.transform = 'translateY(0)';
+                        this.style.boxShadow = 'none';
+                    };
+                    badge.onclick = function() {
+                        // Could implement hashtag search here
+                        console.log('Clicked hashtag:', hashtag);
+                    };
+                    hashtagsContainer.appendChild(badge);
+                });
+            }
+        }
+    });
+}
+
+// Run hashtag extraction on page load
+document.addEventListener('DOMContentLoaded', extractAndDisplayHashtags);
+
+// Also run after loading more posts
+const originalLoadMorePosts = loadMorePosts;
+loadMorePosts = function() {
+    originalLoadMorePosts();
+    setTimeout(extractAndDisplayHashtags, 100);
+};
+</script>
+{% endblock %}

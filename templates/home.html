@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home - Short Media Platform{% endblock %}
+
+{% block content %}
+<div class="auth-container" style="min-height: calc(100vh - 200px); display: flex; align-items: center; padding: 2rem 1rem;">
+    <div style="text-align: center; max-width: 1000px; margin: 0 auto; width: 100%;">
+        <!-- Logo -->
+        <div style="width: 100px; height: 100px; background: linear-gradient(135deg, var(--primary-green), var(--primary-green-light)); border-radius: 24px; display: flex; align-items: center; justify-content: center; font-size: 3rem; font-weight: 800; color: white; margin: 0 auto 2rem; box-shadow: 0 8px 24px rgba(27, 94, 32, 0.3);">
+            #
+        </div>
+
+        {% if user.is_authenticated %}
+        <h1 style="font-size: 2.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1rem;">
+            Welcome back, {{ user.username }}!
+        </h1>
+
+        <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 3rem;">
+            Your account is ready to go
+        </p>
+
+        <div style="display: flex; gap: 1rem; justify-content: center; margin-bottom: 4rem; flex-wrap: wrap;">
+            <a href="{% url 'posts:feed' %}" class="btn btn-primary btn-lg">
+                <svg style="width: 20px; height: 20px; margin-right: 0.5rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                </svg>
+                View Feed
+            </a>
+            <a href="{% url 'users:profile' %}" class="btn btn-outline btn-lg">
+                My Profile
+            </a>
+        </div>
+        {% else %}
+        <h1 style="font-size: 2.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1rem;">
+            Welcome to Short Media
+        </h1>
+
+        <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 3rem;">
+            Connect, Share, Match - All in One Platform
+        </p>
+
+        <div style="display: flex; gap: 1rem; justify-content: center; margin-bottom: 4rem; flex-wrap: wrap;">
+            <a href="{% url 'users:signup' %}" class="btn btn-primary btn-lg" style="min-width: 140px;">
+                Get Started
+            </a>
+            <a href="{% url 'users:login' %}" class="btn btn-outline btn-lg" style="min-width: 140px;">
+                Login
+            </a>
+        </div>
+        {% endif %}
+
+        <!-- Features Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 4rem;">
+            <div class="card profile-section-card" style="padding: 2rem; text-align: left;">
+                <div style="width: 48px; height: 48px; background: rgba(27, 94, 32, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                    <svg style="width: 24px; height: 24px; color: var(--primary-green);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path>
+                    </svg>
+                </div>
+                <h3 style="color: var(--text-primary); font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem;">Social Posts</h3>
+                <p style="color: var(--text-secondary); margin: 0; line-height: 1.6;">Share text, images, and videos with your community. Engage with hashtag-based ranking.</p>
+            </div>
+
+            <div class="card profile-section-card" style="padding: 2rem; text-align: left;">
+                <div style="width: 48px; height: 48px; background: rgba(27, 94, 32, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                    <svg style="width: 24px; height: 24px; color: var(--primary-green);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                    </svg>
+                </div>
+                <h3 style="color: var(--text-primary); font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem;">Dating & Matching</h3>
+                <p style="color: var(--text-secondary); margin: 0; line-height: 1.6;">Find meaningful connections based on interests and preferences. Two-stage dating process.</p>
+            </div>
+
+            <div class="card profile-section-card" style="padding: 2rem; text-align: left;">
+                <div style="width: 48px; height: 48px; background: rgba(27, 94, 32, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                    <svg style="width: 24px; height: 24px; color: var(--primary-green);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                    </svg>
+                </div>
+                <h3 style="color: var(--text-primary); font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem;">Video Calls</h3>
+                <p style="color: var(--text-secondary); margin: 0; line-height: 1.6;">Connect face-to-face with real-time video calling. Random matching like Omegle.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

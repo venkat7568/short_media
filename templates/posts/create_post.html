@@ -1,0 +1,244 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Create Post - Short Media Platform{% endblock %}
+
+{% block content %}
+<div class="container" style="margin-top: 2rem; margin-bottom: 2rem;">
+    <div style="max-width: 600px; margin: 0 auto;">
+        <div class="card">
+            <div class="card-header">
+                <h1 class="card-title">Create Post</h1>
+            </div>
+
+            <div class="card-body">
+                <!-- Post Type Selection -->
+                <div style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem; border-bottom: 2px solid var(--secondary-gray-light); padding-bottom: 0.5rem;">
+                    <button type="button" class="btn btn-text post-type-btn {% if post_type == 'text' or not post_type %}active{% endif %}" data-type="text" style="flex: 1;">
+                        📝 Text
+                    </button>
+                    <button type="button" class="btn btn-text post-type-btn {% if post_type == 'image' %}active{% endif %}" data-type="image" style="flex: 1;">
+                        🖼️ Image
+                    </button>
+                    <button type="button" class="btn btn-text post-type-btn {% if post_type == 'video' %}active{% endif %}" data-type="video" style="flex: 1;">
+                        🎥 Video
+                    </button>
+                </div>
+
+                <!-- Text Post Form -->
+                <form id="text-post-form" class="post-form {% if post_type == 'text' or not post_type %}active{% endif %}" method="post" novalidate>
+                    {% csrf_token %}
+                    <input type="hidden" name="post_type" value="text">
+
+                    <div class="form-group">
+                        <label class="form-label" for="id_text">What's on your mind?</label>
+                        <textarea
+                            name="text"
+                            id="id_text"
+                            class="form-control"
+                            rows="6"
+                            required
+                            placeholder="Share your thoughts..."
+                            style="resize: vertical;"
+                        ></textarea>
+                        <span class="form-error" id="text-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="id_text_visibility">Visibility</label>
+                        <select name="visibility" id="id_text_visibility" class="form-control">
+                            <option value="PUBLIC">Public</option>
+                            <option value="FRIENDS">Friends</option>
+                            <option value="PRIVATE">Private</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block btn-lg">
+                        Post
+                    </button>
+                </form>
+
+                <!-- Image Post Form -->
+                <form id="image-post-form" class="post-form {% if post_type == 'image' %}active{% endif %}" method="post" enctype="multipart/form-data" novalidate>
+                    {% csrf_token %}
+                    <input type="hidden" name="post_type" value="image">
+
+                    <div class="form-group">
+                        <label class="form-label" for="id_image">Select Image</label>
+                        <input
+                            type="file"
+                            name="image"
+                            id="id_image"
+                            class="form-control"
+                            accept="image/*"
+                            required
+                        >
+                        <span class="form-text">Max size: 10MB. Formats: JPG, PNG, GIF</span>
+                        <span class="form-error" id="image-error"></span>
+                    </div>
+
+                    <!-- Image Preview -->
+                    <div id="image-preview" style="display: none; margin-bottom: 1rem;">
+                        <img id="preview-img" src="" alt="Preview" style="width: 100%; border-radius: 8px; max-height: 400px; object-fit: cover;">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="id_image_caption">Caption (optional)</label>
+                        <textarea
+                            name="caption"
+                            id="id_image_caption"
+                            class="form-control"
+                            rows="3"
+                            placeholder="Add a caption..."
+                            style="resize: vertical;"
+                        ></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="id_image_visibility">Visibility</label>
+                        <select name="visibility" id="id_image_visibility" class="form-control">
+                            <option value="PUBLIC">Public</option>
+                            <option value="FRIENDS">Friends</option>
+                            <option value="PRIVATE">Private</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block btn-lg">
+                        Post
+                    </button>
+                </form>
+
+                <!-- Video Post Form -->
+                <form id="video-post-form" class="post-form {% if post_type == 'video' %}active{% endif %}" method="post" enctype="multipart/form-data" novalidate>
+                    {% csrf_token %}
+                    <input type="hidden" name="post_type" value="video">
+
+                    <div class="form-group">
+                        <label class="form-label" for="id_video">Select Video</label>
+                        <input
+                            type="file"
+                            name="video"
+                            id="id_video"
+                            class="form-control"
+                            accept="video/*"
+                            required
+                        >
+                        <span class="form-text">Max size: 100MB. Formats: MP4, MOV, AVI</span>
+                        <span class="form-error" id="video-error"></span>
+                    </div>
+
+                    <!-- Video Preview -->
+                    <div id="video-preview" style="display: none; margin-bottom: 1rem;">
+                        <video id="preview-video" controls style="width: 100%; border-radius: 8px; max-height: 400px;">
+                            <source src="" type="video/mp4">
+                        </video>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="id_video_caption">Caption (optional)</label>
+                        <textarea
+                            name="caption"
+                            id="id_video_caption"
+                            class="form-control"
+                            rows="3"
+                            placeholder="Add a caption..."
+                            style="resize: vertical;"
+                        ></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="id_video_visibility">Visibility</label>
+                        <select name="visibility" id="id_video_visibility" class="form-control">
+                            <option value="PUBLIC">Public</option>
+                            <option value="FRIENDS">Friends</option>
+                            <option value="PRIVATE">Private</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block btn-lg">
+                        Post
+                    </button>
+                </form>
+
+                <!-- Cancel Button -->
+                <a href="{% url 'posts:feed' %}" class="btn btn-outline btn-block" style="margin-top: 1rem;">
+                    Cancel
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.post-type-btn {
+    transition: all 0.3s ease;
+}
+
+.post-type-btn.active {
+    color: var(--primary-green);
+    font-weight: 600;
+    border-bottom: 2px solid var(--primary-green);
+}
+
+.post-form {
+    display: none;
+}
+
+.post-form.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</style>
+
+<script>
+// Post type switching
+document.querySelectorAll('.post-type-btn').forEach(button => {
+    button.addEventListener('click', function() {
+        const type = this.getAttribute('data-type');
+
+        // Update active button
+        document.querySelectorAll('.post-type-btn').forEach(btn => btn.classList.remove('active'));
+        this.classList.add('active');
+
+        // Show corresponding form
+        document.querySelectorAll('.post-form').forEach(form => form.classList.remove('active'));
+        document.getElementById(`${type}-post-form`).classList.add('active');
+    });
+});
+
+// Image preview
+document.getElementById('id_image').addEventListener('change', function(e) {
+    const file = e.target.files[0];
+    if (file && file.type.startsWith('image/')) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            document.getElementById('preview-img').src = e.target.result;
+            document.getElementById('image-preview').style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+    }
+});
+
+// Video preview
+document.getElementById('id_video').addEventListener('change', function(e) {
+    const file = e.target.files[0];
+    if (file && file.type.startsWith('video/')) {
+        const url = URL.createObjectURL(file);
+        document.getElementById('preview-video').querySelector('source').src = url;
+        document.getElementById('preview-video').load();
+        document.getElementById('video-preview').style.display = 'block';
+    }
+});
+</script>
+{% endblock %}
